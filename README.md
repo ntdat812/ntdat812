@@ -6,7 +6,7 @@
 
 <!-- Language Switcher -->
 <div align="center">
-  <h4>Language / Ngôn ngữ:</h4>
+  <h4>Language:</h4>
   <a href="https://github.com/ntdat812/ntdat812/blob/main/README.md">English</a> | <a href="https://github.com/ntdat812/ntdat812/blob/main/README_vn.md">Tiếng Việt</a>
 </div>
 
