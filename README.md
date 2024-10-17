@@ -7,8 +7,7 @@
 <!-- Language Switcher -->
 <div align="center">
   <h4>Language / Ngôn ngữ:</h4>
-  <button onclick="document.body.style.direction='ltr';">English</button>
-  <button onclick="document.body.style.direction='rtl';">Tiếng Việt</button>
+  <a href="https://github.com/ntdat812/ntdat812/blob/main/README.md">English</a> | <a href="https://github.com/ntdat812/ntdat812/blob/main/README_vn.md">Tiếng Việt</a>
 </div>
 
 <h3 align="center">I am a student currently studying Information Technology in Vietnam 🇻🇳</h3>
