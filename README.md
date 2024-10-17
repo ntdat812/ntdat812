@@ -1,24 +1,26 @@
 <img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=ntdat812.ntdat812" />
 
 <h1 align="center">
-    <img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=35&center=true&vCenter=true&width=500&height=70&duration=4000&lines=Hi+There!+👋;+I'm+Dat+Phit!;+I+am+a+student+currently+studying+Information+Technology" />
+    <img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=35&center=true&vCenter=true&width=500&height=70&duration=4000&lines=Hi+There!+👋;+I'm+Dat+Phit!;+08+/+12+/+2003" />
 </h1>
 
-<h3 align="center">I am a student currently studying Information Technology Vietnam 🇻🇳</h3>
+<h3 align="center">I am a student currently studying Information Technology in Vietnam 🇻🇳 (Tôi là sinh viên đang theo học ngành Công nghệ thông tin tại Việt Nam 🇻🇳)</h3>
+
 
 <br/>
 
 <div align="center">
- 
- 🔭 I’m currently working on **a marketplace**
- 
- 🌱 I’m currently learning **Docker, Supabase, AWS**
 
-💬 Ask me about **Node.js, React, Firebase... or anything [here](https://github.com/ntdat812/ntdat812/issues)**
+ 🌟 I’m studying **Information Technology at Hong Duc University** (Tôi đang theo ngành **Công nghệ thông tin tại Trường Đại học Hồng Đức**)
 
-⚡ Fun fact **Game of Thrones Night's Watch cloaks are made from Ikea rugs**
+ 💬 Ask me about **Node.js, React, Firebase... or anything [here](https://github.com/ntdat812/ntdat812/issues)** (Hãy hỏi tôi về **Node.js, React, Firebase... hoặc bất kỳ điều gì [tại đây](https://github.com/ntdat812/ntdat812/issues)**)
 
- </div>
+ 🔭 I’m currently working on **a marketplace** (Tôi đang làm việc trên **một chợ trực tuyến**)
+
+ 📜 My favorite quote: **"You are rewarded in public for what you practice in private"** (Câu nói trích dẫn tôi yêu thích: **"Bạn được thưởng trong công khai vì những gì bạn thực hành trong riêng tư"**)
+
+</div>
+
  
 <div align="center"> 
   <a href="mailto:nguyenthanhdatbi812@gmail.com">
@@ -34,7 +36,7 @@
 
  <hr/>
  
-<h2 align="center">⚒️ Languages-Frameworks-Tools ⚒️</h2>
+<h2 align="center">⚒️ Languages-Frameworks-Tools (Ngôn ngữ-Công nghệ-Công cụ) ⚒️</h2>
 <br/>
 <div align="center">
     <img src="https://skillicons.dev/icons?i=react,bootstrap,mui,html,css,vscode,github,figma,tailwind,git,r" />
@@ -45,7 +47,7 @@
 <hr/>
 
 <div align="center">
-  <h2>🐍 My Contributions 🐍</h2>
+  <h2>🐍 My Contributions (Đóng góp của tôi) 🐍</h2>
   <br>
   <img alt="snake eating my contributions" src="https://raw.githubusercontent.com/ntdat812/ntdat812/output/github-contribution-grid-snake.svg" />
   
@@ -54,7 +56,7 @@
 
 <hr/>
 
-<h2 align="center">⚡ Stats ⚡</h2>
+<h2 align="center">⚡ Stats (Thống kê) ⚡</h2>
 <br>
 <div align=center>
   <img width=390 src="https://github-readme-streak-stats-salesp07.vercel.app/?user=ntdat812&count_private=true&theme=react&border_radius=10" alt="streak stats"/>
@@ -62,6 +64,7 @@
   <br/>
   <img width=325 align="center" src="https://github-readme-stats-salesp07.vercel.app/api/top-langs/?username=ntdat812&hide=HTML&langs_count=8&layout=compact&theme=react&border_radius=10&size_weight=0.5&count_weight=0.5&exclude_repo=github-readme-stats" alt="top langs" />
 </div>
+
 
 
 
