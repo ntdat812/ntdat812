@@ -13,9 +13,9 @@
 
  🌟 I’m studying **Information Technology at Hong Duc University** (Tôi đang theo ngành **Công nghệ thông tin tại Trường Đại học Hồng Đức**)
 
- 💬 Ask me about **Node.js, React, Firebase... or anything [here](https://github.com/ntdat812/ntdat812/issues)** (Hãy hỏi tôi về **Node.js, React, Firebase... hoặc bất kỳ điều gì [tại đây](https://github.com/ntdat812/ntdat812/issues)**)
+ 💬 Ask me about **Node.js, React,... or anything [here](https://github.com/ntdat812/ntdat812/issues)** (Hãy hỏi tôi về **Node.js, React,... hoặc bất kỳ điều gì [tại đây](https://github.com/ntdat812/ntdat812/issues)**)
 
- 🔭 I’m currently working on **a marketplace** (Tôi đang làm việc trên **một chợ trực tuyến**)
+ 🌱 I’m currently learning **Docker, Blockchain** (Tôi đang học **Docker, Blockchain**)
 
  📜 My favorite quote: **"You are rewarded in public for what you practice in private"** (Câu nói trích dẫn tôi yêu thích: **"Bạn được thưởng trong công khai vì những gì bạn thực hành trong riêng tư"**)
 
