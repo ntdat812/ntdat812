@@ -18,9 +18,6 @@
 
  🌟 I’m studying **Information Technology at Hong Duc University** 
 
- 💬 Ask me about **Node.js, React,... or anything [here](https://github.com/ntdat812/ntdat812/issues)** 
-
- 🌱 I’m currently learning **Docker, Blockchain** 
 
  📜 My favorite quote: **"You are rewarded in public for what you practice in private"** 
 
