@@ -1,69 +1,58 @@
-<img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=ntdat812.ntdat812" />
+# Nguyen Thanh Dat
 
-<h1 align="center">
-    <img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=35&center=true&vCenter=true&width=500&height=70&duration=4000&lines=Hi+There!+👋;+I'm+Nguyen+Thanh+Dat!;+08+/+12+/+2003" />
-</h1>
+Software engineer in Thanh Hoa, Vietnam. I work on AI gateways and LLM tooling — tracing
+correctness and security bugs in OpenAI-compatible proxies, then sending the fix upstream.
 
-<!-- Language Switcher -->
-<div align="center">
-  <h4>Language:</h4>
-  <a href="https://github.com/ntdat812/ntdat812/blob/main/README.md">English</a> | <a href="https://github.com/ntdat812/ntdat812/blob/main/README_vn.md">Tiếng Việt</a>
-</div>
+**English** · [Tiếng Việt](README_vn.md)
 
-<h3 align="center">I am a student currently studying Information Technology in Vietnam 🇻🇳</h3>
+---
 
-<br/>
+## Open-source contributions
 
-<div align="center">
+Six pull requests to two AI gateway projects. Five of them close an issue someone else
+reported. Each one carries a regression test that fails before the change and passes after.
 
- 🌟 I’m studying **Information Technology at Hong Duc University** 
+| Project | Pull request | What it fixes |
+| --- | --- | --- |
+| [OmniRoute](https://github.com/diegosouzapw/OmniRoute) | [#10843](https://github.com/diegosouzapw/OmniRoute/pull/10843) `fix(security)` | The outbound guard recognised cloud-metadata hosts by their dotted-decimal spelling, so `http://[::ffff:169.254.169.254]/` walked through a check the docs call absolute. The verdict now follows the address, not the spelling. |
+| [OmniRoute](https://github.com/diegosouzapw/OmniRoute) | [#10860](https://github.com/diegosouzapw/OmniRoute/pull/10860) `fix(mcp)` | One hardcoded fetch budget covered every internal server-to-server hop, so provider-bound tool calls inherited a timeout meant for something else. Fixes [#9717](https://github.com/diegosouzapw/OmniRoute/issues/9717). |
+| [OmniRoute](https://github.com/diegosouzapw/OmniRoute) | [#10858](https://github.com/diegosouzapw/OmniRoute/pull/10858) `fix(context)` | Base64 documents were measured character by character, so a 1 MB PDF estimated at 350,022 tokens and the request was rejected before it left. Fixes [#10840](https://github.com/diegosouzapw/OmniRoute/issues/10840). |
+| [OmniRoute](https://github.com/diegosouzapw/OmniRoute) | [#10857](https://github.com/diegosouzapw/OmniRoute/pull/10857) `fix(catalog)` | With auto routing off, `/v1/models` still advertised every `auto/*` id that the router would reject at request time. Fixes [#10831](https://github.com/diegosouzapw/OmniRoute/issues/10831). |
+| [OmniRoute](https://github.com/diegosouzapw/OmniRoute) | [#10853](https://github.com/diegosouzapw/OmniRoute/pull/10853) `fix(i18n)` | Eight locales translated the *status* "Disabled" with the noun for a person who has a disability. The reported issue named only Japanese; the audit found 24 strings. Fixes [#10812](https://github.com/diegosouzapw/OmniRoute/issues/10812). |
+| [9router](https://github.com/decolua/9router) | [#3434](https://github.com/decolua/9router/pull/3434) `fix(responses)` | `/v1/responses` never emitted `usage`, so clients read all-zero token counts. Two causes: the usage chunk carries an empty `choices` array, and it arrives after `finish_reason`. Fixes [#3432](https://github.com/decolua/9router/issues/3432). |
 
++937 / −35 across 28 files. All six are open and awaiting maintainer review.
 
- 📜 My favorite quote: **"You are rewarded in public for what you practice in private"** 
+---
 
-</div>
+## Security research
 
-<br/>
+I reported four vulnerabilities to the OmniRoute maintainers through private advisories, which
+is what the project's `SECURITY.md` asks for.
 
-<div align="center">
-  <a href="mailto:nguyenthanhdatbi812@gmail.com">
-    <img src="https://img.shields.io/badge/Gmail-333333?style=for-the-badge&logo=gmail&logoColor=red" />
-  </a>
-  <a href="https://linkedin.com/in/" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank />
-  </a>
-  <a href="https://ntdat812.github.io" target="_blank">
-     <img src="https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=todoist&logoColor=white" target="_blank" alt="Portfolio" />
-  </a>
-</div>
+One is public, because its fix is already on the table as [#10843](https://github.com/diegosouzapw/OmniRoute/pull/10843):
+a server-side request forgery (CWE-918) in the outbound host guard. `isCloudMetadataHost()`
+compared spellings rather than addresses, so an IPv4-mapped IPv6 literal reached the cloud
+metadata endpoint through a block documented as unconditional. The patch normalises the host
+before the decision and ships with the bypass payload as a regression test.
 
-<hr/>
+The other three are still in triage and unpatched, so no details here. They stay private until
+the maintainers have shipped a fix.
 
-<h2 align="center">⚒️ Languages-Frameworks-Tools ⚒️</h2>
-<br/>
-<div align="center">
-    <img src="https://skillicons.dev/icons?i=html,css,vscode,github,figma,git,python" />
-    <img src="https://skillicons.dev/icons?i=nodejs,javascript,express,mongodb,c,java,mysql" /><br>
-</div>
+---
 
-<br/>
-<hr/>
+## What I work on
 
-<div align="center">
-  <h2>🐍 My Contributions 🐍</h2>
-  <br>
-  <img alt="snake eating my contributions" src="https://raw.githubusercontent.com/ntdat812/ntdat812/output/github-contribution-grid-snake.svg" />
-  
-  <br/><br/><br/>
-</div>
+Node and TypeScript. Streaming HTTP and server-sent events. Compatibility between the OpenAI,
+Claude, and Gemini request shapes — where they agree on paper and diverge in practice. Access
+control and SSRF review. Internationalisation, which turns out to be a correctness problem more
+often than a translation one.
 
-<hr/>
+Most of what I find comes from reading an issue nobody has picked up, reproducing it, and
+following it down to the line that is actually wrong.
 
-<h2 align="center">⚡ Stats ⚡</h2>
-<br>
-<div align=center>
-  <img width=390 src="https://github-readme-streak-stats-salesp07.vercel.app/?user=ntdat812&count_private=true&theme=react&border_radius=10" alt="streak stats"/>
-  <img width=390 src="https://github-readme-stats-salesp07.vercel.app/api?username=ntdat812&count_private=true&show_icons=true&theme=react&rank_icon=github&border_radius=10" alt="readme stats" />
-  <br/>
-  <img width=325 align="center" src="https://github-readme-stats-salesp07.vercel.app/api/top-langs/?username=ntdat812&hide=HTML&langs_count=8&layout=compact&theme=react&border_radius=10&size_weight=0.5&count_weight=0.5&exclude_repo=github-readme-stats" alt="top langs" />
-</div>
+---
+
+## Contact
+
+[ntdat812.dev@gmail.com](mailto:ntdat812.dev@gmail.com)

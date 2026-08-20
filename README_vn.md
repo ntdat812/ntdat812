@@ -1,72 +1,58 @@
-<img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=ntdat812.ntdat812" />
+# Nguyễn Thành Đạt
 
-<h1 align="center">
-    <img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=35&center=true&vCenter=true&width=500&height=70&duration=4000&lines=Chào+Bạn!+👋;+Mình+là+Đạt+Phít!;+08+/+12+/+2003" />
-</h1>
+Kỹ sư phần mềm tại Thanh Hóa, Việt Nam. Tôi làm việc với AI gateway và công cụ LLM — truy vết
+lỗi tính đúng đắn và lỗi bảo mật trong các proxy tương thích OpenAI, rồi gửi bản vá lên thượng nguồn.
 
-<!-- Language Switcher -->
-<div align="center">
-  <h4>Ngôn ngữ:</h4>
-  <a href="https://github.com/ntdat812/ntdat812/blob/main/README.md">English</a> | <a href="https://github.com/ntdat812/ntdat812/blob/main/README_vn.md">Tiếng Việt</a>
-</div>
+[English](README.md) · **Tiếng Việt**
 
-<h3 align="center">Mình là sinh viên đang theo học ngành Công nghệ thông tin tại Việt Nam 🇻🇳</h3>
+---
 
-<br/>
+## Đóng góp mã nguồn mở
 
-<div align="center">
+Sáu pull request cho hai dự án AI gateway. Năm trong số đó đóng một issue do người khác báo.
+Mỗi PR đều kèm regression test: fail trước khi sửa, pass sau khi sửa.
 
- 🌟 Mình đang học **Công nghệ thông tin tại Trường Đại học Hồng Đức** 
+| Dự án | Pull request | Nội dung |
+| --- | --- | --- |
+| [OmniRoute](https://github.com/diegosouzapw/OmniRoute) | [#10843](https://github.com/diegosouzapw/OmniRoute/pull/10843) `fix(security)` | Bộ chặn outbound nhận diện host cloud-metadata theo cách viết dạng thập phân, nên `http://[::ffff:169.254.169.254]/` đi lọt qua một lớp chặn mà tài liệu mô tả là tuyệt đối. Nay phán quyết dựa trên địa chỉ, không dựa trên cách viết. |
+| [OmniRoute](https://github.com/diegosouzapw/OmniRoute) | [#10860](https://github.com/diegosouzapw/OmniRoute/pull/10860) `fix(mcp)` | Một hạn mức fetch cứng áp cho mọi chặng server-to-server nội bộ, khiến tool call gắn với provider thừa hưởng timeout vốn dành cho việc khác. Fixes [#9717](https://github.com/diegosouzapw/OmniRoute/issues/9717). |
+| [OmniRoute](https://github.com/diegosouzapw/OmniRoute) | [#10858](https://github.com/diegosouzapw/OmniRoute/pull/10858) `fix(context)` | Tài liệu base64 bị đếm từng ký tự, nên một file PDF 1 MB được ước lượng thành 350.022 token và request bị chặn trước khi gửi đi. Fixes [#10840](https://github.com/diegosouzapw/OmniRoute/issues/10840). |
+| [OmniRoute](https://github.com/diegosouzapw/OmniRoute) | [#10857](https://github.com/diegosouzapw/OmniRoute/pull/10857) `fix(catalog)` | Khi tắt auto routing, `/v1/models` vẫn quảng cáo mọi id `auto/*` mà router sẽ từ chối lúc nhận request. Fixes [#10831](https://github.com/diegosouzapw/OmniRoute/issues/10831). |
+| [OmniRoute](https://github.com/diegosouzapw/OmniRoute) | [#10853](https://github.com/diegosouzapw/OmniRoute/pull/10853) `fix(i18n)` | Tám ngôn ngữ dịch *trạng thái* "Disabled" thành danh từ chỉ người khuyết tật. Issue gốc chỉ nêu tiếng Nhật; rà soát ra 24 chuỗi. Fixes [#10812](https://github.com/diegosouzapw/OmniRoute/issues/10812). |
+| [9router](https://github.com/decolua/9router) | [#3434](https://github.com/decolua/9router/pull/3434) `fix(responses)` | `/v1/responses` không bao giờ phát ra `usage`, nên client đọc được toàn số 0. Hai nguyên nhân: chunk usage mang mảng `choices` rỗng, và nó đến sau `finish_reason`. Fixes [#3432](https://github.com/decolua/9router/issues/3432). |
 
- 💬 Hãy hỏi mình về **Node.js, React,... hoặc bất kỳ điều gì [tại đây](https://github.com/ntdat812/ntdat812/issues)** 
++937 / −35 trên 28 file. Cả sáu PR đang mở, chờ maintainer review.
 
- 🌱 Mình đang học **Docker, Blockchain** 
+---
 
- 📜 Câu nói trích dẫn yêu thích của mình: **"Bạn được thưởng trong công khai vì những gì bạn thực hành trong riêng tư"** 
+## Nghiên cứu bảo mật
 
-</div>
+Tôi đã báo cáo bốn lỗ hổng cho maintainer của OmniRoute qua kênh advisory riêng tư, đúng như
+`SECURITY.md` của dự án yêu cầu.
 
-<br/>
+Một lỗ hổng đã công khai, vì bản vá của nó đang nằm ở [#10843](https://github.com/diegosouzapw/OmniRoute/pull/10843):
+một lỗi server-side request forgery (CWE-918) trong bộ chặn outbound host. `isCloudMetadataHost()`
+so sánh cách viết thay vì so sánh địa chỉ, nên một literal IPv6 ánh xạ từ IPv4 chạm tới được endpoint
+cloud metadata thông qua lớp chặn được mô tả là vô điều kiện. Bản vá chuẩn hóa host trước khi ra
+quyết định, và đi kèm chính payload vượt rào đó làm regression test.
 
-<div align="center">
-  <a href="mailto:nguyenthanhdatbi812@gmail.com">
-    <img src="https://img.shields.io/badge/Gmail-333333?style=for-the-badge&logo=gmail&logoColor=red" />
-  </a>
-  <a href="https://linkedin.com/in/" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank" />
-  </a>
-  <a href="https://ntdat812.github.io" target="_blank">
-     <img src="https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=todoist&logoColor=white" target="_blank" alt="Portfolio" />
-  </a>
-</div>
+Ba lỗ hổng còn lại vẫn đang trong quá trình xử lý và chưa có bản vá, nên tôi không nêu chi tiết ở
+đây. Chúng sẽ giữ riêng tư cho đến khi maintainer phát hành bản sửa.
 
-<hr/>
+---
 
-<h2 align="center">⚒️ Ngôn ngữ-Công nghệ-Công cụ ⚒️</h2>
-<br/>
-<div align="center">
-    <img src="https://skillicons.dev/icons?i=react,bootstrap,html,css,vscode,github,figma,git,python" />
-    <img src="https://skillicons.dev/icons?i=nodejs,javascript,typescript,express,firebase,mongodb,c,java,nextjs,mysql" /><br>
-</div>
+## Lĩnh vực tôi làm
 
-<br/>
-<hr/>
+Node và TypeScript. Streaming HTTP và server-sent events. Khả năng tương thích giữa các định dạng
+request của OpenAI, Claude và Gemini — chỗ chúng giống nhau trên giấy tờ và chỗ chúng khác nhau
+trong thực tế. Kiểm soát truy cập và rà soát SSRF. Quốc tế hóa, thứ hóa ra là bài toán về tính đúng
+đắn nhiều hơn là bài toán dịch thuật.
 
-<div align="center">
-  <h2>🐍 Đóng góp của tôi 🐍</h2>
-  <br>
-  <img alt="snake eating my contributions" src="https://raw.githubusercontent.com/ntdat812/ntdat812/output/github-contribution-grid-snake.svg" />
-  
-  <br/><br/><br/>
-</div>
+Phần lớn những gì tôi tìm ra đều bắt đầu từ việc đọc một issue chưa ai nhận, tái hiện lại nó, rồi
+lần theo cho tới đúng dòng code sai.
 
-<hr/>
+---
 
-<h2 align="center">⚡ Thống kê ⚡</h2>
-<br>
-<div align=center>
-  <img width=390 src="https://github-readme-streak-stats-salesp07.vercel.app/?user=ntdat812&count_private=true&theme=react&border_radius=10" alt="streak stats"/>
-  <img width=390 src="https://github-readme-stats-salesp07.vercel.app/api?username=ntdat812&count_private=true&show_icons=true&theme=react&rank_icon=github&border_radius=10" alt="readme stats" />
-  <br/>
-  <img width=325 align="center" src="https://github-readme-stats-salesp07.vercel.app/api/top-langs/?username=ntdat812&hide=HTML&langs_count=8&layout=compact&theme=react&border_radius=10&size_weight=0.5&count_weight=0.5&exclude_repo=github-readme-stats" alt="top langs" />
-</div>
+## Liên hệ
+
+[ntdat812.dev@gmail.com](mailto:ntdat812.dev@gmail.com)
