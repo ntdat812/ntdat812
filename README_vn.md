@@ -1,28 +1,44 @@
 # Nguyễn Thành Đạt
 
-Kỹ sư phần mềm tại Thanh Hóa, Việt Nam. Tôi làm việc với AI gateway — những proxy nằm giữa một
-coding agent và ba trăm nhà cung cấp mô hình, nơi một lỗi nhỏ về tính đúng đắn lập tức trở thành
-lỗi của mọi người dùng. Tôi đọc issue chưa ai nhận, tái hiện nó, rồi lần tới đúng dòng code sai.
+Kỹ sư phần mềm tại Thanh Hóa, Việt Nam. Tôi làm việc với AI gateway và công cụ cho agent — tầng
+nằm giữa một coding agent và ba trăm nhà cung cấp mô hình, nơi một lỗi nhỏ về tính đúng đắn lập
+tức trở thành lỗi của mọi người dùng. Tôi đọc issue chưa ai nhận, tái hiện nó, rồi lần tới đúng
+dòng code sai.
 
 [English](README.md) · **Tiếng Việt**
 
 ---
 
-## Đã merge lên thượng nguồn
+## Đã merge
 
-Năm pull request đã merge vào [OmniRoute](https://github.com/diegosouzapw/OmniRoute), một AI
-gateway giấy phép MIT đứng trước 340 nhà cung cấp. Bốn PR đóng issue do người khác báo. Mỗi PR
+Bảy pull request đã merge vào [OmniRoute](https://github.com/diegosouzapw/OmniRoute), một AI
+gateway giấy phép MIT đứng trước 340 nhà cung cấp. Sáu PR đóng issue do người khác báo. Mỗi PR
 đều kèm regression test: fail trên nhánh gốc, pass khi có bản vá.
 
 | Pull request | Nội dung |
 | --- | --- |
 | [#10843](https://github.com/diegosouzapw/OmniRoute/pull/10843) `fix(security)` | Lớp chặn SSRF nhận diện host cloud-metadata theo cách viết thay vì theo địa chỉ. Chi tiết bên dưới. |
+| [#10868](https://github.com/diegosouzapw/OmniRoute/pull/10868) `fix(proxy)` | Mọi phép dò egress đã bị chuyển sang một endpoint ưu tiên IPv6, nên đường hầm chỉ có IPv4 không có route tới đó, treo cho tới hết deadline, và một proxy đang tải lưu lượng thật bị báo là chết. Đổi hằng số ngược lại chỉ làm hỏng chiều còn lại — sai ở chiến lược, không phải ở giá trị. Đóng [#9694](https://github.com/diegosouzapw/OmniRoute/issues/9694). |
+| [#10862](https://github.com/diegosouzapw/OmniRoute/pull/10862) `fix(providers)` | Đồng bộ model không báo lỗi khi upstream trả 401. Nó lặng lẽ tụt xuống dùng catalog đã cache, nên một provider có thông tin xác thực đã chết vẫn trông như đang khỏe. Đóng [#9683](https://github.com/diegosouzapw/OmniRoute/issues/9683). |
 | [#10860](https://github.com/diegosouzapw/OmniRoute/pull/10860) `fix(mcp)` | Một hạn mức fetch cứng áp cho mọi chặng server-to-server nội bộ, khiến tool call gắn với provider thừa hưởng timeout vốn dành cho việc khác. Đóng [#9717](https://github.com/diegosouzapw/OmniRoute/issues/9717). |
 | [#10858](https://github.com/diegosouzapw/OmniRoute/pull/10858) `fix(context)` | Tài liệu base64 bị đếm từng ký tự, nên một PDF 1 MB được ước lượng thành 350.022 token và request bị chặn trước khi kịp gửi đi. Đóng [#10840](https://github.com/diegosouzapw/OmniRoute/issues/10840). |
 | [#10857](https://github.com/diegosouzapw/OmniRoute/pull/10857) `fix(catalog)` | Khi tắt auto routing, `/v1/models` vẫn quảng cáo mọi id `auto/*` mà router sẽ từ chối lúc nhận request. Đóng [#10831](https://github.com/diegosouzapw/OmniRoute/issues/10831). |
 | [#10853](https://github.com/diegosouzapw/OmniRoute/pull/10853) `fix(i18n)` | Tám ngôn ngữ hiển thị *trạng thái* "Disabled" thành danh từ chỉ người khuyết tật. Đóng [#10812](https://github.com/diegosouzapw/OmniRoute/issues/10812). |
 
-+777 / −32 trên 26 file, đã merge vào `release/v3.8.50`.
++1.279 / −96 trên 38 file, đã merge vào `release/v3.8.50`.
+
+---
+
+## Đang chờ review
+
+| Dự án | Pull request | Nội dung |
+| --- | --- | --- |
+| [OmniRoute](https://github.com/diegosouzapw/OmniRoute) | [#10935](https://github.com/diegosouzapw/OmniRoute/pull/10935) `fix(relay)` | Một bản vá trước đó đã thay việc nối chuỗi `x-relay-path` do kẻ tấn công kiểm soát bằng một lớp guard, nhưng chỉ ở relay worker của Deno và Vercel. Worker Cloudflare sinh ra cùng dạng đó và vẫn đang nối chuỗi. |
+| [OmniRoute](https://github.com/diegosouzapw/OmniRoute) | [#10941](https://github.com/diegosouzapw/OmniRoute/pull/10941) `fix(relay)` | Đưa cả ba relay worker về chung một lớp guard, để worker tiếp theo không lệch nhịp được nữa. Xếp chồng trên #10935. |
+| [OpenViking](https://github.com/volcengine/OpenViking) | [#4182](https://github.com/volcengine/OpenViking/pull/4182) `fix(observability)` | Ba endpoint BFF nhận `?timezone=` dạng tự do, và một giá trị sai trả về HTTP 500 thay vì lùi về mặc định của server. `ZoneInfo()` từ chối khóa sai theo hai cách khác nhau, mà chỉ một cách được xử lý. |
+| [OpenViking](https://github.com/volcengine/OpenViking) | [#4173](https://github.com/volcengine/OpenViking/pull/4173) `fix(observability)` | Log request lưu mẫu route, nên một lỗi 404 trên endpoint có tham số bị ghi thành `/sessions/{session_id}` và không truy lại được id thật sự gây lỗi. Đường dẫn thô vốn đã có sẵn trong payload và chỉ đơn giản là bị bỏ đi. |
+| [ECC](https://github.com/affaan-m/ECC) | [#2832](https://github.com/affaan-m/ECC/pull/2832) `fix(gateguard)` | Bộ phân loại lệnh phá hủy chỉ nhìn token đầu tiên, nên các tiền tố `sudo`, `doas` và `VAR=value` che mất chính lệnh đang bị đánh giá. |
+| [ECC](https://github.com/affaan-m/ECC) | [#2829](https://github.com/affaan-m/ECC/pull/2829) `fix(gateguard)` | Một dấu `\b` ở cuối bị dùng chung cho mọi nhánh của biểu thức chọn lệnh SQL phá hủy, khiến tầm với của lớp guard không khớp với ý định của nó. |
 
 ---
 
@@ -65,8 +81,9 @@ nhánh release đang hoạt động sau khi maintainer đã nắm được thôn
 Bốn lỗ hổng đã báo cáo cho maintainer của OmniRoute qua kênh advisory riêng tư.
 
 Lỗ hổng nói ở trên đã công khai vì bản vá đã merge và đang chờ gắn tag `v3.8.50`. Ba lỗ hổng còn
-lại vẫn đang xử lý và chưa có bản vá, nên ở đây không có chi tiết nào — chúng giữ riêng tư cho
-đến khi maintainer phát hành bản sửa. Một trong số đó nghiêm trọng hơn hẳn lỗ hổng tôi vừa mô tả.
+lại vẫn đang được xử lý, nên ở đây không có chi tiết nào vượt quá những gì một pull request vốn
+đã công khai tiết lộ. Chúng giữ riêng tư cho đến khi maintainer phát hành bản sửa. Một trong số
+đó nghiêm trọng hơn hẳn lỗ hổng tôi vừa mô tả.
 
 ---
 
@@ -98,10 +115,10 @@ mà branch tôi cover còn branch họ thì chưa.
 
 ## Lĩnh vực tôi làm
 
-Node và TypeScript. Streaming HTTP và server-sent events. Khả năng tương thích giữa các định dạng
-request của OpenAI, Claude và Gemini — chỗ chúng giống nhau trên giấy tờ và chỗ chúng khác nhau
-trong thực tế. Kiểm soát truy cập và rà soát SSRF. Quốc tế hóa, thứ hóa ra là bài toán về tính
-đúng đắn nhiều hơn là bài toán dịch thuật.
+Node, TypeScript và Python. Streaming HTTP và server-sent events. Khả năng tương thích giữa các
+định dạng request của OpenAI, Claude và Gemini — chỗ chúng giống nhau trên giấy tờ và chỗ chúng
+khác nhau trong thực tế. Kiểm soát truy cập, rà soát SSRF, và các lớp guard phân loại lệnh. Quốc
+tế hóa, thứ hóa ra là bài toán về tính đúng đắn nhiều hơn là bài toán dịch thuật.
 
 ---
 

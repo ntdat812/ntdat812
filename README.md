@@ -1,29 +1,44 @@
 # Nguyen Thanh Dat
 
-Software engineer in Thanh Hoa, Vietnam. I work on AI gateways — the proxies that sit between
-a coding agent and three hundred model providers, where a small correctness bug becomes every
-user's bug. I read the issue nobody has picked up, reproduce it, and follow it to the line
-that is actually wrong.
+Software engineer in Thanh Hoa, Vietnam. I work on AI gateways and agent tooling — the layer
+between a coding agent and three hundred model providers, where one correctness bug becomes
+every user's bug. I read the issue nobody has picked up, reproduce it, and follow it to the
+line that is actually wrong.
 
 **English** · [Tiếng Việt](README_vn.md)
 
 ---
 
-## Merged upstream
+## Merged
 
-Five pull requests merged into [OmniRoute](https://github.com/diegosouzapw/OmniRoute), an MIT
-AI gateway fronting 340 providers. Four close an issue someone else reported. Each carries a
-regression test that fails on the base branch and passes with the change.
+Seven pull requests merged into [OmniRoute](https://github.com/diegosouzapw/OmniRoute), an MIT
+AI gateway fronting 340 providers. Six of them close an issue someone else reported. Each
+carries a regression test that fails on the base branch and passes with the change.
 
 | Pull request | What it fixes |
 | --- | --- |
 | [#10843](https://github.com/diegosouzapw/OmniRoute/pull/10843) `fix(security)` | An SSRF guard that matched cloud-metadata hosts by spelling instead of by address. Detailed below. |
+| [#10868](https://github.com/diegosouzapw/OmniRoute/pull/10868) `fix(proxy)` | Every egress probe had been moved to an IPv6-first endpoint, so an IPv4-only tunnel had no route to it, hung until the deadline, and a proxy carrying live traffic was reported dead. Swapping the constant back only re-breaks the other case — the strategy was wrong, not the value. Closes [#9694](https://github.com/diegosouzapw/OmniRoute/issues/9694). |
+| [#10862](https://github.com/diegosouzapw/OmniRoute/pull/10862) `fix(providers)` | Model sync did not fail on an upstream 401. It quietly degraded to a cached catalog, so a provider with dead credentials still looked healthy. Closes [#9683](https://github.com/diegosouzapw/OmniRoute/issues/9683). |
 | [#10860](https://github.com/diegosouzapw/OmniRoute/pull/10860) `fix(mcp)` | One hardcoded fetch budget covered every internal server-to-server hop, so provider-bound tool calls inherited a timeout meant for something else. Closes [#9717](https://github.com/diegosouzapw/OmniRoute/issues/9717). |
 | [#10858](https://github.com/diegosouzapw/OmniRoute/pull/10858) `fix(context)` | Base64 documents were measured character by character, so a 1 MB PDF estimated at 350,022 tokens and the request was rejected before it ever left. Closes [#10840](https://github.com/diegosouzapw/OmniRoute/issues/10840). |
 | [#10857](https://github.com/diegosouzapw/OmniRoute/pull/10857) `fix(catalog)` | With auto routing off, `/v1/models` still advertised every `auto/*` id that the router would reject at request time. Closes [#10831](https://github.com/diegosouzapw/OmniRoute/issues/10831). |
 | [#10853](https://github.com/diegosouzapw/OmniRoute/pull/10853) `fix(i18n)` | Eight locales rendered the *status* "Disabled" as the noun for a person who has a disability. Closes [#10812](https://github.com/diegosouzapw/OmniRoute/issues/10812). |
 
-+777 / −32 across 26 files, merged into `release/v3.8.50`.
++1,279 / −96 across 38 files, merged into `release/v3.8.50`.
+
+---
+
+## In review
+
+| Project | Pull request | What it fixes |
+| --- | --- | --- |
+| [OmniRoute](https://github.com/diegosouzapw/OmniRoute) | [#10935](https://github.com/diegosouzapw/OmniRoute/pull/10935) `fix(relay)` | An earlier fix replaced concatenation of the attacker-controlled `x-relay-path` with a guard in the Deno and Vercel relay workers. The Cloudflare worker generates the same shape and still concatenates. |
+| [OmniRoute](https://github.com/diegosouzapw/OmniRoute) | [#10941](https://github.com/diegosouzapw/OmniRoute/pull/10941) `fix(relay)` | Puts all three relay workers behind one shared guard, so the next one cannot drift out of step. Stacked on #10935. |
+| [OpenViking](https://github.com/volcengine/OpenViking) | [#4182](https://github.com/volcengine/OpenViking/pull/4182) `fix(observability)` | Three BFF endpoints take a free-form `?timezone=`, and a malformed value returned HTTP 500 rather than falling back to the server default. `ZoneInfo()` rejects a bad key two different ways; only one was handled. |
+| [OpenViking](https://github.com/volcengine/OpenViking) | [#4173](https://github.com/volcengine/OpenViking/pull/4173) `fix(observability)` | Request logs stored the route template, so a 404 on a parameterised endpoint recorded `/sessions/{session_id}` and the failing id was unrecoverable. The raw path was already in the payload and simply dropped. |
+| [ECC](https://github.com/affaan-m/ECC) | [#2832](https://github.com/affaan-m/ECC/pull/2832) `fix(gateguard)` | The destructive-command classifier keys on the first token, so `sudo`, `doas`, and `VAR=value` prefixes hid the command being judged. |
+| [ECC](https://github.com/affaan-m/ECC) | [#2829](https://github.com/affaan-m/ECC/pull/2829) `fix(gateguard)` | One trailing `\b` was shared across every arm of a destructive-SQL alternation, so the guard's reach did not match its intent. |
 
 ---
 
@@ -67,9 +82,9 @@ request against the active release branch once the maintainers had it.
 Four vulnerabilities reported to the OmniRoute maintainers through private advisories.
 
 The one above is public because its fix is merged and awaiting the `v3.8.50` tag. The other
-three are still in triage and unpatched, so there are no details here — they stay private
-until the maintainers ship a fix. One of them is a good deal more serious than the one I have
-described.
+three are still in triage, so there are no details here beyond what an already-public pull
+request discloses. They stay private until the maintainers ship a fix. One of them is a good
+deal more serious than the one I have described.
 
 ---
 
@@ -99,10 +114,10 @@ my branch covered on theirs.
 
 ## What I work on
 
-Node and TypeScript. Streaming HTTP and server-sent events. Compatibility between the OpenAI,
-Claude, and Gemini request shapes — where they agree on paper and diverge in practice. Access
-control and SSRF review. Internationalisation, which turns out to be a correctness problem
-more often than a translation one.
+Node, TypeScript, and Python. Streaming HTTP and server-sent events. Compatibility between the
+OpenAI, Claude, and Gemini request shapes — where they agree on paper and diverge in practice.
+Access control, SSRF review, and command-classification guards. Internationalisation, which
+turns out to be a correctness problem more often than a translation one.
 
 ---
 
