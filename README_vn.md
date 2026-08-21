@@ -5,19 +5,26 @@ nằm giữa một coding agent và ba trăm nhà cung cấp mô hình, nơi m�
 tức trở thành lỗi của mọi người dùng. Tôi đọc issue chưa ai nhận, tái hiện nó, rồi lần tới đúng
 dòng code sai.
 
+Chín pull request đã merge vào [OmniRoute](https://github.com/diegosouzapw/OmniRoute), sáu PR
+nữa đang chờ review trên [OpenViking](https://github.com/volcengine/OpenViking),
+[ECC](https://github.com/affaan-m/ECC) và OmniRoute, cùng bốn lỗ hổng đã báo cáo qua kênh
+security advisory riêng tư — hai trong số đó nay đã có bản vá được merge.
+
 [English](README.md) · **Tiếng Việt**
 
 ---
 
 ## Đã merge
 
-Bảy pull request đã merge vào [OmniRoute](https://github.com/diegosouzapw/OmniRoute), một AI
-gateway giấy phép MIT đứng trước 340 nhà cung cấp. Sáu PR đóng issue do người khác báo. Mỗi PR
-đều kèm regression test: fail trên nhánh gốc, pass khi có bản vá.
+Chín pull request đã merge vào OmniRoute, một AI gateway giấy phép MIT đứng trước 340 nhà cung
+cấp. Bảy PR đóng issue do người khác báo. Mỗi PR đều kèm regression test: fail trên nhánh gốc,
+pass khi có bản vá.
 
 | Pull request | Nội dung |
 | --- | --- |
 | [#10843](https://github.com/diegosouzapw/OmniRoute/pull/10843) `fix(security)` | Lớp chặn SSRF nhận diện host cloud-metadata theo cách viết thay vì theo địa chỉ. Chi tiết bên dưới. |
+| [#10935](https://github.com/diegosouzapw/OmniRoute/pull/10935) `fix(relay)` | Một bản vá trước đó đã thay việc nối chuỗi `x-relay-path` do kẻ tấn công kiểm soát bằng một lớp guard — nhưng chỉ ở relay worker của Deno và Vercel. Worker Cloudflare sinh ra cùng dạng đó và vẫn nối chuỗi, nên phần userinfo trong đường dẫn lái được request vượt qua lớp kiểm tra private-host. |
+| [#10941](https://github.com/diegosouzapw/OmniRoute/pull/10941) `fix(relay)` | Đưa cả ba relay worker về chung đúng một lớp guard đó, để worker được thêm sau này không lệch nhịp khỏi nó. |
 | [#10868](https://github.com/diegosouzapw/OmniRoute/pull/10868) `fix(proxy)` | Mọi phép dò egress đã bị chuyển sang một endpoint ưu tiên IPv6, nên đường hầm chỉ có IPv4 không có route tới đó, treo cho tới hết deadline, và một proxy đang tải lưu lượng thật bị báo là chết. Đổi hằng số ngược lại chỉ làm hỏng chiều còn lại — sai ở chiến lược, không phải ở giá trị. Đóng [#9694](https://github.com/diegosouzapw/OmniRoute/issues/9694). |
 | [#10862](https://github.com/diegosouzapw/OmniRoute/pull/10862) `fix(providers)` | Đồng bộ model không báo lỗi khi upstream trả 401. Nó lặng lẽ tụt xuống dùng catalog đã cache, nên một provider có thông tin xác thực đã chết vẫn trông như đang khỏe. Đóng [#9683](https://github.com/diegosouzapw/OmniRoute/issues/9683). |
 | [#10860](https://github.com/diegosouzapw/OmniRoute/pull/10860) `fix(mcp)` | Một hạn mức fetch cứng áp cho mọi chặng server-to-server nội bộ, khiến tool call gắn với provider thừa hưởng timeout vốn dành cho việc khác. Đóng [#9717](https://github.com/diegosouzapw/OmniRoute/issues/9717). |
@@ -25,16 +32,14 @@ gateway giấy phép MIT đứng trước 340 nhà cung cấp. Sáu PR đóng is
 | [#10857](https://github.com/diegosouzapw/OmniRoute/pull/10857) `fix(catalog)` | Khi tắt auto routing, `/v1/models` vẫn quảng cáo mọi id `auto/*` mà router sẽ từ chối lúc nhận request. Đóng [#10831](https://github.com/diegosouzapw/OmniRoute/issues/10831). |
 | [#10853](https://github.com/diegosouzapw/OmniRoute/pull/10853) `fix(i18n)` | Tám ngôn ngữ hiển thị *trạng thái* "Disabled" thành danh từ chỉ người khuyết tật. Đóng [#10812](https://github.com/diegosouzapw/OmniRoute/issues/10812). |
 
-+1.279 / −96 trên 38 file, đã merge vào `release/v3.8.50`.
-
 ---
 
 ## Đang chờ review
 
 | Dự án | Pull request | Nội dung |
 | --- | --- | --- |
-| [OmniRoute](https://github.com/diegosouzapw/OmniRoute) | [#10935](https://github.com/diegosouzapw/OmniRoute/pull/10935) `fix(relay)` | Một bản vá trước đó đã thay việc nối chuỗi `x-relay-path` do kẻ tấn công kiểm soát bằng một lớp guard, nhưng chỉ ở relay worker của Deno và Vercel. Worker Cloudflare sinh ra cùng dạng đó và vẫn đang nối chuỗi. |
-| [OmniRoute](https://github.com/diegosouzapw/OmniRoute) | [#10941](https://github.com/diegosouzapw/OmniRoute/pull/10941) `fix(relay)` | Đưa cả ba relay worker về chung một lớp guard, để worker tiếp theo không lệch nhịp được nữa. Xếp chồng trên #10935. |
+| [OmniRoute](https://github.com/diegosouzapw/OmniRoute) | [#10958](https://github.com/diegosouzapw/OmniRoute/pull/10958) `fix(desktop)` | GitHub đổi dấu cách trong tên asset tải lên thành `.`; electron-builder ghi đúng tên đó vào `latest.yml` nhưng với dấu `-`. NSIS mang đúng cái tên artifact mặc định duy nhất có dấu cách, nên manifest và asset đã phát hành không bao giờ khớp nhau, và bộ cập nhật trong ứng dụng 404 ở mọi bản phát hành. Đóng [#10947](https://github.com/diegosouzapw/OmniRoute/issues/10947). |
+| [OmniRoute](https://github.com/diegosouzapw/OmniRoute) | [#10951](https://github.com/diegosouzapw/OmniRoute/pull/10951) `fix(resilience)` | `least-used` sắp xếp kết nối theo `lastUsedAt` và là chiến lược duy nhất đọc trường đó mà không bao giờ ghi vào nó, nên việc luân phiên mà nó hứa hẹn chưa từng xảy ra. Đóng [#10945](https://github.com/diegosouzapw/OmniRoute/issues/10945). |
 | [OpenViking](https://github.com/volcengine/OpenViking) | [#4182](https://github.com/volcengine/OpenViking/pull/4182) `fix(observability)` | Ba endpoint BFF nhận `?timezone=` dạng tự do, và một giá trị sai trả về HTTP 500 thay vì lùi về mặc định của server. `ZoneInfo()` từ chối khóa sai theo hai cách khác nhau, mà chỉ một cách được xử lý. |
 | [OpenViking](https://github.com/volcengine/OpenViking) | [#4173](https://github.com/volcengine/OpenViking/pull/4173) `fix(observability)` | Log request lưu mẫu route, nên một lỗi 404 trên endpoint có tham số bị ghi thành `/sessions/{session_id}` và không truy lại được id thật sự gây lỗi. Đường dẫn thô vốn đã có sẵn trong payload và chỉ đơn giản là bị bỏ đi. |
 | [ECC](https://github.com/affaan-m/ECC) | [#2832](https://github.com/affaan-m/ECC/pull/2832) `fix(gateguard)` | Bộ phân loại lệnh phá hủy chỉ nhìn token đầu tiên, nên các tiền tố `sudo`, `doas` và `VAR=value` che mất chính lệnh đang bị đánh giá. |
@@ -78,12 +83,16 @@ nhánh release đang hoạt động sau khi maintainer đã nắm được thôn
 
 ## Nghiên cứu bảo mật
 
-Bốn lỗ hổng đã báo cáo cho maintainer của OmniRoute qua kênh advisory riêng tư.
+Bốn lỗ hổng đã báo cáo cho maintainer của OmniRoute qua kênh advisory riêng tư, đúng con đường
+công bố mà `SECURITY.md` của dự án yêu cầu.
 
-Lỗ hổng nói ở trên đã công khai vì bản vá đã merge và đang chờ gắn tag `v3.8.50`. Ba lỗ hổng còn
-lại vẫn đang được xử lý, nên ở đây không có chi tiết nào vượt quá những gì một pull request vốn
-đã công khai tiết lộ. Chúng giữ riêng tư cho đến khi maintainer phát hành bản sửa. Một trong số
-đó nghiêm trọng hơn hẳn lỗ hổng tôi vừa mô tả.
+Hai lỗ hổng nay đã có bản vá được merge: lỗi vượt rào cloud-metadata mô tả ở trên, và lỗ hổng
+đường dẫn relay mà [#10935](https://github.com/diegosouzapw/OmniRoute/pull/10935) đã bịt trong
+worker Cloudflare. Cả hai chỉ công khai vì bản vá của chúng vốn đã công khai.
+
+Hai lỗ hổng còn lại vẫn đang được xử lý và chưa có bản vá, nên ở đây không có chi tiết nào —
+không nêu thành phần, không nêu phân loại. Chúng giữ riêng tư cho đến khi maintainer phát hành
+bản sửa. Một trong hai nghiêm trọng hơn hẳn cả hai lỗ hổng nói trên.
 
 ---
 
