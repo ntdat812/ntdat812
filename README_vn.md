@@ -5,10 +5,11 @@ nằm giữa một coding agent và ba trăm nhà cung cấp mô hình, nơi m�
 tức trở thành lỗi của mọi người dùng. Tôi đọc issue chưa ai nhận, tái hiện nó, rồi lần tới đúng
 dòng code sai.
 
-Chín pull request đã merge vào [OmniRoute](https://github.com/diegosouzapw/OmniRoute), sáu PR
-nữa đang chờ review trên [OpenViking](https://github.com/volcengine/OpenViking),
-[ECC](https://github.com/affaan-m/ECC) và OmniRoute, cùng bốn lỗ hổng đã báo cáo qua kênh
-security advisory riêng tư — hai trong số đó nay đã có bản vá được merge.
+Chín pull request đã merge vào [OmniRoute](https://github.com/diegosouzapw/OmniRoute), chín PR
+nữa đang chờ review trên [OpenClaw](https://github.com/openclaw/openclaw),
+[ECC](https://github.com/affaan-m/ECC), [ComfyUI](https://github.com/Comfy-Org/ComfyUI),
+[OpenViking](https://github.com/volcengine/OpenViking) và OmniRoute, cùng bốn lỗ hổng đã báo cáo
+qua kênh security advisory riêng tư — hai trong số đó nay đã có bản vá được merge.
 
 [English](README.md) · **Tiếng Việt**
 
@@ -36,8 +37,21 @@ pass khi có bản vá.
 
 ## Đang chờ review
 
+Chín pull request đang mở trên năm dự án.
+
 | Dự án | Pull request | Nội dung |
 | --- | --- | --- |
+| [OpenClaw](https://github.com/openclaw/openclaw) | [#127135](https://github.com/openclaw/openclaw/pull/127135) | Mọi request tới nhà cung cấp Alibaba Model Studio (`qwen`, `dashscope`, `modelstudio`) đều gửi hạn mức token đầu ra dưới tên `max_completion_tokens` — trường mà chính tài liệu tương thích OpenAI của hãng không hề liệt kê. Đóng [#127119](https://github.com/openclaw/openclaw/issues/127119). |
+| [ECC](https://github.com/affaan-m/ECC) | [#2832](https://github.com/affaan-m/ECC/pull/2832) `fix(gateguard)` | Bộ phân loại lệnh phá hủy chỉ nhìn token đầu tiên, nên các tiền tố `sudo`, `doas` và `VAR=value` che mất chính lệnh đang bị đánh giá. |
+| [ECC](https://github.com/affaan-m/ECC) | [#2829](https://github.com/affaan-m/ECC/pull/2829) `fix(gateguard)` | Một dấu `` ở cuối bị dùng chung cho mọi nhánh của biểu thức chọn lệnh SQL phá hủy, khiến tầm với của lớp guard không khớp với ý định của nó. |
+| [ComfyUI](https://github.com/Comfy-Org/ComfyUI) | [#15783](https://github.com/Comfy-Org/ComfyUI/pull/15783) | Một thư mục model có liên kết trỏ ngược về chính thư mục tổ tiên của nó khiến phép duyệt đi vào lại cùng một cây ở mọi tầng, nên một model bị liệt kê lặp đi lặp lại trong mọi dropdown. Việc đi theo liên kết là cố ý; thứ thiếu là khả năng phát hiện vòng lặp. |
+| [ComfyUI](https://github.com/Comfy-Org/ComfyUI) | [#15779](https://github.com/Comfy-Org/ComfyUI/pull/15779) | Khi `filename_prefix` kết thúc bằng dấu phân cách đường dẫn, hai vế của phép so sánh bộ đếm được chuẩn hóa khác nhau, nên mỗi lần lưu lại lặng lẽ đè lên lần lưu trước. |
+| [OmniRoute](https://github.com/diegosouzapw/OmniRoute) | [#10958](https://github.com/diegosouzapw/OmniRoute/pull/10958) `fix(desktop)` | GitHub đổi dấu cách trong tên asset tải lên thành `.`; electron-builder ghi đúng tên đó vào `latest.yml` nhưng với dấu `-`. NSIS mang đúng cái tên artifact mặc định duy nhất có dấu cách, nên manifest và asset đã phát hành không bao giờ khớp nhau, và bộ cập nhật trong ứng dụng 404 ở mọi bản phát hành. Đóng [#10947](https://github.com/diegosouzapw/OmniRoute/issues/10947). |
+| [OmniRoute](https://github.com/diegosouzapw/OmniRoute) | [#10951](https://github.com/diegosouzapw/OmniRoute/pull/10951) `fix(resilience)` | `least-used` sắp xếp kết nối theo `lastUsedAt` và là chiến lược duy nhất đọc trường đó mà không bao giờ ghi vào nó, nên việc luân phiên mà nó hứa hẹn chưa từng xảy ra. Đóng [#10945](https://github.com/diegosouzapw/OmniRoute/issues/10945). |
+| [OpenViking](https://github.com/volcengine/OpenViking) | [#4182](https://github.com/volcengine/OpenViking/pull/4182) `fix(observability)` | Ba endpoint BFF nhận `?timezone=` dạng tự do, và một giá trị sai trả về HTTP 500 thay vì lùi về mặc định của server. `ZoneInfo()` từ chối khóa sai theo hai cách khác nhau, mà chỉ một cách được xử lý. |
+| [OpenViking](https://github.com/volcengine/OpenViking) | [#4173](https://github.com/volcengine/OpenViking/pull/4173) `fix(observability)` | Log request lưu mẫu route, nên một lỗi 404 trên endpoint có tham số bị ghi thành `/sessions/{session_id}` và không truy lại được id thật sự gây lỗi. Đường dẫn thô vốn đã có sẵn trong payload và chỉ đơn giản là bị bỏ đi. |
+
+--- | --- | --- |
 | [OmniRoute](https://github.com/diegosouzapw/OmniRoute) | [#10958](https://github.com/diegosouzapw/OmniRoute/pull/10958) `fix(desktop)` | GitHub đổi dấu cách trong tên asset tải lên thành `.`; electron-builder ghi đúng tên đó vào `latest.yml` nhưng với dấu `-`. NSIS mang đúng cái tên artifact mặc định duy nhất có dấu cách, nên manifest và asset đã phát hành không bao giờ khớp nhau, và bộ cập nhật trong ứng dụng 404 ở mọi bản phát hành. Đóng [#10947](https://github.com/diegosouzapw/OmniRoute/issues/10947). |
 | [OmniRoute](https://github.com/diegosouzapw/OmniRoute) | [#10951](https://github.com/diegosouzapw/OmniRoute/pull/10951) `fix(resilience)` | `least-used` sắp xếp kết nối theo `lastUsedAt` và là chiến lược duy nhất đọc trường đó mà không bao giờ ghi vào nó, nên việc luân phiên mà nó hứa hẹn chưa từng xảy ra. Đóng [#10945](https://github.com/diegosouzapw/OmniRoute/issues/10945). |
 | [OpenViking](https://github.com/volcengine/OpenViking) | [#4182](https://github.com/volcengine/OpenViking/pull/4182) `fix(observability)` | Ba endpoint BFF nhận `?timezone=` dạng tự do, và một giá trị sai trả về HTTP 500 thay vì lùi về mặc định của server. `ZoneInfo()` từ chối khóa sai theo hai cách khác nhau, mà chỉ một cách được xử lý. |

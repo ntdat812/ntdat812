@@ -5,10 +5,11 @@ between a coding agent and three hundred model providers, where one correctness 
 every user's bug. I read the issue nobody has picked up, reproduce it, and follow it to the
 line that is actually wrong.
 
-Nine pull requests merged into [OmniRoute](https://github.com/diegosouzapw/OmniRoute), six more
-in review across [OpenViking](https://github.com/volcengine/OpenViking),
-[ECC](https://github.com/affaan-m/ECC) and OmniRoute, and four vulnerabilities reported through
-private security advisories — two of which now have merged fixes.
+Nine pull requests merged into [OmniRoute](https://github.com/diegosouzapw/OmniRoute), nine more
+in review across [OpenClaw](https://github.com/openclaw/openclaw),
+[ECC](https://github.com/affaan-m/ECC), [ComfyUI](https://github.com/Comfy-Org/ComfyUI),
+[OpenViking](https://github.com/volcengine/OpenViking) and OmniRoute, and four vulnerabilities
+reported through private security advisories — two of which now have merged fixes.
 
 **English** · [Tiếng Việt](README_vn.md)
 
@@ -36,8 +37,21 @@ base branch and passes with the change.
 
 ## In review
 
+Nine pull requests open across five projects.
+
 | Project | Pull request | What it fixes |
 | --- | --- | --- |
+| [OpenClaw](https://github.com/openclaw/openclaw) | [#127135](https://github.com/openclaw/openclaw/pull/127135) | Every request to an Alibaba Model Studio provider (`qwen`, `dashscope`, `modelstudio`) sent the output-token cap as `max_completion_tokens` — a field the vendor's own OpenAI-compatibility reference does not list. Closes [#127119](https://github.com/openclaw/openclaw/issues/127119). |
+| [ECC](https://github.com/affaan-m/ECC) | [#2832](https://github.com/affaan-m/ECC/pull/2832) `fix(gateguard)` | The destructive-command classifier keys on the first token, so `sudo`, `doas`, and `VAR=value` prefixes hid the command being judged. |
+| [ECC](https://github.com/affaan-m/ECC) | [#2829](https://github.com/affaan-m/ECC/pull/2829) `fix(gateguard)` | One trailing `` was shared across every arm of a destructive-SQL alternation, so the guard's reach did not match its intent. |
+| [ComfyUI](https://github.com/Comfy-Org/ComfyUI) | [#15783](https://github.com/Comfy-Org/ComfyUI/pull/15783) | A model directory that links back to one of its own ancestors makes the walk re-enter the same tree at every level, so one model is listed over and over in every dropdown. Following links is deliberate; detecting the loop was missing. |
+| [ComfyUI](https://github.com/Comfy-Org/ComfyUI) | [#15779](https://github.com/Comfy-Org/ComfyUI/pull/15779) | When `filename_prefix` ends in a path separator, the two halves of the counter comparison normalise differently, so every save silently overwrites the one before it. |
+| [OmniRoute](https://github.com/diegosouzapw/OmniRoute) | [#10958](https://github.com/diegosouzapw/OmniRoute/pull/10958) `fix(desktop)` | GitHub rewrites spaces in an uploaded asset name to `.`; electron-builder writes the same name into `latest.yml` with `-`. NSIS carries the one default artifact name containing spaces, so the manifest and the published asset can never agree and the in-app updater 404s on every release. Fixes [#10947](https://github.com/diegosouzapw/OmniRoute/issues/10947). |
+| [OmniRoute](https://github.com/diegosouzapw/OmniRoute) | [#10951](https://github.com/diegosouzapw/OmniRoute/pull/10951) `fix(resilience)` | `least-used` sorts connections by `lastUsedAt` and was the only strategy reading it that never wrote it, so the rotation it promised never happened. Fixes [#10945](https://github.com/diegosouzapw/OmniRoute/issues/10945). |
+| [OpenViking](https://github.com/volcengine/OpenViking) | [#4182](https://github.com/volcengine/OpenViking/pull/4182) `fix(observability)` | Three BFF endpoints take a free-form `?timezone=`, and a malformed value returned HTTP 500 rather than falling back to the server default. `ZoneInfo()` rejects a bad key two different ways; only one was handled. |
+| [OpenViking](https://github.com/volcengine/OpenViking) | [#4173](https://github.com/volcengine/OpenViking/pull/4173) `fix(observability)` | Request logs stored the route template, so a 404 on a parameterised endpoint recorded `/sessions/{session_id}` and the failing id was unrecoverable. The raw path was already in the payload and simply dropped. |
+
+--- | --- | --- |
 | [OmniRoute](https://github.com/diegosouzapw/OmniRoute) | [#10958](https://github.com/diegosouzapw/OmniRoute/pull/10958) `fix(desktop)` | GitHub rewrites spaces in an uploaded asset name to `.`; electron-builder writes the same name into `latest.yml` with `-`. NSIS carries the one default artifact name containing spaces, so the manifest and the published asset can never agree and the in-app updater 404s on every release. Fixes [#10947](https://github.com/diegosouzapw/OmniRoute/issues/10947). |
 | [OmniRoute](https://github.com/diegosouzapw/OmniRoute) | [#10951](https://github.com/diegosouzapw/OmniRoute/pull/10951) `fix(resilience)` | `least-used` sorts connections by `lastUsedAt` and was the only strategy reading it that never wrote it, so the rotation it promised never happened. Fixes [#10945](https://github.com/diegosouzapw/OmniRoute/issues/10945). |
 | [OpenViking](https://github.com/volcengine/OpenViking) | [#4182](https://github.com/volcengine/OpenViking/pull/4182) `fix(observability)` | Three BFF endpoints take a free-form `?timezone=`, and a malformed value returned HTTP 500 rather than falling back to the server default. `ZoneInfo()` rejects a bad key two different ways; only one was handled. |
