@@ -17,7 +17,7 @@ security advisory riêng tư — hai trong số đó nay đã có bản vá đư
 ## Đã merge
 
 Chín pull request đã merge vào OmniRoute, một AI gateway giấy phép MIT đứng trước 340 nhà cung
-cấp. Bảy PR đóng issue do người khác báo. Mỗi PR đều kèm regression test: fail trên nhánh gốc,
+cấp. Sáu PR đóng issue do người khác báo. Mỗi PR đều kèm regression test: fail trên nhánh gốc,
 pass khi có bản vá.
 
 | Pull request | Nội dung |

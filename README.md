@@ -16,7 +16,7 @@ private security advisories — two of which now have merged fixes.
 
 ## Merged
 
-Nine pull requests merged into OmniRoute, an MIT AI gateway fronting 340 providers. Seven of
+Nine pull requests merged into OmniRoute, an MIT AI gateway fronting 340 providers. Six of
 them close an issue someone else reported. Each carries a regression test that fails on the
 base branch and passes with the change.
 
