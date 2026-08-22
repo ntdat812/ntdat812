@@ -40,11 +40,12 @@ pass khi có bản vá.
 
 ## Đang chờ review
 
-Bảy pull request đang mở trên bốn dự án.
+Tám pull request đang mở trên bốn dự án.
 
 | Dự án | Pull request | Nội dung |
 | --- | --- | --- |
 | [OpenClaw](https://github.com/openclaw/openclaw) | [#127135](https://github.com/openclaw/openclaw/pull/127135) | Mọi request tới nhà cung cấp Alibaba Model Studio (`qwen`, `dashscope`, `modelstudio`) đều gửi hạn mức token đầu ra dưới tên `max_completion_tokens` — trường mà chính tài liệu tương thích OpenAI của hãng không hề liệt kê. Đóng [#127119](https://github.com/openclaw/openclaw/issues/127119). |
+| [ECC](https://github.com/affaan-m/ECC) | [#2837](https://github.com/affaan-m/ECC/pull/2837) `fix(block-no-verify)` | Lớp chặn `--no-verify` đem cờ ra so đúng với chuỗi đầy đủ đó. Git chấp nhận mọi tiền tố không nhập nhằng của một long option, nên `--no-ver` vẫn bỏ qua hook và đi thẳng qua cổng chặn. |
 | [ECC](https://github.com/affaan-m/ECC) | [#2832](https://github.com/affaan-m/ECC/pull/2832) `fix(gateguard)` | Bộ phân loại lệnh phá hủy chỉ nhìn token đầu tiên, nên các tiền tố `sudo`, `doas` và `VAR=value` che mất chính lệnh đang bị đánh giá. |
 | [ECC](https://github.com/affaan-m/ECC) | [#2829](https://github.com/affaan-m/ECC/pull/2829) `fix(gateguard)` | Một dấu `\b` ở cuối bị dùng chung cho mọi nhánh của biểu thức chọn lệnh SQL phá hủy, khiến tầm với của lớp guard không khớp với ý định của nó. |
 | [ComfyUI](https://github.com/Comfy-Org/ComfyUI) | [#15783](https://github.com/Comfy-Org/ComfyUI/pull/15783) | Một thư mục model có liên kết trỏ ngược về chính thư mục tổ tiên của nó khiến phép duyệt đi vào lại cùng một cây ở mọi tầng, nên một model bị liệt kê lặp đi lặp lại trong mọi dropdown. Việc đi theo liên kết là cố ý; thứ thiếu là khả năng phát hiện vòng lặp. |
@@ -90,17 +91,17 @@ nhánh release đang hoạt động sau khi maintainer đã nắm được thôn
 
 ## Nghiên cứu bảo mật
 
-Bốn lỗ hổng đã báo cáo cho maintainer của OmniRoute qua kênh advisory riêng tư, đúng con đường
+Năm lỗ hổng đã báo cáo cho maintainer của OmniRoute qua kênh advisory riêng tư, đúng con đường
 công bố mà `SECURITY.md` của dự án yêu cầu.
 
 Hai lỗ hổng đã dẫn tới bản vá được merge: lỗi vượt rào cloud-metadata mô tả ở trên, và lỗ hổng
 đường dẫn relay mà [#10935](https://github.com/diegosouzapw/OmniRoute/pull/10935) đã bịt trong
 worker Cloudflare. Cả hai chỉ công khai vì bản vá của chúng vốn đã công khai.
 
-Maintainer đã đóng cả bốn advisory vào ngày 21/08 mà không publish cái nào. Vì vậy hai lỗ hổng
-còn lại không được mô tả ở đây — không nêu thành phần, không nêu phân loại. Việc một advisory có
-được công bố hay không là quyền quyết định của maintainer, và một advisory chưa công bố thì không
-phải chuyện của tôi để kể lại.
+Maintainer đã đóng bốn trong số đó vào ngày 21/08 mà không publish cái nào; cái thứ năm vừa nộp
+và vẫn đang được xem xét. Mọi advisory chưa công bố đều không được mô tả ở đây — không nêu thành
+phần, không nêu phân loại. Việc một advisory có được công bố hay không là quyền quyết định của
+maintainer, và một advisory chưa công bố thì không phải chuyện của tôi để kể lại.
 
 ---
 

@@ -40,11 +40,12 @@ base branch and passes with the change.
 
 ## In review
 
-Seven pull requests open across four projects.
+Eight pull requests open across four projects.
 
 | Project | Pull request | What it fixes |
 | --- | --- | --- |
 | [OpenClaw](https://github.com/openclaw/openclaw) | [#127135](https://github.com/openclaw/openclaw/pull/127135) | Every request to an Alibaba Model Studio provider (`qwen`, `dashscope`, `modelstudio`) sent the output-token cap as `max_completion_tokens` — a field the vendor's own OpenAI-compatibility reference does not list. Closes [#127119](https://github.com/openclaw/openclaw/issues/127119). |
+| [ECC](https://github.com/affaan-m/ECC) | [#2837](https://github.com/affaan-m/ECC/pull/2837) `fix(block-no-verify)` | The guard that blocks `--no-verify` compared the flag against that exact spelling. Git resolves any unambiguous prefix of a long option, so `--no-ver` skipped the hooks and walked straight past the gate. |
 | [ECC](https://github.com/affaan-m/ECC) | [#2832](https://github.com/affaan-m/ECC/pull/2832) `fix(gateguard)` | The destructive-command classifier keys on the first token, so `sudo`, `doas`, and `VAR=value` prefixes hid the command being judged. |
 | [ECC](https://github.com/affaan-m/ECC) | [#2829](https://github.com/affaan-m/ECC/pull/2829) `fix(gateguard)` | One trailing `\b` was shared across every arm of a destructive-SQL alternation, so the guard's reach did not match its intent. |
 | [ComfyUI](https://github.com/Comfy-Org/ComfyUI) | [#15783](https://github.com/Comfy-Org/ComfyUI/pull/15783) | A model directory that links back to one of its own ancestors makes the walk re-enter the same tree at every level, so one model is listed over and over in every dropdown. Following links is deliberate; detecting the loop was missing. |
@@ -91,16 +92,17 @@ request against the active release branch once the maintainers had it.
 
 ## Security research
 
-Four vulnerabilities reported to the OmniRoute maintainers through private advisories, which
+Five vulnerabilities reported to the OmniRoute maintainers through private advisories, which
 is the disclosure route the project's `SECURITY.md` asks for.
 
 Two produced merged fixes: the cloud-metadata bypass described above, and the relay-path gap
 that [#10935](https://github.com/diegosouzapw/OmniRoute/pull/10935) closed in the Cloudflare
 worker. Those two are public only because their patches are.
 
-The maintainers closed all four advisories on 21 August without publishing any of them. The
-other two therefore stay undescribed here — not the component, not the class. Whether an
-advisory is published is the maintainer's call, and an unpublished one is not mine to narrate.
+The maintainers closed four of them on 21 August without publishing any; the fifth is newly
+filed and still in triage. Every unpublished one stays undescribed here — not the component,
+not the class. Whether an advisory is published is the maintainer's call, and an unpublished
+one is not mine to narrate.
 
 ---
 
