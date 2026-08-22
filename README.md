@@ -5,7 +5,7 @@ between a coding agent and three hundred model providers, where one correctness 
 every user's bug. I read the issue nobody has picked up, reproduce it, and follow it to the
 line that is actually wrong.
 
-Eleven pull requests merged into [OmniRoute](https://github.com/diegosouzapw/OmniRoute), seven
+Twelve pull requests merged into [OmniRoute](https://github.com/diegosouzapw/OmniRoute), seven
 more in review across [OpenClaw](https://github.com/openclaw/openclaw),
 [ECC](https://github.com/affaan-m/ECC), [ComfyUI](https://github.com/Comfy-Org/ComfyUI) and
 [OpenViking](https://github.com/volcengine/OpenViking), and four vulnerabilities reported
@@ -17,13 +17,14 @@ through private security advisories — two of which now have merged fixes.
 
 ## Merged
 
-Eleven pull requests merged into OmniRoute, an MIT AI gateway fronting 340 providers. Eight of
+Twelve pull requests merged into OmniRoute, an MIT AI gateway fronting 340 providers. Eight of
 them close an issue someone else reported. Each carries a regression test that fails on the
 base branch and passes with the change.
 
 | Pull request | What it fixes |
 | --- | --- |
 | [#10843](https://github.com/diegosouzapw/OmniRoute/pull/10843) `fix(security)` | An SSRF guard that matched cloud-metadata hosts by spelling instead of by address. Detailed below. |
+| [#11004](https://github.com/diegosouzapw/OmniRoute/pull/11004) `fix(opencode)` | `mergeOpenCodeConfig` guarded the root of an existing config against a non-object, then spread `provider` one level down with no guard at all — so a config whose `provider` key was not an object took the merge down with it. |
 | [#10958](https://github.com/diegosouzapw/OmniRoute/pull/10958) `fix(desktop)` | GitHub rewrites spaces in an uploaded asset name to `.`; electron-builder writes the same name into `latest.yml` with `-`. NSIS carries the one default artifact name containing spaces, so the manifest and the published asset can never agree and the in-app updater 404s on every release. Fixes [#10947](https://github.com/diegosouzapw/OmniRoute/issues/10947). |
 | [#10951](https://github.com/diegosouzapw/OmniRoute/pull/10951) `fix(resilience)` | `least-used` sorts connections by `lastUsedAt` and was the only strategy reading it that never wrote it, so the rotation it promised never happened. Fixes [#10945](https://github.com/diegosouzapw/OmniRoute/issues/10945). |
 | [#10935](https://github.com/diegosouzapw/OmniRoute/pull/10935) `fix(relay)` | An earlier fix replaced concatenation of the attacker-controlled `x-relay-path` with a guard — but only in the Deno and Vercel relay workers. The Cloudflare worker generates the same shape and still concatenated, so userinfo in the path re-pointed the request past the private-host check. |
@@ -93,13 +94,13 @@ request against the active release branch once the maintainers had it.
 Four vulnerabilities reported to the OmniRoute maintainers through private advisories, which
 is the disclosure route the project's `SECURITY.md` asks for.
 
-Two now have merged fixes: the cloud-metadata bypass described above, and the relay-path gap
+Two produced merged fixes: the cloud-metadata bypass described above, and the relay-path gap
 that [#10935](https://github.com/diegosouzapw/OmniRoute/pull/10935) closed in the Cloudflare
-worker. Both are public only because their patches are public.
+worker. Those two are public only because their patches are.
 
-The other two are still in triage and unpatched, so there are no details here — not the
-component, not the class. They stay private until the maintainers ship a fix. One of them is a
-good deal more serious than either of the two above.
+The maintainers closed all four advisories on 21 August without publishing any of them. The
+other two therefore stay undescribed here — not the component, not the class. Whether an
+advisory is published is the maintainer's call, and an unpublished one is not mine to narrate.
 
 ---
 

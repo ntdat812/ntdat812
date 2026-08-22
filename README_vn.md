@@ -5,7 +5,7 @@ nằm giữa một coding agent và ba trăm nhà cung cấp mô hình, nơi m�
 tức trở thành lỗi của mọi người dùng. Tôi đọc issue chưa ai nhận, tái hiện nó, rồi lần tới đúng
 dòng code sai.
 
-Mười một pull request đã merge vào [OmniRoute](https://github.com/diegosouzapw/OmniRoute), bảy
+Mười hai pull request đã merge vào [OmniRoute](https://github.com/diegosouzapw/OmniRoute), bảy
 PR nữa đang chờ review trên [OpenClaw](https://github.com/openclaw/openclaw),
 [ECC](https://github.com/affaan-m/ECC), [ComfyUI](https://github.com/Comfy-Org/ComfyUI) và
 [OpenViking](https://github.com/volcengine/OpenViking), cùng bốn lỗ hổng đã báo cáo qua kênh
@@ -17,13 +17,14 @@ security advisory riêng tư — hai trong số đó nay đã có bản vá đư
 
 ## Đã merge
 
-Mười một pull request đã merge vào OmniRoute, một AI gateway giấy phép MIT đứng trước 340 nhà
+Mười hai pull request đã merge vào OmniRoute, một AI gateway giấy phép MIT đứng trước 340 nhà
 cung cấp. Tám PR đóng issue do người khác báo. Mỗi PR đều kèm regression test: fail trên nhánh gốc,
 pass khi có bản vá.
 
 | Pull request | Nội dung |
 | --- | --- |
 | [#10843](https://github.com/diegosouzapw/OmniRoute/pull/10843) `fix(security)` | Lớp chặn SSRF nhận diện host cloud-metadata theo cách viết thay vì theo địa chỉ. Chi tiết bên dưới. |
+| [#11004](https://github.com/diegosouzapw/OmniRoute/pull/11004) `fix(opencode)` | `mergeOpenCodeConfig` có chặn trường hợp gốc của config không phải object, nhưng lại spread `provider` ở tầng dưới mà không chặn gì cả — nên một config có khóa `provider` không phải object sẽ kéo cả phép merge sập theo. |
 | [#10958](https://github.com/diegosouzapw/OmniRoute/pull/10958) `fix(desktop)` | GitHub đổi dấu cách trong tên asset tải lên thành `.`; electron-builder ghi đúng tên đó vào `latest.yml` nhưng với dấu `-`. NSIS mang đúng cái tên artifact mặc định duy nhất có dấu cách, nên manifest và asset đã phát hành không bao giờ khớp nhau, và bộ cập nhật trong ứng dụng 404 ở mọi bản phát hành. Đóng [#10947](https://github.com/diegosouzapw/OmniRoute/issues/10947). |
 | [#10951](https://github.com/diegosouzapw/OmniRoute/pull/10951) `fix(resilience)` | `least-used` sắp xếp kết nối theo `lastUsedAt` và là chiến lược duy nhất đọc trường đó mà không bao giờ ghi vào nó, nên việc luân phiên mà nó hứa hẹn chưa từng xảy ra. Đóng [#10945](https://github.com/diegosouzapw/OmniRoute/issues/10945). |
 | [#10935](https://github.com/diegosouzapw/OmniRoute/pull/10935) `fix(relay)` | Một bản vá trước đó đã thay việc nối chuỗi `x-relay-path` do kẻ tấn công kiểm soát bằng một lớp guard — nhưng chỉ ở relay worker của Deno và Vercel. Worker Cloudflare sinh ra cùng dạng đó và vẫn nối chuỗi, nên phần userinfo trong đường dẫn lái được request vượt qua lớp kiểm tra private-host. |
@@ -92,13 +93,14 @@ nhánh release đang hoạt động sau khi maintainer đã nắm được thôn
 Bốn lỗ hổng đã báo cáo cho maintainer của OmniRoute qua kênh advisory riêng tư, đúng con đường
 công bố mà `SECURITY.md` của dự án yêu cầu.
 
-Hai lỗ hổng nay đã có bản vá được merge: lỗi vượt rào cloud-metadata mô tả ở trên, và lỗ hổng
+Hai lỗ hổng đã dẫn tới bản vá được merge: lỗi vượt rào cloud-metadata mô tả ở trên, và lỗ hổng
 đường dẫn relay mà [#10935](https://github.com/diegosouzapw/OmniRoute/pull/10935) đã bịt trong
 worker Cloudflare. Cả hai chỉ công khai vì bản vá của chúng vốn đã công khai.
 
-Hai lỗ hổng còn lại vẫn đang được xử lý và chưa có bản vá, nên ở đây không có chi tiết nào —
-không nêu thành phần, không nêu phân loại. Chúng giữ riêng tư cho đến khi maintainer phát hành
-bản sửa. Một trong hai nghiêm trọng hơn hẳn cả hai lỗ hổng nói trên.
+Maintainer đã đóng cả bốn advisory vào ngày 21/08 mà không publish cái nào. Vì vậy hai lỗ hổng
+còn lại không được mô tả ở đây — không nêu thành phần, không nêu phân loại. Việc một advisory có
+được công bố hay không là quyền quyết định của maintainer, và một advisory chưa công bố thì không
+phải chuyện của tôi để kể lại.
 
 ---
 
