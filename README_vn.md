@@ -5,12 +5,12 @@ nằm giữa một coding agent và ba trăm nhà cung cấp mô hình, nơi m�
 tức trở thành lỗi của mọi người dùng. Tôi đọc issue chưa ai nhận, tái hiện nó, rồi lần tới đúng
 dòng code sai.
 
-Hai mươi pull request đã merge vào [OmniRoute](https://github.com/diegosouzapw/OmniRoute) và
-[OpenViking](https://github.com/volcengine/OpenViking), ba mươi lăm PR nữa đang chờ review trên
-chính hai dự án đó và [9router](https://github.com/decolua/9router), [ComfyUI](https://github.com/Comfy-Org/ComfyUI),
-[ECC](https://github.com/affaan-m/ECC), [OpenClaw](https://github.com/openclaw/openclaw) cùng
-[opencodex](https://github.com/lidge-jun/opencodex), và năm lỗ hổng đã báo cáo qua kênh security advisory riêng tư — tất cả
-đều đã được vá.
+Hai mươi hai pull request đã merge vào [OmniRoute](https://github.com/diegosouzapw/OmniRoute),
+[OpenViking](https://github.com/volcengine/OpenViking) và [opencodex](https://github.com/lidge-jun/opencodex),
+ba mươi ba PR nữa đang chờ review trên [9router](https://github.com/decolua/9router),
+[ECC](https://github.com/affaan-m/ECC), [ComfyUI](https://github.com/Comfy-Org/ComfyUI),
+[OpenViking](https://github.com/volcengine/OpenViking) và [OpenClaw](https://github.com/openclaw/openclaw),
+và năm lỗ hổng đã báo cáo qua kênh security advisory riêng tư — tất cả đều đã được vá.
 
 [English](README.md) · **Tiếng Việt**
 
@@ -18,20 +18,21 @@ chính hai dự án đó và [9router](https://github.com/decolua/9router), [Com
 
 ## Đã merge
 
-Hai mươi PR đã merge — mười chín vào OmniRoute, một AI gateway giấy phép MIT đứng trước 340 nhà
-cung cấp, và một vào OpenViking. Mười một PR đóng issue do người khác báo. Mỗi PR đều kèm regression
+Hai mươi hai PR đã merge — hai mươi vào OmniRoute, một AI gateway giấy phép MIT đứng trước 340 nhà
+cung cấp, một vào OpenViking và một vào opencodex. Mười một PR đóng issue do người khác báo. Mỗi PR đều kèm regression
 test: fail trên nhánh gốc, pass khi có bản vá.
 [Danh sách đầy đủ](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests).
 
-Mười một PR cho thấy phạm vi công việc:
+Mười hai PR cho thấy phạm vi công việc:
 
 | Pull request | Nội dung |
 | --- | --- |
 | [#10843](https://github.com/diegosouzapw/OmniRoute/pull/10843) `fix(security)` | Lớp chặn SSRF nhận diện host cloud-metadata theo cách viết thay vì theo địa chỉ. Chi tiết bên dưới. |
 | [#11328](https://github.com/diegosouzapw/OmniRoute/pull/11328) `fix(security)` | Danh sách chuẩn các header không bao giờ được chuyển tiếp lên upstream thiếu hai tên hop-by-hop của RFC 7230, nên `proxy-authorization` và `proxy-authenticate` đi thẳng tới nhà cung cấp. |
+| [opencodex #2476](https://github.com/lidge-jun/opencodex/pull/2476) `fix(responses)` | Một file trạng thái 24 MiB bị tuần tự hóa lại và thay thế nguyên tử mỗi hai giây, bất kể nội dung có đổi hay không — mà chẳng ai đọc nó cho tới lần khởi động sau. Giờ ảnh chụp được so sánh trước khi ghi, bằng độ dài và digest chứ không giữ lại payload, và nhịp debounce co giãn theo kích thước. |
+| [#11380](https://github.com/diegosouzapw/OmniRoute/pull/11380) `test(kimi)` | Một lượt chạy nightly báo đúng một lỗi trên 8.280 test, và nó đang bị hiểu thành lỗi tương thích Node 26. Thật ra bài test bốc một số ngẫu nhiên rồi khẳng định về kết quả đó. Tôi sửa bài test và nói rõ issue nên để mở, vì một test chập chờn không phải là thứ issue đó được mở ra để nói. |
 | [#11376](https://github.com/diegosouzapw/OmniRoute/pull/11376) `fix(auth)` | Mọi lỗi từ upstream không sẵn ở dạng chuỗi đều bị thu về đúng một chữ `Provider error` — và đó chính là dòng người vận hành đọc. Cổng bị từ chối, DNS hỏng, proxy bị chặn, hay nhà cung cấp đơn giản là nói không: bốn thứ đó không phân biệt được với nhau. Phần dùng được nằm ở `error.cause.code`, chỗ không ai đọc tới. |
 | [#11319](https://github.com/diegosouzapw/OmniRoute/pull/11319) `fix(db)` | Bộ kiểm tra proxy URL từ chối đích riêng tư và cloud-metadata bằng regex dạng bốn số thập phân của riêng nó, nên cùng địa chỉ đó viết theo cách khác là đi lọt. |
-| [#11311](https://github.com/diegosouzapw/OmniRoute/pull/11311) `fix(db)` | Mẫu nhóm do người vận hành đặt được biên dịch thành `RegExp` mà chỉ thay riêng `*`, nên một ký tự đặc biệt trong mẫu làm đổi hẳn thứ nó khớp. |
 | [#10935](https://github.com/diegosouzapw/OmniRoute/pull/10935) `fix(relay)` | Một bản vá trước đó đã đưa `x-relay-path` do kẻ tấn công kiểm soát vào sau lớp guard ở relay worker của Deno và Vercel. Worker Cloudflare vẫn nối chuỗi, nên userinfo trong đường dẫn lái được request vượt qua lớp kiểm tra private-host. |
 | [#10868](https://github.com/diegosouzapw/OmniRoute/pull/10868) `fix(proxy)` | Mọi phép dò egress đã chuyển sang endpoint ưu tiên IPv6, nên đường hầm chỉ có IPv4 không có route tới đó, treo tới hết deadline, và một proxy đang tải lưu lượng thật bị báo là chết. Sai ở chiến lược, không phải ở hằng số. Đóng [#9694](https://github.com/diegosouzapw/OmniRoute/issues/9694). |
 | [#10862](https://github.com/diegosouzapw/OmniRoute/pull/10862) `fix(providers)` | Đồng bộ model không báo lỗi khi upstream trả 401. Nó lặng lẽ tụt xuống dùng catalog đã cache, nên provider có thông tin xác thực đã chết vẫn trông như đang khỏe. Đóng [#9683](https://github.com/diegosouzapw/OmniRoute/issues/9683). |
@@ -43,11 +44,10 @@ Mười một PR cho thấy phạm vi công việc:
 
 ## Đang chờ review
 
-Ba mươi lăm PR đang mở trên bảy dự án: mười sáu trên [9router](https://github.com/decolua/9router), sáu trên
+Ba mươi ba PR đang mở: mười sáu trên [9router](https://github.com/decolua/9router), sáu trên
 [ECC](https://github.com/affaan-m/ECC), năm mỗi dự án ở [ComfyUI](https://github.com/Comfy-Org/ComfyUI)
-và [OpenViking](https://github.com/volcengine/OpenViking), một mỗi dự án ở
-[OmniRoute](https://github.com/diegosouzapw/OmniRoute),
-[OpenClaw](https://github.com/openclaw/openclaw) và [opencodex](https://github.com/lidge-jun/opencodex).
+và [OpenViking](https://github.com/volcengine/OpenViking), một trên
+[OpenClaw](https://github.com/openclaw/openclaw). Ở OmniRoute và opencodex tôi không còn PR nào đang mở.
 [Danh sách đầy đủ](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests).
 
 | Pull request | Nội dung |
@@ -135,7 +135,7 @@ duy nhất của chúng. Cứ grep repo theo các id trên.
 
 ## Cách tôi làm việc
 
-Ba điều tôi muốn được đánh giá dựa trên đó, hơn là dựa trên một danh sách ngôn ngữ. Mỗi điều đều
+Bốn điều tôi muốn được đánh giá dựa trên đó, hơn là dựa trên một danh sách ngôn ngữ. Mỗi điều đều
 kèm dẫn chứng bấm được.
 
 **Tôi báo cáo đúng những gì test thực sự nói.** Tôi không dựng được bản build xanh trên máy
@@ -149,6 +149,11 @@ lượt CI thật sẽ đáng tin hơn kết quả của tôi.
 Cùng lỗi dịch đó có mặt ở tám ngôn ngữ và 24 chuỗi, nên
 [#10853](https://github.com/diegosouzapw/OmniRoute/pull/10853) sửa toàn bộ và bổ sung mục từ điển
 để người dịch sau không lặp lại.
+
+**Tôi làm đúng thứ đã thống nhất, không phải thứ tôi thích làm hơn.**
+[opencodex #2476](https://github.com/lidge-jun/opencodex/pull/2476) có một lời giải lớn rất hiển
+nhiên — thay hẳn kho snapshot bằng journal. Nhưng phía triage đã chốt hai biện pháp hẹp, nên tôi
+làm đúng hai cái đó và ghi thẳng trong PR rằng hướng journal là cố ý không đụng tới. Nó được merge.
 
 **Tôi lùi lại khi người khác tới trước.** Tôi mở
 [9router#3434](https://github.com/decolua/9router/pull/3434) sau

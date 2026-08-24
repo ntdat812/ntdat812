@@ -5,12 +5,13 @@ between a coding agent and three hundred model providers, where one correctness 
 every user's bug. I read the issue nobody has picked up, reproduce it, and follow it to the
 line that is actually wrong.
 
-Twenty pull requests merged into [OmniRoute](https://github.com/diegosouzapw/OmniRoute) and
-[OpenViking](https://github.com/volcengine/OpenViking), thirty-five more in review across
-those two and [9router](https://github.com/decolua/9router), [ComfyUI](https://github.com/Comfy-Org/ComfyUI),
-[ECC](https://github.com/affaan-m/ECC), [OpenClaw](https://github.com/openclaw/openclaw) and
-[opencodex](https://github.com/lidge-jun/opencodex), and five vulnerabilities reported through private security
-advisories, every one of which is now fixed.
+Twenty-two pull requests merged into [OmniRoute](https://github.com/diegosouzapw/OmniRoute),
+[OpenViking](https://github.com/volcengine/OpenViking) and [opencodex](https://github.com/lidge-jun/opencodex),
+thirty-three more in review across [9router](https://github.com/decolua/9router),
+[ECC](https://github.com/affaan-m/ECC), [ComfyUI](https://github.com/Comfy-Org/ComfyUI),
+[OpenViking](https://github.com/volcengine/OpenViking) and [OpenClaw](https://github.com/openclaw/openclaw),
+and five vulnerabilities reported through private security advisories, every one of which is now
+fixed.
 
 **English** · [Tiếng Việt](README_vn.md)
 
@@ -18,20 +19,21 @@ advisories, every one of which is now fixed.
 
 ## Merged
 
-Twenty merged — nineteen into OmniRoute, an MIT AI gateway fronting 340 providers, and one
-into OpenViking. Eleven close an issue someone else reported. Each carries a regression test that
+Twenty-two merged — twenty into OmniRoute, an MIT AI gateway fronting 340 providers, one into
+OpenViking and one into opencodex. Eleven close an issue someone else reported. Each carries a regression test that
 fails on the base branch and passes with the change.
 [Full list](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests).
 
-Eleven that show the range:
+Twelve that show the range:
 
 | Pull request | What it fixes |
 | --- | --- |
 | [#10843](https://github.com/diegosouzapw/OmniRoute/pull/10843) `fix(security)` | An SSRF guard that matched cloud-metadata hosts by spelling instead of by address. Detailed below. |
 | [#11328](https://github.com/diegosouzapw/OmniRoute/pull/11328) `fix(security)` | The canonical denylist of headers never forwarded upstream was missing two of the RFC 7230 hop-by-hop names, so `proxy-authorization` and `proxy-authenticate` went to the provider. |
+| [opencodex #2476](https://github.com/lidge-jun/opencodex/pull/2476) `fix(responses)` | A 24 MiB state file was re-serialised and atomically replaced every two seconds whether or not anything in it had changed — and nothing reads it until the next start. The snapshot is now compared before it is written, by length and digest rather than by keeping the payload, and the debounce scales with the size. |
+| [#11380](https://github.com/diegosouzapw/OmniRoute/pull/11380) `test(kimi)` | A nightly run reported one failure in 8,280 and it was being read as a Node 26 compatibility break. The test drew a random number and then asserted on the outcome. I fixed the test and said the issue should stay open, because a flaky test is not the thing it was filed about. |
 | [#11376](https://github.com/diegosouzapw/OmniRoute/pull/11376) `fix(auth)` | Every upstream failure that was not already a string collapsed to the literal `Provider error`, and that is the line an operator reads. A refused port, a DNS failure, a blocked proxy and a provider simply saying no were indistinguishable — the actionable part sits on `error.cause.code`, which nothing looked at. |
 | [#11319](https://github.com/diegosouzapw/OmniRoute/pull/11319) `fix(db)` | The proxy-URL validator refused private and cloud-metadata targets using its own dotted-quad regexes, so the same address in another spelling walked straight through. |
-| [#11311](https://github.com/diegosouzapw/OmniRoute/pull/11311) `fix(db)` | An operator's group pattern was compiled into a `RegExp` with only `*` substituted, so a metacharacter in the pattern changed what it matched. |
 | [#10935](https://github.com/diegosouzapw/OmniRoute/pull/10935) `fix(relay)` | An earlier fix put the attacker-controlled `x-relay-path` behind a guard in the Deno and Vercel relay workers. The Cloudflare worker still concatenated it, so userinfo in the path re-pointed the request past the private-host check. |
 | [#10868](https://github.com/diegosouzapw/OmniRoute/pull/10868) `fix(proxy)` | Every egress probe had moved to an IPv6-first endpoint, so an IPv4-only tunnel had no route to it, hung until the deadline, and a proxy carrying live traffic was reported dead. The strategy was wrong, not the constant. Closes [#9694](https://github.com/diegosouzapw/OmniRoute/issues/9694). |
 | [#10862](https://github.com/diegosouzapw/OmniRoute/pull/10862) `fix(providers)` | Model sync did not fail on an upstream 401. It quietly degraded to a cached catalog, so a provider with dead credentials still looked healthy. Closes [#9683](https://github.com/diegosouzapw/OmniRoute/issues/9683). |
@@ -43,11 +45,11 @@ Eleven that show the range:
 
 ## In review
 
-Thirty-five open across seven projects: sixteen on [9router](https://github.com/decolua/9router), six on
+Thirty-three open: sixteen on [9router](https://github.com/decolua/9router), six on
 [ECC](https://github.com/affaan-m/ECC), five each on [ComfyUI](https://github.com/Comfy-Org/ComfyUI)
-and [OpenViking](https://github.com/volcengine/OpenViking), one each on
-[OmniRoute](https://github.com/diegosouzapw/OmniRoute),
-[OpenClaw](https://github.com/openclaw/openclaw) and [opencodex](https://github.com/lidge-jun/opencodex).
+and [OpenViking](https://github.com/volcengine/OpenViking), one on
+[OpenClaw](https://github.com/openclaw/openclaw). Nothing of mine is left open on OmniRoute or
+opencodex.
 [Full list](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests).
 
 | Pull request | What it fixes |
@@ -135,7 +137,7 @@ them. Grep the repository for the ids.
 
 ## How I work
 
-Three things I would rather be judged on than a language list. Each links to the artefact.
+Four things I would rather be judged on than a language list. Each links to the artefact.
 
 **I report what the tests actually said.** I could not get a green build on my Windows box for
 [#10843](https://github.com/diegosouzapw/OmniRoute/pull/10843#issuecomment-5355999035), so
@@ -148,6 +150,12 @@ be more authoritative than mine.
 string. The same mistranslation was in eight locales and 24 strings, so
 [#10853](https://github.com/diegosouzapw/OmniRoute/pull/10853) fixed all of them and added
 glossary entries so the next translator does not repeat it.
+
+**I build what was agreed, not what I would rather build.**
+[opencodex #2476](https://github.com/lidge-jun/opencodex/pull/2476) had an obvious large answer —
+replace the whole snapshot store with a journal. Triage had endorsed two narrow measures instead,
+so I implemented those two and wrote in the pull request that the journal direction was
+deliberately not attempted. It merged.
 
 **I stand down when someone was there first.** I opened
 [9router#3434](https://github.com/decolua/9router/pull/3434) eleven minutes after
