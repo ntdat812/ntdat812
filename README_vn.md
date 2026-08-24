@@ -5,10 +5,10 @@ nằm giữa một coding agent và ba trăm nhà cung cấp mô hình, nơi m�
 tức trở thành lỗi của mọi người dùng. Tôi đọc issue chưa ai nhận, tái hiện nó, rồi lần tới đúng
 dòng code sai.
 
-Mười hai pull request đã merge vào [OmniRoute](https://github.com/diegosouzapw/OmniRoute), bảy
+Mười hai pull request đã merge vào [OmniRoute](https://github.com/diegosouzapw/OmniRoute), tám
 PR nữa đang chờ review trên [OpenClaw](https://github.com/openclaw/openclaw),
 [ECC](https://github.com/affaan-m/ECC), [ComfyUI](https://github.com/Comfy-Org/ComfyUI) và
-[OpenViking](https://github.com/volcengine/OpenViking), cùng bốn lỗ hổng đã báo cáo qua kênh
+[OpenViking](https://github.com/volcengine/OpenViking), cùng năm lỗ hổng đã báo cáo qua kênh
 security advisory riêng tư — hai trong số đó nay đã có bản vá được merge.
 
 [English](README.md) · **Tiếng Việt**
@@ -98,10 +98,10 @@ Hai lỗ hổng đã dẫn tới bản vá được merge: lỗi vượt rào cl
 đường dẫn relay mà [#10935](https://github.com/diegosouzapw/OmniRoute/pull/10935) đã bịt trong
 worker Cloudflare. Cả hai chỉ công khai vì bản vá của chúng vốn đã công khai.
 
-Maintainer đã đóng bốn trong số đó vào ngày 21/08 mà không publish cái nào; cái thứ năm vừa nộp
-và vẫn đang được xem xét. Mọi advisory chưa công bố đều không được mô tả ở đây — không nêu thành
-phần, không nêu phân loại. Việc một advisory có được công bố hay không là quyền quyết định của
-maintainer, và một advisory chưa công bố thì không phải chuyện của tôi để kể lại.
+Maintainer đã đóng cả năm mà không publish cái nào, nên những cái còn lại không được mô tả ở
+đây — không nêu thành phần, không nêu phân loại. Việc một advisory có được công bố hay không là
+quyền quyết định của maintainer, và một advisory chưa công bố thì không phải chuyện của tôi để
+kể lại.
 
 ---
 

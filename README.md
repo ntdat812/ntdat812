@@ -5,10 +5,10 @@ between a coding agent and three hundred model providers, where one correctness 
 every user's bug. I read the issue nobody has picked up, reproduce it, and follow it to the
 line that is actually wrong.
 
-Twelve pull requests merged into [OmniRoute](https://github.com/diegosouzapw/OmniRoute), seven
+Twelve pull requests merged into [OmniRoute](https://github.com/diegosouzapw/OmniRoute), eight
 more in review across [OpenClaw](https://github.com/openclaw/openclaw),
 [ECC](https://github.com/affaan-m/ECC), [ComfyUI](https://github.com/Comfy-Org/ComfyUI) and
-[OpenViking](https://github.com/volcengine/OpenViking), and four vulnerabilities reported
+[OpenViking](https://github.com/volcengine/OpenViking), and five vulnerabilities reported
 through private security advisories — two of which now have merged fixes.
 
 **English** · [Tiếng Việt](README_vn.md)
@@ -99,10 +99,9 @@ Two produced merged fixes: the cloud-metadata bypass described above, and the re
 that [#10935](https://github.com/diegosouzapw/OmniRoute/pull/10935) closed in the Cloudflare
 worker. Those two are public only because their patches are.
 
-The maintainers closed four of them on 21 August without publishing any; the fifth is newly
-filed and still in triage. Every unpublished one stays undescribed here — not the component,
-not the class. Whether an advisory is published is the maintainer's call, and an unpublished
-one is not mine to narrate.
+The maintainers have closed all five without publishing any of them, so the rest stay
+undescribed here — not the component, not the class. Whether an advisory is published is the
+maintainer's call, and an unpublished one is not mine to narrate.
 
 ---
 
