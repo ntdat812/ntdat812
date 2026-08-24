@@ -6,11 +6,11 @@ every user's bug. I read the issue nobody has picked up, reproduce it, and follo
 line that is actually wrong.
 
 Seventeen pull requests merged into [OmniRoute](https://github.com/diegosouzapw/OmniRoute) and
-[OpenViking](https://github.com/volcengine/OpenViking), twenty-four more in review across
-[9router](https://github.com/decolua/9router), [ComfyUI](https://github.com/Comfy-Org/ComfyUI),
+[OpenViking](https://github.com/volcengine/OpenViking), thirty-three more in review across
+those two and [9router](https://github.com/decolua/9router), [ComfyUI](https://github.com/Comfy-Org/ComfyUI),
 [ECC](https://github.com/affaan-m/ECC), [OpenClaw](https://github.com/openclaw/openclaw) and
-OpenViking, and five vulnerabilities reported through private security advisories, every one of
-which is now fixed.
+[opencodex](https://github.com/lidge-jun/opencodex), and five vulnerabilities reported through private security
+advisories, every one of which is now fixed.
 
 **English** · [Tiếng Việt](README_vn.md)
 
@@ -42,15 +42,17 @@ Ten that show the range:
 
 ## In review
 
-Twenty-four open: eight on [9router](https://github.com/decolua/9router), five on
-[ComfyUI](https://github.com/Comfy-Org/ComfyUI), five on
-[OpenViking](https://github.com/volcengine/OpenViking), five on
-[ECC](https://github.com/affaan-m/ECC), one on [OpenClaw](https://github.com/openclaw/openclaw).
+Thirty-three open across seven projects: twelve on [9router](https://github.com/decolua/9router), five each on
+[ComfyUI](https://github.com/Comfy-Org/ComfyUI), [OpenViking](https://github.com/volcengine/OpenViking)
+and [ECC](https://github.com/affaan-m/ECC), four on
+[OmniRoute](https://github.com/diegosouzapw/OmniRoute), one each on
+[OpenClaw](https://github.com/openclaw/openclaw) and [opencodex](https://github.com/lidge-jun/opencodex).
 [Full list](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests).
 
 | Pull request | What it fixes |
 | --- | --- |
 | [OpenClaw #127135](https://github.com/openclaw/openclaw/pull/127135) | Every request to an Alibaba Model Studio provider sent the output-token cap as `max_completion_tokens` — a field the vendor's own OpenAI-compatibility reference does not list. Closes [#127119](https://github.com/openclaw/openclaw/issues/127119). |
+| [9router #3522](https://github.com/decolua/9router/pull/3522) `fix(tunnel)` | The public subdomain a tunnel is published under was drawn from a predictable source, so the address meant to be unguessable could be guessed. |
 | [9router #3517](https://github.com/decolua/9router/pull/3517) `fix(proxy)` | A loopback request was sent out through the configured outbound proxy, so a request to the machine itself left the machine. Closes [#3424](https://github.com/decolua/9router/issues/3424). |
 | [9router #3513](https://github.com/decolua/9router/pull/3513) `fix(usage)` | A streaming request that ended before its flush was never recorded, so the usage it consumed went uncounted. |
 | [ComfyUI #15841](https://github.com/Comfy-Org/ComfyUI/pull/15841) | A YAML list in `extra_model_paths.yaml` crashed the loader instead of being read as a list of paths. |
@@ -116,8 +118,11 @@ Two by patches I sent: the cloud-metadata bypass described above, and the relay-
 The maintainers fixed the other three themselves and named the advisory in the code that does
 it — `GHSA-mghq-58h3-qcqj` and `GHSA-v7g9-7f55-5g46` on the always-protected route list in
 `src/server/authz/routeGuard.ts`, `GHSA-wgwc-crjm-pmwv` on the loopback-only entry beside it.
-One of those was a follow-up report: the first fix had left two sibling routes behind, and the
-guard now covers them too.
+
+That first pair is the one I would point at. `GHSA-mghq` was the report. `GHSA-v7g9` is what
+came out of going back and reading the fix instead of trusting it — two sibling routes had been
+left behind, still reachable the same way as before. Re-reading a patch that has already been
+accepted is not interesting work, and it is the step most people skip.
 
 None of the five was published as an advisory, so the patched code is the only public record of
 them. Grep the repository for the ids.

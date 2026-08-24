@@ -6,11 +6,11 @@ tức trở thành lỗi của mọi người dùng. Tôi đọc issue chưa ai 
 dòng code sai.
 
 Mười bảy pull request đã merge vào [OmniRoute](https://github.com/diegosouzapw/OmniRoute) và
-[OpenViking](https://github.com/volcengine/OpenViking), hai mươi bốn PR nữa đang chờ review trên
-[9router](https://github.com/decolua/9router), [ComfyUI](https://github.com/Comfy-Org/ComfyUI),
-[ECC](https://github.com/affaan-m/ECC), [OpenClaw](https://github.com/openclaw/openclaw) và
-OpenViking, cùng năm lỗ hổng đã báo cáo qua kênh security advisory riêng tư — tất cả đều đã
-được vá.
+[OpenViking](https://github.com/volcengine/OpenViking), ba mươi ba PR nữa đang chờ review trên
+chính hai dự án đó và [9router](https://github.com/decolua/9router), [ComfyUI](https://github.com/Comfy-Org/ComfyUI),
+[ECC](https://github.com/affaan-m/ECC), [OpenClaw](https://github.com/openclaw/openclaw) cùng
+[opencodex](https://github.com/lidge-jun/opencodex), và năm lỗ hổng đã báo cáo qua kênh security advisory riêng tư — tất cả
+đều đã được vá.
 
 [English](README.md) · **Tiếng Việt**
 
@@ -42,15 +42,17 @@ Mười PR cho thấy phạm vi công việc:
 
 ## Đang chờ review
 
-Hai mươi bốn PR đang mở: tám trên [9router](https://github.com/decolua/9router), năm trên
-[ComfyUI](https://github.com/Comfy-Org/ComfyUI), năm trên
-[OpenViking](https://github.com/volcengine/OpenViking), năm trên
-[ECC](https://github.com/affaan-m/ECC), một trên [OpenClaw](https://github.com/openclaw/openclaw).
+Ba mươi ba PR đang mở trên bảy dự án: mười hai trên [9router](https://github.com/decolua/9router), năm mỗi dự án ở
+[ComfyUI](https://github.com/Comfy-Org/ComfyUI), [OpenViking](https://github.com/volcengine/OpenViking)
+và [ECC](https://github.com/affaan-m/ECC), bốn trên
+[OmniRoute](https://github.com/diegosouzapw/OmniRoute), một mỗi dự án ở
+[OpenClaw](https://github.com/openclaw/openclaw) và [opencodex](https://github.com/lidge-jun/opencodex).
 [Danh sách đầy đủ](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests).
 
 | Pull request | Nội dung |
 | --- | --- |
 | [OpenClaw #127135](https://github.com/openclaw/openclaw/pull/127135) | Mọi request tới nhà cung cấp Alibaba Model Studio đều gửi hạn mức token đầu ra dưới tên `max_completion_tokens` — trường mà chính tài liệu tương thích OpenAI của hãng không hề liệt kê. Đóng [#127119](https://github.com/openclaw/openclaw/issues/127119). |
+| [9router #3522](https://github.com/decolua/9router/pull/3522) `fix(tunnel)` | Subdomain công khai mà tunnel được publish dưới đó lại rút ra từ một nguồn đoán được, nên địa chỉ vốn phải không đoán nổi thì lại đoán được. |
 | [9router #3517](https://github.com/decolua/9router/pull/3517) `fix(proxy)` | Một request tới loopback vẫn bị đẩy ra ngoài qua proxy outbound đã cấu hình, nên request gửi cho chính máy đó lại rời khỏi máy. Đóng [#3424](https://github.com/decolua/9router/issues/3424). |
 | [9router #3513](https://github.com/decolua/9router/pull/3513) `fix(usage)` | Một request streaming kết thúc trước lượt flush thì không bao giờ được ghi nhận, nên phần usage nó tiêu thụ không được tính. |
 | [ComfyUI #15841](https://github.com/Comfy-Org/ComfyUI/pull/15841) | Một danh sách YAML trong `extra_model_paths.yaml` làm sập bộ nạp thay vì được đọc như danh sách đường dẫn. |
@@ -116,8 +118,11 @@ Cloudflare.
 Ba cái còn lại do maintainer tự vá, và họ ghi thẳng id advisory vào đoạn code làm việc đó —
 `GHSA-mghq-58h3-qcqj` cùng `GHSA-v7g9-7f55-5g46` trong danh sách route luôn được bảo vệ ở
 `src/server/authz/routeGuard.ts`, còn `GHSA-wgwc-crjm-pmwv` nằm ngay cạnh ở mục chỉ-loopback.
-Một trong số đó là báo cáo tiếp nối: bản vá đầu tiên bỏ sót hai route anh em, và lớp guard giờ
-đã phủ cả chúng.
+
+Cặp đầu tiên mới là thứ tôi muốn chỉ vào. `GHSA-mghq` là báo cáo. `GHSA-v7g9` là thứ rơi ra khi
+tôi quay lại đọc chính bản vá đó thay vì tin nó — hai route anh em đã bị bỏ sót, vẫn chạm tới
+được y như cũ. Đọc lại một bản vá đã được chấp nhận là việc chẳng có gì thú vị, và đó là bước
+hầu hết mọi người bỏ qua.
 
 Không advisory nào trong năm cái được công bố, nên chính đoạn code đã vá là dấu vết công khai
 duy nhất của chúng. Cứ grep repo theo các id trên.
