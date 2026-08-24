@@ -5,11 +5,11 @@ nằm giữa một coding agent và ba trăm nhà cung cấp mô hình, nơi m�
 tức trở thành lỗi của mọi người dùng. Tôi đọc issue chưa ai nhận, tái hiện nó, rồi lần tới đúng
 dòng code sai.
 
-Mười hai pull request đã merge vào [OmniRoute](https://github.com/diegosouzapw/OmniRoute), tám
-PR nữa đang chờ review trên [OpenClaw](https://github.com/openclaw/openclaw),
-[ECC](https://github.com/affaan-m/ECC), [ComfyUI](https://github.com/Comfy-Org/ComfyUI) và
-[OpenViking](https://github.com/volcengine/OpenViking), cùng năm lỗ hổng đã báo cáo qua kênh
-security advisory riêng tư — tất cả đều đã được vá.
+Mười bảy pull request đã merge vào [OmniRoute](https://github.com/diegosouzapw/OmniRoute) và
+[OpenViking](https://github.com/volcengine/OpenViking), mười sáu PR nữa đang chờ review trên
+[OpenClaw](https://github.com/openclaw/openclaw), [ECC](https://github.com/affaan-m/ECC),
+[ComfyUI](https://github.com/Comfy-Org/ComfyUI) và OpenViking, cùng năm lỗ hổng đã báo cáo qua
+kênh security advisory riêng tư — tất cả đều đã được vá.
 
 [English](README.md) · **Tiếng Việt**
 
@@ -17,41 +17,44 @@ security advisory riêng tư — tất cả đều đã được vá.
 
 ## Đã merge
 
-Mười hai pull request đã merge vào OmniRoute, một AI gateway giấy phép MIT đứng trước 340 nhà
-cung cấp. Tám PR đóng issue do người khác báo. Mỗi PR đều kèm regression test: fail trên nhánh gốc,
-pass khi có bản vá.
+Mười bảy PR đã merge — mười sáu vào OmniRoute, một AI gateway giấy phép MIT đứng trước 340 nhà
+cung cấp, và một vào OpenViking. Chín PR đóng issue do người khác báo. Mỗi PR đều kèm regression
+test: fail trên nhánh gốc, pass khi có bản vá.
+[Danh sách đầy đủ](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests).
+
+Mười PR cho thấy phạm vi công việc:
 
 | Pull request | Nội dung |
 | --- | --- |
 | [#10843](https://github.com/diegosouzapw/OmniRoute/pull/10843) `fix(security)` | Lớp chặn SSRF nhận diện host cloud-metadata theo cách viết thay vì theo địa chỉ. Chi tiết bên dưới. |
-| [#11004](https://github.com/diegosouzapw/OmniRoute/pull/11004) `fix(opencode)` | `mergeOpenCodeConfig` có chặn trường hợp gốc của config không phải object, nhưng lại spread `provider` ở tầng dưới mà không chặn gì cả — nên một config có khóa `provider` không phải object sẽ kéo cả phép merge sập theo. |
-| [#10958](https://github.com/diegosouzapw/OmniRoute/pull/10958) `fix(desktop)` | GitHub đổi dấu cách trong tên asset tải lên thành `.`; electron-builder ghi đúng tên đó vào `latest.yml` nhưng với dấu `-`. NSIS mang đúng cái tên artifact mặc định duy nhất có dấu cách, nên manifest và asset đã phát hành không bao giờ khớp nhau, và bộ cập nhật trong ứng dụng 404 ở mọi bản phát hành. Đóng [#10947](https://github.com/diegosouzapw/OmniRoute/issues/10947). |
-| [#10951](https://github.com/diegosouzapw/OmniRoute/pull/10951) `fix(resilience)` | `least-used` sắp xếp kết nối theo `lastUsedAt` và là chiến lược duy nhất đọc trường đó mà không bao giờ ghi vào nó, nên việc luân phiên mà nó hứa hẹn chưa từng xảy ra. Đóng [#10945](https://github.com/diegosouzapw/OmniRoute/issues/10945). |
-| [#10935](https://github.com/diegosouzapw/OmniRoute/pull/10935) `fix(relay)` | Một bản vá trước đó đã thay việc nối chuỗi `x-relay-path` do kẻ tấn công kiểm soát bằng một lớp guard — nhưng chỉ ở relay worker của Deno và Vercel. Worker Cloudflare sinh ra cùng dạng đó và vẫn nối chuỗi, nên phần userinfo trong đường dẫn lái được request vượt qua lớp kiểm tra private-host. |
-| [#10941](https://github.com/diegosouzapw/OmniRoute/pull/10941) `fix(relay)` | Đưa cả ba relay worker về chung đúng một lớp guard đó, để worker được thêm sau này không lệch nhịp khỏi nó. |
-| [#10868](https://github.com/diegosouzapw/OmniRoute/pull/10868) `fix(proxy)` | Mọi phép dò egress đã bị chuyển sang một endpoint ưu tiên IPv6, nên đường hầm chỉ có IPv4 không có route tới đó, treo cho tới hết deadline, và một proxy đang tải lưu lượng thật bị báo là chết. Đổi hằng số ngược lại chỉ làm hỏng chiều còn lại — sai ở chiến lược, không phải ở giá trị. Đóng [#9694](https://github.com/diegosouzapw/OmniRoute/issues/9694). |
-| [#10862](https://github.com/diegosouzapw/OmniRoute/pull/10862) `fix(providers)` | Đồng bộ model không báo lỗi khi upstream trả 401. Nó lặng lẽ tụt xuống dùng catalog đã cache, nên một provider có thông tin xác thực đã chết vẫn trông như đang khỏe. Đóng [#9683](https://github.com/diegosouzapw/OmniRoute/issues/9683). |
-| [#10860](https://github.com/diegosouzapw/OmniRoute/pull/10860) `fix(mcp)` | Một hạn mức fetch cứng áp cho mọi chặng server-to-server nội bộ, khiến tool call gắn với provider thừa hưởng timeout vốn dành cho việc khác. Đóng [#9717](https://github.com/diegosouzapw/OmniRoute/issues/9717). |
+| [#11328](https://github.com/diegosouzapw/OmniRoute/pull/11328) `fix(security)` | Danh sách chuẩn các header không bao giờ được chuyển tiếp lên upstream thiếu hai tên hop-by-hop của RFC 7230, nên `proxy-authorization` và `proxy-authenticate` đi thẳng tới nhà cung cấp. |
+| [#11319](https://github.com/diegosouzapw/OmniRoute/pull/11319) `fix(db)` | Bộ kiểm tra proxy URL từ chối đích riêng tư và cloud-metadata bằng regex dạng bốn số thập phân của riêng nó, nên cùng địa chỉ đó viết theo cách khác là đi lọt. |
+| [#11311](https://github.com/diegosouzapw/OmniRoute/pull/11311) `fix(db)` | Mẫu nhóm do người vận hành đặt được biên dịch thành `RegExp` mà chỉ thay riêng `*`, nên một ký tự đặc biệt trong mẫu làm đổi hẳn thứ nó khớp. |
+| [#10935](https://github.com/diegosouzapw/OmniRoute/pull/10935) `fix(relay)` | Một bản vá trước đó đã đưa `x-relay-path` do kẻ tấn công kiểm soát vào sau lớp guard ở relay worker của Deno và Vercel. Worker Cloudflare vẫn nối chuỗi, nên userinfo trong đường dẫn lái được request vượt qua lớp kiểm tra private-host. |
+| [#10868](https://github.com/diegosouzapw/OmniRoute/pull/10868) `fix(proxy)` | Mọi phép dò egress đã chuyển sang endpoint ưu tiên IPv6, nên đường hầm chỉ có IPv4 không có route tới đó, treo tới hết deadline, và một proxy đang tải lưu lượng thật bị báo là chết. Sai ở chiến lược, không phải ở hằng số. Đóng [#9694](https://github.com/diegosouzapw/OmniRoute/issues/9694). |
+| [#10862](https://github.com/diegosouzapw/OmniRoute/pull/10862) `fix(providers)` | Đồng bộ model không báo lỗi khi upstream trả 401. Nó lặng lẽ tụt xuống dùng catalog đã cache, nên provider có thông tin xác thực đã chết vẫn trông như đang khỏe. Đóng [#9683](https://github.com/diegosouzapw/OmniRoute/issues/9683). |
 | [#10858](https://github.com/diegosouzapw/OmniRoute/pull/10858) `fix(context)` | Tài liệu base64 bị đếm từng ký tự, nên một PDF 1 MB được ước lượng thành 350.022 token và request bị chặn trước khi kịp gửi đi. Đóng [#10840](https://github.com/diegosouzapw/OmniRoute/issues/10840). |
-| [#10857](https://github.com/diegosouzapw/OmniRoute/pull/10857) `fix(catalog)` | Khi tắt auto routing, `/v1/models` vẫn quảng cáo mọi id `auto/*` mà router sẽ từ chối lúc nhận request. Đóng [#10831](https://github.com/diegosouzapw/OmniRoute/issues/10831). |
 | [#10853](https://github.com/diegosouzapw/OmniRoute/pull/10853) `fix(i18n)` | Tám ngôn ngữ hiển thị *trạng thái* "Disabled" thành danh từ chỉ người khuyết tật. Đóng [#10812](https://github.com/diegosouzapw/OmniRoute/issues/10812). |
+| [OpenViking #4228](https://github.com/volcengine/OpenViking/pull/4228) `fix(ov_dream)` | Một message trong session có nội dung là chuỗi thuần thay vì danh sách block thì không được chấp nhận. Đóng [#4221](https://github.com/volcengine/OpenViking/issues/4221). |
 
 ---
 
 ## Đang chờ review
 
-Tám pull request đang mở trên bốn dự án.
+Mười sáu PR đang mở: năm trên [ComfyUI](https://github.com/Comfy-Org/ComfyUI), năm trên
+[OpenViking](https://github.com/volcengine/OpenViking), năm trên
+[ECC](https://github.com/affaan-m/ECC), một trên [OpenClaw](https://github.com/openclaw/openclaw).
+[Danh sách đầy đủ](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests).
 
-| Dự án | Pull request | Nội dung |
-| --- | --- | --- |
-| [OpenClaw](https://github.com/openclaw/openclaw) | [#127135](https://github.com/openclaw/openclaw/pull/127135) | Mọi request tới nhà cung cấp Alibaba Model Studio (`qwen`, `dashscope`, `modelstudio`) đều gửi hạn mức token đầu ra dưới tên `max_completion_tokens` — trường mà chính tài liệu tương thích OpenAI của hãng không hề liệt kê. Đóng [#127119](https://github.com/openclaw/openclaw/issues/127119). |
-| [ECC](https://github.com/affaan-m/ECC) | [#2837](https://github.com/affaan-m/ECC/pull/2837) `fix(block-no-verify)` | Lớp chặn `--no-verify` đem cờ ra so đúng với chuỗi đầy đủ đó. Git chấp nhận mọi tiền tố không nhập nhằng của một long option, nên `--no-ver` vẫn bỏ qua hook và đi thẳng qua cổng chặn. |
-| [ECC](https://github.com/affaan-m/ECC) | [#2832](https://github.com/affaan-m/ECC/pull/2832) `fix(gateguard)` | Bộ phân loại lệnh phá hủy chỉ nhìn token đầu tiên, nên các tiền tố `sudo`, `doas` và `VAR=value` che mất chính lệnh đang bị đánh giá. |
-| [ECC](https://github.com/affaan-m/ECC) | [#2829](https://github.com/affaan-m/ECC/pull/2829) `fix(gateguard)` | Một dấu `\b` ở cuối bị dùng chung cho mọi nhánh của biểu thức chọn lệnh SQL phá hủy, khiến tầm với của lớp guard không khớp với ý định của nó. |
-| [ComfyUI](https://github.com/Comfy-Org/ComfyUI) | [#15783](https://github.com/Comfy-Org/ComfyUI/pull/15783) | Một thư mục model có liên kết trỏ ngược về chính thư mục tổ tiên của nó khiến phép duyệt đi vào lại cùng một cây ở mọi tầng, nên một model bị liệt kê lặp đi lặp lại trong mọi dropdown. Việc đi theo liên kết là cố ý; thứ thiếu là khả năng phát hiện vòng lặp. |
-| [ComfyUI](https://github.com/Comfy-Org/ComfyUI) | [#15779](https://github.com/Comfy-Org/ComfyUI/pull/15779) | Khi `filename_prefix` kết thúc bằng dấu phân cách đường dẫn, hai vế của phép so sánh bộ đếm được chuẩn hóa khác nhau, nên mỗi lần lưu lại lặng lẽ đè lên lần lưu trước. |
-| [OpenViking](https://github.com/volcengine/OpenViking) | [#4182](https://github.com/volcengine/OpenViking/pull/4182) `fix(observability)` | Ba endpoint BFF nhận `?timezone=` dạng tự do, và một giá trị sai trả về HTTP 500 thay vì lùi về mặc định của server. `ZoneInfo()` từ chối khóa sai theo hai cách khác nhau, mà chỉ một cách được xử lý. |
-| [OpenViking](https://github.com/volcengine/OpenViking) | [#4173](https://github.com/volcengine/OpenViking/pull/4173) `fix(observability)` | Log request lưu mẫu route, nên một lỗi 404 trên endpoint có tham số bị ghi thành `/sessions/{session_id}` và không truy lại được id thật sự gây lỗi. Đường dẫn thô vốn đã có sẵn trong payload và chỉ đơn giản là bị bỏ đi. |
+| Pull request | Nội dung |
+| --- | --- |
+| [OpenClaw #127135](https://github.com/openclaw/openclaw/pull/127135) | Mọi request tới nhà cung cấp Alibaba Model Studio đều gửi hạn mức token đầu ra dưới tên `max_completion_tokens` — trường mà chính tài liệu tương thích OpenAI của hãng không hề liệt kê. Đóng [#127119](https://github.com/openclaw/openclaw/issues/127119). |
+| [ComfyUI #15841](https://github.com/Comfy-Org/ComfyUI/pull/15841) | Một danh sách YAML trong `extra_model_paths.yaml` làm sập bộ nạp thay vì được đọc như danh sách đường dẫn. |
+| [ComfyUI #15783](https://github.com/Comfy-Org/ComfyUI/pull/15783) | Một thư mục model có liên kết trỏ ngược về thư mục tổ tiên của nó khiến phép duyệt đi vào lại cùng một cây ở mọi tầng, nên một model bị liệt kê lặp đi lặp lại. Việc đi theo liên kết là cố ý; thứ thiếu là khả năng phát hiện vòng lặp. |
+| [OpenViking #4233](https://github.com/volcengine/OpenViking/pull/4233) | Lớp guard URI của memory plugin đọc *nội dung* file như thể đó là một đường dẫn. Đóng [#4188](https://github.com/volcengine/OpenViking/issues/4188). |
+| [OpenViking #4229](https://github.com/volcengine/OpenViking/pull/4229) | Một PID lock cũ vẫn được tin trên macOS mà không kiểm tra tiến trình đang giữ nó có đúng là tiến trình nó tự nhận hay không. Đóng [#4210](https://github.com/volcengine/OpenViking/issues/4210). |
+| [ECC #2846](https://github.com/affaan-m/ECC/pull/2846) | Lớp chặn dev-server xác định tên script từ văn bản thô thay vì từ token. |
+| [ECC #2837](https://github.com/affaan-m/ECC/pull/2837) | Lớp chặn `--no-verify` đem cờ ra so đúng với chuỗi đầy đủ đó. Git chấp nhận mọi tiền tố không nhập nhằng của một long option, nên `--no-ver` vẫn bỏ qua hook. |
 
 ---
 
@@ -84,8 +87,16 @@ loopback, nhưng chỉ mỗi cách viết IPv4 bị chặn. Lỗ đó nằm tron
 Bằng chứng tôi gửi kèm: test mới fail 10/12 trường hợp trên `release/v3.8.50` và pass 12/12 khi có
 bản vá; năm bộ test sẵn có của lớp chặn vẫn xanh 73/73.
 
-Tôi báo cáo riêng tư trước, đúng như `SECURITY.md` của dự án yêu cầu, rồi mới mở pull request vào
-nhánh release đang hoạt động sau khi maintainer đã nắm được thông tin.
+**Và cùng một hình dạng đó cứ quay lại.** Một phép kiểm tra so *cách viết* của thứ gì đó với một
+danh sách, trong khi thứ quyết định kết quả lại là *bản chất* của nó. Kể từ bản vá đó tôi đã gặp
+lại nó ở một bộ kiểm tra proxy URL ([#11319](https://github.com/diegosouzapw/OmniRoute/pull/11319)),
+một mẫu nhóm được biên dịch thành `RegExp` mà không escape
+([#11311](https://github.com/diegosouzapw/OmniRoute/pull/11311)), một lớp chặn `--no-verify` bỏ
+sót dạng viết tắt của long option trong git ([ECC #2837](https://github.com/affaan-m/ECC/pull/2837)),
+một bộ phân loại lệnh phá hủy bị tiền tố `sudo` che mất
+([ECC #2832](https://github.com/affaan-m/ECC/pull/2832)), và một lớp chặn dev-server đọc văn bản
+thô ở chỗ đáng ra phải đọc token ([ECC #2846](https://github.com/affaan-m/ECC/pull/2846)). Bản vá
+lần nào cũng gói trong đúng một câu: phán quyết theo bản chất, không theo cách viết.
 
 ---
 
