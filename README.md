@@ -5,8 +5,8 @@ between a coding agent and three hundred model providers, where one correctness 
 every user's bug. I read the issue nobody has picked up, reproduce it, and follow it to the
 line that is actually wrong.
 
-Seventeen pull requests merged into [OmniRoute](https://github.com/diegosouzapw/OmniRoute) and
-[OpenViking](https://github.com/volcengine/OpenViking), thirty-three more in review across
+Twenty pull requests merged into [OmniRoute](https://github.com/diegosouzapw/OmniRoute) and
+[OpenViking](https://github.com/volcengine/OpenViking), thirty-five more in review across
 those two and [9router](https://github.com/decolua/9router), [ComfyUI](https://github.com/Comfy-Org/ComfyUI),
 [ECC](https://github.com/affaan-m/ECC), [OpenClaw](https://github.com/openclaw/openclaw) and
 [opencodex](https://github.com/lidge-jun/opencodex), and five vulnerabilities reported through private security
@@ -18,17 +18,18 @@ advisories, every one of which is now fixed.
 
 ## Merged
 
-Seventeen merged — sixteen into OmniRoute, an MIT AI gateway fronting 340 providers, and one
-into OpenViking. Nine close an issue someone else reported. Each carries a regression test that
+Twenty merged — nineteen into OmniRoute, an MIT AI gateway fronting 340 providers, and one
+into OpenViking. Eleven close an issue someone else reported. Each carries a regression test that
 fails on the base branch and passes with the change.
 [Full list](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests).
 
-Ten that show the range:
+Eleven that show the range:
 
 | Pull request | What it fixes |
 | --- | --- |
 | [#10843](https://github.com/diegosouzapw/OmniRoute/pull/10843) `fix(security)` | An SSRF guard that matched cloud-metadata hosts by spelling instead of by address. Detailed below. |
 | [#11328](https://github.com/diegosouzapw/OmniRoute/pull/11328) `fix(security)` | The canonical denylist of headers never forwarded upstream was missing two of the RFC 7230 hop-by-hop names, so `proxy-authorization` and `proxy-authenticate` went to the provider. |
+| [#11376](https://github.com/diegosouzapw/OmniRoute/pull/11376) `fix(auth)` | Every upstream failure that was not already a string collapsed to the literal `Provider error`, and that is the line an operator reads. A refused port, a DNS failure, a blocked proxy and a provider simply saying no were indistinguishable — the actionable part sits on `error.cause.code`, which nothing looked at. |
 | [#11319](https://github.com/diegosouzapw/OmniRoute/pull/11319) `fix(db)` | The proxy-URL validator refused private and cloud-metadata targets using its own dotted-quad regexes, so the same address in another spelling walked straight through. |
 | [#11311](https://github.com/diegosouzapw/OmniRoute/pull/11311) `fix(db)` | An operator's group pattern was compiled into a `RegExp` with only `*` substituted, so a metacharacter in the pattern changed what it matched. |
 | [#10935](https://github.com/diegosouzapw/OmniRoute/pull/10935) `fix(relay)` | An earlier fix put the attacker-controlled `x-relay-path` behind a guard in the Deno and Vercel relay workers. The Cloudflare worker still concatenated it, so userinfo in the path re-pointed the request past the private-host check. |
@@ -42,10 +43,10 @@ Ten that show the range:
 
 ## In review
 
-Thirty-three open across seven projects: twelve on [9router](https://github.com/decolua/9router), five each on
-[ComfyUI](https://github.com/Comfy-Org/ComfyUI), [OpenViking](https://github.com/volcengine/OpenViking)
-and [ECC](https://github.com/affaan-m/ECC), four on
-[OmniRoute](https://github.com/diegosouzapw/OmniRoute), one each on
+Thirty-five open across seven projects: sixteen on [9router](https://github.com/decolua/9router), six on
+[ECC](https://github.com/affaan-m/ECC), five each on [ComfyUI](https://github.com/Comfy-Org/ComfyUI)
+and [OpenViking](https://github.com/volcengine/OpenViking), one each on
+[OmniRoute](https://github.com/diegosouzapw/OmniRoute),
 [OpenClaw](https://github.com/openclaw/openclaw) and [opencodex](https://github.com/lidge-jun/opencodex).
 [Full list](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests).
 
@@ -59,6 +60,7 @@ and [ECC](https://github.com/affaan-m/ECC), four on
 | [ComfyUI #15783](https://github.com/Comfy-Org/ComfyUI/pull/15783) | A model directory that links back to one of its own ancestors makes the walk re-enter the same tree at every level, so one model is listed over and over. Following links is deliberate; detecting the loop was missing. |
 | [OpenViking #4233](https://github.com/volcengine/OpenViking/pull/4233) | The memory plugin's URI guard read file *content* as if it were a path. Closes [#4188](https://github.com/volcengine/OpenViking/issues/4188). |
 | [OpenViking #4229](https://github.com/volcengine/OpenViking/pull/4229) | A stale PID lock was honoured on macOS without checking that the process holding it was the one it claimed to be. Closes [#4210](https://github.com/volcengine/OpenViking/issues/4210). |
+| [ECC #2858](https://github.com/affaan-m/ECC/pull/2858) | The guard that stops a commit from skipping its hooks knew `-c core.hooksPath=`. `git --config-env=core.hooksPath=VAR` is the same instruction read from the environment, and it was not on the list — so the hook did not run and the commit went through. Verified against git 2.51. |
 | [ECC #2846](https://github.com/affaan-m/ECC/pull/2846) | The dev-server block decided the script name from raw text rather than from tokens. |
 | [ECC #2837](https://github.com/affaan-m/ECC/pull/2837) | The guard blocking `--no-verify` compared the flag against that exact spelling. Git resolves any unambiguous prefix of a long option, so `--no-ver` skipped the hooks. |
 
@@ -99,7 +101,9 @@ against a list, when what decides the outcome is what it *is*. Since that patch 
 in a proxy-URL validator ([#11319](https://github.com/diegosouzapw/OmniRoute/pull/11319)), a
 group pattern compiled into a `RegExp` without escaping
 ([#11311](https://github.com/diegosouzapw/OmniRoute/pull/11311)), a `--no-verify` block that
-missed git's abbreviated long options ([ECC #2837](https://github.com/affaan-m/ECC/pull/2837)),
+missed git's abbreviated long options ([ECC #2837](https://github.com/affaan-m/ECC/pull/2837)), the
+same block again with `--config-env` as a second spelling of `-c`
+([ECC #2858](https://github.com/affaan-m/ECC/pull/2858)),
 a destructive-command classifier hidden by a `sudo` prefix
 ([ECC #2832](https://github.com/affaan-m/ECC/pull/2832)), and a dev-server block reading raw
 text where it should read tokens ([ECC #2846](https://github.com/affaan-m/ECC/pull/2846)). The

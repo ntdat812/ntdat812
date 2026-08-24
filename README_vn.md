@@ -5,8 +5,8 @@ nằm giữa một coding agent và ba trăm nhà cung cấp mô hình, nơi m�
 tức trở thành lỗi của mọi người dùng. Tôi đọc issue chưa ai nhận, tái hiện nó, rồi lần tới đúng
 dòng code sai.
 
-Mười bảy pull request đã merge vào [OmniRoute](https://github.com/diegosouzapw/OmniRoute) và
-[OpenViking](https://github.com/volcengine/OpenViking), ba mươi ba PR nữa đang chờ review trên
+Hai mươi pull request đã merge vào [OmniRoute](https://github.com/diegosouzapw/OmniRoute) và
+[OpenViking](https://github.com/volcengine/OpenViking), ba mươi lăm PR nữa đang chờ review trên
 chính hai dự án đó và [9router](https://github.com/decolua/9router), [ComfyUI](https://github.com/Comfy-Org/ComfyUI),
 [ECC](https://github.com/affaan-m/ECC), [OpenClaw](https://github.com/openclaw/openclaw) cùng
 [opencodex](https://github.com/lidge-jun/opencodex), và năm lỗ hổng đã báo cáo qua kênh security advisory riêng tư — tất cả
@@ -18,17 +18,18 @@ chính hai dự án đó và [9router](https://github.com/decolua/9router), [Com
 
 ## Đã merge
 
-Mười bảy PR đã merge — mười sáu vào OmniRoute, một AI gateway giấy phép MIT đứng trước 340 nhà
-cung cấp, và một vào OpenViking. Chín PR đóng issue do người khác báo. Mỗi PR đều kèm regression
+Hai mươi PR đã merge — mười chín vào OmniRoute, một AI gateway giấy phép MIT đứng trước 340 nhà
+cung cấp, và một vào OpenViking. Mười một PR đóng issue do người khác báo. Mỗi PR đều kèm regression
 test: fail trên nhánh gốc, pass khi có bản vá.
 [Danh sách đầy đủ](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests).
 
-Mười PR cho thấy phạm vi công việc:
+Mười một PR cho thấy phạm vi công việc:
 
 | Pull request | Nội dung |
 | --- | --- |
 | [#10843](https://github.com/diegosouzapw/OmniRoute/pull/10843) `fix(security)` | Lớp chặn SSRF nhận diện host cloud-metadata theo cách viết thay vì theo địa chỉ. Chi tiết bên dưới. |
 | [#11328](https://github.com/diegosouzapw/OmniRoute/pull/11328) `fix(security)` | Danh sách chuẩn các header không bao giờ được chuyển tiếp lên upstream thiếu hai tên hop-by-hop của RFC 7230, nên `proxy-authorization` và `proxy-authenticate` đi thẳng tới nhà cung cấp. |
+| [#11376](https://github.com/diegosouzapw/OmniRoute/pull/11376) `fix(auth)` | Mọi lỗi từ upstream không sẵn ở dạng chuỗi đều bị thu về đúng một chữ `Provider error` — và đó chính là dòng người vận hành đọc. Cổng bị từ chối, DNS hỏng, proxy bị chặn, hay nhà cung cấp đơn giản là nói không: bốn thứ đó không phân biệt được với nhau. Phần dùng được nằm ở `error.cause.code`, chỗ không ai đọc tới. |
 | [#11319](https://github.com/diegosouzapw/OmniRoute/pull/11319) `fix(db)` | Bộ kiểm tra proxy URL từ chối đích riêng tư và cloud-metadata bằng regex dạng bốn số thập phân của riêng nó, nên cùng địa chỉ đó viết theo cách khác là đi lọt. |
 | [#11311](https://github.com/diegosouzapw/OmniRoute/pull/11311) `fix(db)` | Mẫu nhóm do người vận hành đặt được biên dịch thành `RegExp` mà chỉ thay riêng `*`, nên một ký tự đặc biệt trong mẫu làm đổi hẳn thứ nó khớp. |
 | [#10935](https://github.com/diegosouzapw/OmniRoute/pull/10935) `fix(relay)` | Một bản vá trước đó đã đưa `x-relay-path` do kẻ tấn công kiểm soát vào sau lớp guard ở relay worker của Deno và Vercel. Worker Cloudflare vẫn nối chuỗi, nên userinfo trong đường dẫn lái được request vượt qua lớp kiểm tra private-host. |
@@ -42,10 +43,10 @@ Mười PR cho thấy phạm vi công việc:
 
 ## Đang chờ review
 
-Ba mươi ba PR đang mở trên bảy dự án: mười hai trên [9router](https://github.com/decolua/9router), năm mỗi dự án ở
-[ComfyUI](https://github.com/Comfy-Org/ComfyUI), [OpenViking](https://github.com/volcengine/OpenViking)
-và [ECC](https://github.com/affaan-m/ECC), bốn trên
-[OmniRoute](https://github.com/diegosouzapw/OmniRoute), một mỗi dự án ở
+Ba mươi lăm PR đang mở trên bảy dự án: mười sáu trên [9router](https://github.com/decolua/9router), sáu trên
+[ECC](https://github.com/affaan-m/ECC), năm mỗi dự án ở [ComfyUI](https://github.com/Comfy-Org/ComfyUI)
+và [OpenViking](https://github.com/volcengine/OpenViking), một mỗi dự án ở
+[OmniRoute](https://github.com/diegosouzapw/OmniRoute),
 [OpenClaw](https://github.com/openclaw/openclaw) và [opencodex](https://github.com/lidge-jun/opencodex).
 [Danh sách đầy đủ](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests).
 
@@ -59,6 +60,7 @@ và [ECC](https://github.com/affaan-m/ECC), bốn trên
 | [ComfyUI #15783](https://github.com/Comfy-Org/ComfyUI/pull/15783) | Một thư mục model có liên kết trỏ ngược về thư mục tổ tiên của nó khiến phép duyệt đi vào lại cùng một cây ở mọi tầng, nên một model bị liệt kê lặp đi lặp lại. Việc đi theo liên kết là cố ý; thứ thiếu là khả năng phát hiện vòng lặp. |
 | [OpenViking #4233](https://github.com/volcengine/OpenViking/pull/4233) | Lớp guard URI của memory plugin đọc *nội dung* file như thể đó là một đường dẫn. Đóng [#4188](https://github.com/volcengine/OpenViking/issues/4188). |
 | [OpenViking #4229](https://github.com/volcengine/OpenViking/pull/4229) | Một PID lock cũ vẫn được tin trên macOS mà không kiểm tra tiến trình đang giữ nó có đúng là tiến trình nó tự nhận hay không. Đóng [#4210](https://github.com/volcengine/OpenViking/issues/4210). |
+| [ECC #2858](https://github.com/affaan-m/ECC/pull/2858) | Lớp guard chặn commit bỏ qua hook biết mặt `-c core.hooksPath=`. Còn `git --config-env=core.hooksPath=VAR` là đúng chỉ thị đó nhưng đọc từ biến môi trường, và nó không có trong danh sách — nên hook không chạy và commit vẫn đi qua. Đã kiểm chứng trên git 2.51. |
 | [ECC #2846](https://github.com/affaan-m/ECC/pull/2846) | Lớp chặn dev-server xác định tên script từ văn bản thô thay vì từ token. |
 | [ECC #2837](https://github.com/affaan-m/ECC/pull/2837) | Lớp chặn `--no-verify` đem cờ ra so đúng với chuỗi đầy đủ đó. Git chấp nhận mọi tiền tố không nhập nhằng của một long option, nên `--no-ver` vẫn bỏ qua hook. |
 
@@ -99,6 +101,8 @@ lại nó ở một bộ kiểm tra proxy URL ([#11319](https://github.com/diego
 một mẫu nhóm được biên dịch thành `RegExp` mà không escape
 ([#11311](https://github.com/diegosouzapw/OmniRoute/pull/11311)), một lớp chặn `--no-verify` bỏ
 sót dạng viết tắt của long option trong git ([ECC #2837](https://github.com/affaan-m/ECC/pull/2837)),
+cũng chính lớp chặn đó với `--config-env` là cách viết thứ hai của `-c`
+([ECC #2858](https://github.com/affaan-m/ECC/pull/2858)),
 một bộ phân loại lệnh phá hủy bị tiền tố `sudo` che mất
 ([ECC #2832](https://github.com/affaan-m/ECC/pull/2832)), và một lớp chặn dev-server đọc văn bản
 thô ở chỗ đáng ra phải đọc token ([ECC #2846](https://github.com/affaan-m/ECC/pull/2846)). Bản vá
