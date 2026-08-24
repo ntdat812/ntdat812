@@ -9,7 +9,7 @@ Twelve pull requests merged into [OmniRoute](https://github.com/diegosouzapw/Omn
 more in review across [OpenClaw](https://github.com/openclaw/openclaw),
 [ECC](https://github.com/affaan-m/ECC), [ComfyUI](https://github.com/Comfy-Org/ComfyUI) and
 [OpenViking](https://github.com/volcengine/OpenViking), and five vulnerabilities reported
-through private security advisories — two of which now have merged fixes.
+through private security advisories, every one of which is now fixed.
 
 **English** · [Tiếng Việt](README_vn.md)
 
@@ -92,16 +92,20 @@ request against the active release branch once the maintainers had it.
 
 ## Security research
 
-Five vulnerabilities reported to the OmniRoute maintainers through private advisories, which
-is the disclosure route the project's `SECURITY.md` asks for.
+Five vulnerabilities reported to the OmniRoute maintainers through private advisories, the
+disclosure route the project's `SECURITY.md` asks for. All five are fixed.
 
-Two produced merged fixes: the cloud-metadata bypass described above, and the relay-path gap
-that [#10935](https://github.com/diegosouzapw/OmniRoute/pull/10935) closed in the Cloudflare
-worker. Those two are public only because their patches are.
+Two by patches I sent: the cloud-metadata bypass described above, and the relay-path gap that
+[#10935](https://github.com/diegosouzapw/OmniRoute/pull/10935) closed in the Cloudflare worker.
 
-The maintainers have closed all five without publishing any of them, so the rest stay
-undescribed here — not the component, not the class. Whether an advisory is published is the
-maintainer's call, and an unpublished one is not mine to narrate.
+The maintainers fixed the other three themselves and named the advisory in the code that does
+it — `GHSA-mghq-58h3-qcqj` and `GHSA-v7g9-7f55-5g46` on the always-protected route list in
+`src/server/authz/routeGuard.ts`, `GHSA-wgwc-crjm-pmwv` on the loopback-only entry beside it.
+One of those was a follow-up report: the first fix had left two sibling routes behind, and the
+guard now covers them too.
+
+None of the five was published as an advisory, so the patched code is the only public record
+of them. Grep the repository for the ids.
 
 ---
 

@@ -9,7 +9,7 @@ Mười hai pull request đã merge vào [OmniRoute](https://github.com/diegosou
 PR nữa đang chờ review trên [OpenClaw](https://github.com/openclaw/openclaw),
 [ECC](https://github.com/affaan-m/ECC), [ComfyUI](https://github.com/Comfy-Org/ComfyUI) và
 [OpenViking](https://github.com/volcengine/OpenViking), cùng năm lỗ hổng đã báo cáo qua kênh
-security advisory riêng tư — hai trong số đó nay đã có bản vá được merge.
+security advisory riêng tư — tất cả đều đã được vá.
 
 [English](README.md) · **Tiếng Việt**
 
@@ -92,16 +92,20 @@ nhánh release đang hoạt động sau khi maintainer đã nắm được thôn
 ## Nghiên cứu bảo mật
 
 Năm lỗ hổng đã báo cáo cho maintainer của OmniRoute qua kênh advisory riêng tư, đúng con đường
-công bố mà `SECURITY.md` của dự án yêu cầu.
+công bố mà `SECURITY.md` của dự án yêu cầu. Cả năm đều đã được vá.
 
-Hai lỗ hổng đã dẫn tới bản vá được merge: lỗi vượt rào cloud-metadata mô tả ở trên, và lỗ hổng
-đường dẫn relay mà [#10935](https://github.com/diegosouzapw/OmniRoute/pull/10935) đã bịt trong
-worker Cloudflare. Cả hai chỉ công khai vì bản vá của chúng vốn đã công khai.
+Hai cái do chính bản vá tôi gửi: lỗi vượt rào cloud-metadata mô tả ở trên, và lỗ hổng đường dẫn
+relay mà [#10935](https://github.com/diegosouzapw/OmniRoute/pull/10935) đã bịt trong worker
+Cloudflare.
 
-Maintainer đã đóng cả năm mà không publish cái nào, nên những cái còn lại không được mô tả ở
-đây — không nêu thành phần, không nêu phân loại. Việc một advisory có được công bố hay không là
-quyền quyết định của maintainer, và một advisory chưa công bố thì không phải chuyện của tôi để
-kể lại.
+Ba cái còn lại do maintainer tự vá, và họ ghi thẳng id advisory vào đoạn code làm việc đó —
+`GHSA-mghq-58h3-qcqj` cùng `GHSA-v7g9-7f55-5g46` trong danh sách route luôn được bảo vệ ở
+`src/server/authz/routeGuard.ts`, còn `GHSA-wgwc-crjm-pmwv` nằm ngay cạnh ở mục chỉ-loopback.
+Một trong số đó là báo cáo tiếp nối: bản vá đầu tiên bỏ sót hai route anh em, và lớp guard giờ
+đã phủ cả chúng.
+
+Không advisory nào trong năm cái được công bố, nên chính đoạn code đã vá là dấu vết công khai
+duy nhất của chúng. Cứ grep repo theo các id trên.
 
 ---
 
