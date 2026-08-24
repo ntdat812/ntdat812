@@ -6,10 +6,11 @@ tức trở thành lỗi của mọi người dùng. Tôi đọc issue chưa ai 
 dòng code sai.
 
 Mười bảy pull request đã merge vào [OmniRoute](https://github.com/diegosouzapw/OmniRoute) và
-[OpenViking](https://github.com/volcengine/OpenViking), mười sáu PR nữa đang chờ review trên
-[OpenClaw](https://github.com/openclaw/openclaw), [ECC](https://github.com/affaan-m/ECC),
-[ComfyUI](https://github.com/Comfy-Org/ComfyUI) và OpenViking, cùng năm lỗ hổng đã báo cáo qua
-kênh security advisory riêng tư — tất cả đều đã được vá.
+[OpenViking](https://github.com/volcengine/OpenViking), hai mươi bốn PR nữa đang chờ review trên
+[9router](https://github.com/decolua/9router), [ComfyUI](https://github.com/Comfy-Org/ComfyUI),
+[ECC](https://github.com/affaan-m/ECC), [OpenClaw](https://github.com/openclaw/openclaw) và
+OpenViking, cùng năm lỗ hổng đã báo cáo qua kênh security advisory riêng tư — tất cả đều đã
+được vá.
 
 [English](README.md) · **Tiếng Việt**
 
@@ -41,7 +42,8 @@ Mười PR cho thấy phạm vi công việc:
 
 ## Đang chờ review
 
-Mười sáu PR đang mở: năm trên [ComfyUI](https://github.com/Comfy-Org/ComfyUI), năm trên
+Hai mươi bốn PR đang mở: tám trên [9router](https://github.com/decolua/9router), năm trên
+[ComfyUI](https://github.com/Comfy-Org/ComfyUI), năm trên
 [OpenViking](https://github.com/volcengine/OpenViking), năm trên
 [ECC](https://github.com/affaan-m/ECC), một trên [OpenClaw](https://github.com/openclaw/openclaw).
 [Danh sách đầy đủ](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests).
@@ -49,6 +51,8 @@ Mười sáu PR đang mở: năm trên [ComfyUI](https://github.com/Comfy-Org/Co
 | Pull request | Nội dung |
 | --- | --- |
 | [OpenClaw #127135](https://github.com/openclaw/openclaw/pull/127135) | Mọi request tới nhà cung cấp Alibaba Model Studio đều gửi hạn mức token đầu ra dưới tên `max_completion_tokens` — trường mà chính tài liệu tương thích OpenAI của hãng không hề liệt kê. Đóng [#127119](https://github.com/openclaw/openclaw/issues/127119). |
+| [9router #3517](https://github.com/decolua/9router/pull/3517) `fix(proxy)` | Một request tới loopback vẫn bị đẩy ra ngoài qua proxy outbound đã cấu hình, nên request gửi cho chính máy đó lại rời khỏi máy. Đóng [#3424](https://github.com/decolua/9router/issues/3424). |
+| [9router #3513](https://github.com/decolua/9router/pull/3513) `fix(usage)` | Một request streaming kết thúc trước lượt flush thì không bao giờ được ghi nhận, nên phần usage nó tiêu thụ không được tính. |
 | [ComfyUI #15841](https://github.com/Comfy-Org/ComfyUI/pull/15841) | Một danh sách YAML trong `extra_model_paths.yaml` làm sập bộ nạp thay vì được đọc như danh sách đường dẫn. |
 | [ComfyUI #15783](https://github.com/Comfy-Org/ComfyUI/pull/15783) | Một thư mục model có liên kết trỏ ngược về thư mục tổ tiên của nó khiến phép duyệt đi vào lại cùng một cây ở mọi tầng, nên một model bị liệt kê lặp đi lặp lại. Việc đi theo liên kết là cố ý; thứ thiếu là khả năng phát hiện vòng lặp. |
 | [OpenViking #4233](https://github.com/volcengine/OpenViking/pull/4233) | Lớp guard URI của memory plugin đọc *nội dung* file như thể đó là một đường dẫn. Đóng [#4188](https://github.com/volcengine/OpenViking/issues/4188). |

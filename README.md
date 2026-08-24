@@ -6,10 +6,11 @@ every user's bug. I read the issue nobody has picked up, reproduce it, and follo
 line that is actually wrong.
 
 Seventeen pull requests merged into [OmniRoute](https://github.com/diegosouzapw/OmniRoute) and
-[OpenViking](https://github.com/volcengine/OpenViking), sixteen more in review across
-[OpenClaw](https://github.com/openclaw/openclaw), [ECC](https://github.com/affaan-m/ECC),
-[ComfyUI](https://github.com/Comfy-Org/ComfyUI) and OpenViking, and five vulnerabilities
-reported through private security advisories, every one of which is now fixed.
+[OpenViking](https://github.com/volcengine/OpenViking), twenty-four more in review across
+[9router](https://github.com/decolua/9router), [ComfyUI](https://github.com/Comfy-Org/ComfyUI),
+[ECC](https://github.com/affaan-m/ECC), [OpenClaw](https://github.com/openclaw/openclaw) and
+OpenViking, and five vulnerabilities reported through private security advisories, every one of
+which is now fixed.
 
 **English** · [Tiếng Việt](README_vn.md)
 
@@ -41,7 +42,8 @@ Ten that show the range:
 
 ## In review
 
-Sixteen open: five on [ComfyUI](https://github.com/Comfy-Org/ComfyUI), five on
+Twenty-four open: eight on [9router](https://github.com/decolua/9router), five on
+[ComfyUI](https://github.com/Comfy-Org/ComfyUI), five on
 [OpenViking](https://github.com/volcengine/OpenViking), five on
 [ECC](https://github.com/affaan-m/ECC), one on [OpenClaw](https://github.com/openclaw/openclaw).
 [Full list](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests).
@@ -49,6 +51,8 @@ Sixteen open: five on [ComfyUI](https://github.com/Comfy-Org/ComfyUI), five on
 | Pull request | What it fixes |
 | --- | --- |
 | [OpenClaw #127135](https://github.com/openclaw/openclaw/pull/127135) | Every request to an Alibaba Model Studio provider sent the output-token cap as `max_completion_tokens` — a field the vendor's own OpenAI-compatibility reference does not list. Closes [#127119](https://github.com/openclaw/openclaw/issues/127119). |
+| [9router #3517](https://github.com/decolua/9router/pull/3517) `fix(proxy)` | A loopback request was sent out through the configured outbound proxy, so a request to the machine itself left the machine. Closes [#3424](https://github.com/decolua/9router/issues/3424). |
+| [9router #3513](https://github.com/decolua/9router/pull/3513) `fix(usage)` | A streaming request that ended before its flush was never recorded, so the usage it consumed went uncounted. |
 | [ComfyUI #15841](https://github.com/Comfy-Org/ComfyUI/pull/15841) | A YAML list in `extra_model_paths.yaml` crashed the loader instead of being read as a list of paths. |
 | [ComfyUI #15783](https://github.com/Comfy-Org/ComfyUI/pull/15783) | A model directory that links back to one of its own ancestors makes the walk re-enter the same tree at every level, so one model is listed over and over. Following links is deliberate; detecting the loop was missing. |
 | [OpenViking #4233](https://github.com/volcengine/OpenViking/pull/4233) | The memory plugin's URI guard read file *content* as if it were a path. Closes [#4188](https://github.com/volcengine/OpenViking/issues/4188). |
