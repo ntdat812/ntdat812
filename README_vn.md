@@ -1,28 +1,54 @@
-# Nguyễn Thành Đạt
+<div align="center">
+
+![Nguyễn Thành Đạt — AI gateway, công cụ cho agent, rà soát bảo mật](./assets/header.svg)
+
+[![Merged](https://img.shields.io/badge/%C4%91%C3%A3_merge-22_pull_request-3fa34d?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests)
+[![Advisories](https://img.shields.io/badge/l%E1%BB%97_h%E1%BB%95ng-5_b%C3%A1o_c%C3%A1o,_5_%C4%91%C3%A3_v%C3%A1-c9583e?style=flat-square&labelColor=161b22)](#nghiên-cứu-bảo-mật)
+[![Open](https://img.shields.io/badge/ch%E1%BB%9D_review-33_pull_request-7d8590?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests)
+[![Role](https://img.shields.io/badge/vai_tr%C3%B2-contributor,_kh%C3%B4ng_ph%E1%BA%A3i_maintainer-7d8590?style=flat-square&labelColor=161b22)](#hồ-sơ-đóng-góp)
 
 [English](README.md) · **Tiếng Việt**
+
+</div>
 
 Kỹ sư phần mềm tại Thanh Hóa, Việt Nam. Tôi làm việc với AI gateway và công cụ cho agent — tầng
 nằm giữa một coding agent và ba trăm nhà cung cấp mô hình, nơi một lỗi nhỏ về tính đúng đắn lập
 tức trở thành lỗi của mọi người dùng. Tôi đọc issue chưa ai nhận, tái hiện nó, rồi lần tới đúng
 dòng code sai.
 
-Hai mươi hai pull request đã merge vào [OmniRoute](https://github.com/diegosouzapw/OmniRoute),
-[OpenViking](https://github.com/volcengine/OpenViking) và [opencodex](https://github.com/lidge-jun/opencodex),
-ba mươi ba PR nữa đang chờ review trên [9router](https://github.com/decolua/9router),
-[ECC](https://github.com/affaan-m/ECC), [ComfyUI](https://github.com/Comfy-Org/ComfyUI),
-[OpenViking](https://github.com/volcengine/OpenViking) và [OpenClaw](https://github.com/openclaw/openclaw),
-và năm lỗ hổng đã báo cáo qua kênh security advisory riêng tư — tất cả đều đã được vá.
+Mọi bản vá bên dưới đều kèm regression test mà tôi tự kiểm chứng là **fail trên nhánh gốc** trước
+khi mở pull request. Repo nào không có bộ chạy test thì kèm mô tả cách tái hiện bằng chữ.
+
+## Hồ sơ đóng góp
+
+Đếm ngày **25/08/2026**, bằng `gh pr list -R <repo> --author ntdat812`, từng repo một. "Đã merge"
+nghĩa là thay đổi đã nằm trên nhánh mặc định của một repo **tôi không sở hữu**. Không tính bất cứ
+thứ gì trong repo của chính tôi. Mỗi con số đều dẫn tới danh sách đứng sau nó.
+
+| | Số lượng | Nó đếm cái gì |
+| --- | ---: | --- |
+| [Pull request đã merge](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **22** | Được maintainer của repo tôi không sở hữu merge |
+| [Đóng issue của người khác](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **11** | Trong 22 cái đó, số cái đóng một issue đã được mở |
+| [Lỗ hổng bảo mật](#nghiên-cứu-bảo-mật) | **5** | Báo cáo riêng tư; cả năm đều đã được vá |
+| [Pull request đang mở](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **33** | Đang chờ maintainer review |
+| Số repo | **7** | Repo của bên thứ ba tôi đã đóng góp |
+
+Tôi không phải maintainer của bất kỳ dự án nào ở đây, và tôi không nhận mình là. Tôi không có
+quyền push, merge hay admin ở đâu cả; mọi thứ bên dưới đều do người có quyền đó review và merge.
 
 ---
 
 ## Đã merge
 
-Hai mươi hai PR đã merge — hai mươi vào OmniRoute, một AI gateway giấy phép MIT đứng trước 340 nhà
-cung cấp, một vào OpenViking và một vào opencodex. Mười một PR đóng issue do người khác báo. Mỗi PR đều kèm regression
-test: fail trên nhánh gốc, pass khi có bản vá.
-[Danh sách đầy đủ](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests).
+**[diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)** — AI gateway giấy phép
+MIT, một endpoint đứng trước 350 nhà cung cấp, 54.5k★. Hai mươi PR đã merge.
+**[volcengine/OpenViking](https://github.com/volcengine/OpenViking)** — context database cho
+agent, 33.0k★. Một PR.
+**[lidge-jun/opencodex](https://github.com/lidge-jun/opencodex)** — proxy nhà cung cấp đa nền,
+12.0k★. Một PR.
 
+Mười một trong hai mươi hai PR đó đóng issue do người khác mở.
+[Danh sách đầy đủ](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests).
 Mười hai PR cho thấy phạm vi công việc:
 
 | Pull request | Nội dung |
@@ -111,10 +137,12 @@ duy nhất của chúng. Cứ grep repo theo các id trên.
 
 ## Đang chờ review
 
-Ba mươi ba PR đang mở: mười sáu trên [9router](https://github.com/decolua/9router), sáu trên
-[ECC](https://github.com/affaan-m/ECC), năm mỗi dự án ở [ComfyUI](https://github.com/Comfy-Org/ComfyUI)
-và [OpenViking](https://github.com/volcengine/OpenViking), một trên
-[OpenClaw](https://github.com/openclaw/openclaw). Ở OmniRoute và opencodex tôi không còn PR nào đang mở.
+Ba mươi ba PR đang mở: mười sáu trên [9router](https://github.com/decolua/9router) (26.2k★), sáu
+trên [ECC](https://github.com/affaan-m/ECC) (243k★), năm mỗi dự án ở
+[ComfyUI](https://github.com/Comfy-Org/ComfyUI) (130k★) và
+[OpenViking](https://github.com/volcengine/OpenViking) (33.0k★), một trên
+[OpenClaw](https://github.com/openclaw/openclaw) (387k★). Ở OmniRoute và opencodex tôi không còn
+PR nào đang mở.
 [Danh sách đầy đủ](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests).
 
 | Pull request | Nội dung |

@@ -1,29 +1,55 @@
-# Nguyen Thanh Dat
+<div align="center">
+
+![Nguyen Thanh Dat — AI gateways, agent tooling, security review](./assets/header.svg)
+
+[![Merged](https://img.shields.io/badge/merged-22_pull_requests-3fa34d?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests)
+[![Advisories](https://img.shields.io/badge/advisories-5_reported,_5_fixed-c9583e?style=flat-square&labelColor=161b22)](#security-research)
+[![Open](https://img.shields.io/badge/in_review-33_pull_requests-7d8590?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests)
+[![Role](https://img.shields.io/badge/role-contributor,_not_maintainer-7d8590?style=flat-square&labelColor=161b22)](#the-record)
 
 **English** · [Tiếng Việt](README_vn.md)
+
+</div>
 
 Software engineer in Thanh Hoa, Vietnam. I work on AI gateways and agent tooling — the layer
 between a coding agent and three hundred model providers, where one correctness bug becomes
 every user's bug. I read the issue nobody has picked up, reproduce it, and follow it to the
 line that is actually wrong.
 
-Twenty-two pull requests merged into [OmniRoute](https://github.com/diegosouzapw/OmniRoute),
-[OpenViking](https://github.com/volcengine/OpenViking) and [opencodex](https://github.com/lidge-jun/opencodex),
-thirty-three more in review across [9router](https://github.com/decolua/9router),
-[ECC](https://github.com/affaan-m/ECC), [ComfyUI](https://github.com/Comfy-Org/ComfyUI),
-[OpenViking](https://github.com/volcengine/OpenViking) and [OpenClaw](https://github.com/openclaw/openclaw),
-and five vulnerabilities reported through private security advisories, every one of which is now
-fixed.
+Every patch below ships with a regression test that I verify fails on the base branch before I
+open the pull request. Where a repository has no test runner, it carries a written reproduction
+instead.
+
+## The record
+
+Counted **25 August 2026**, from `gh pr list -R <repo> --author ntdat812`, one repository at a
+time. "Merged" means the change is in the upstream default branch of a repository I do not own.
+Nothing in my own repositories is counted. Every number here links to the list behind it.
+
+| | Count | What it counts |
+| --- | ---: | --- |
+| [Pull requests merged](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **22** | Merged by maintainers of repos I don't own |
+| [Closing someone else's issue](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **11** | Of those 22, the ones that close a filed issue |
+| [Security advisories](#security-research) | **5** | Reported privately; all five now fixed |
+| [Pull requests open](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **33** | Awaiting maintainer review |
+| Repositories | **7** | Third-party repos I've contributed to |
+
+I am not a maintainer of any of these projects, and I don't claim to be. I hold no push, merge or
+admin right anywhere; everything below was reviewed and merged by someone who does.
 
 ---
 
 ## Merged
 
-Twenty-two merged — twenty into OmniRoute, an MIT AI gateway fronting 340 providers, one into
-OpenViking and one into opencodex. Eleven close an issue someone else reported. Each carries a regression test that
-fails on the base branch and passes with the change.
-[Full list](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests).
+**[diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)** — MIT AI gateway, one
+endpoint in front of 350 providers, 54.5k★. Twenty merged.
+**[volcengine/OpenViking](https://github.com/volcengine/OpenViking)** — context database for
+agents, 33.0k★. One merged.
+**[lidge-jun/opencodex](https://github.com/lidge-jun/opencodex)** — universal provider proxy,
+12.0k★. One merged.
 
+Eleven of the twenty-two close an issue somebody else filed.
+[Full list](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests).
 Twelve that show the range:
 
 | Pull request | What it fixes |
@@ -112,11 +138,12 @@ them. Grep the repository for the ids.
 
 ## In review
 
-Thirty-three open: sixteen on [9router](https://github.com/decolua/9router), six on
-[ECC](https://github.com/affaan-m/ECC), five each on [ComfyUI](https://github.com/Comfy-Org/ComfyUI)
-and [OpenViking](https://github.com/volcengine/OpenViking), one on
-[OpenClaw](https://github.com/openclaw/openclaw). Nothing of mine is left open on OmniRoute or
-opencodex.
+Thirty-three open: sixteen on [9router](https://github.com/decolua/9router) (26.2k★), six on
+[ECC](https://github.com/affaan-m/ECC) (243k★), five each on
+[ComfyUI](https://github.com/Comfy-Org/ComfyUI) (130k★) and
+[OpenViking](https://github.com/volcengine/OpenViking) (33.0k★), one on
+[OpenClaw](https://github.com/openclaw/openclaw) (387k★). Nothing of mine is left open on
+OmniRoute or opencodex.
 [Full list](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests).
 
 | Pull request | What it fixes |

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="140" viewBox="0 0 880 140" role="img" aria-label="Nguyen Thanh Dat — AI gateways and agent tooling, Thanh Hoa, Vietnam">
+  <style>
+    .n { font: 700 31px ui-sans-serif, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #3b82c4; }
+    .s { font: 400 13.5px ui-sans-serif, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #7d8590; letter-spacing: .3px; }
+    .m { font: 400 12.5px ui-monospace, SFMono-Regular, "Cascadia Mono", Menlo, Consolas, monospace; fill: #7d8590; }
+    .bad { font: 400 12.5px ui-monospace, SFMono-Regular, "Cascadia Mono", Menlo, Consolas, monospace; fill: #c9583e; }
+    .ok  { font: 400 12.5px ui-monospace, SFMono-Regular, "Cascadia Mono", Menlo, Consolas, monospace; fill: #3fa34d; }
+  </style>
+  <text class="n" x="0" y="42">Nguyen Thanh Dat</text>
+  <text class="s" x="2" y="68">AI gateways · agent tooling · security review — Thanh Hoa, Vietnam</text>
+  <line x1="0" y1="92" x2="880" y2="92" stroke="#7d8590" stroke-opacity=".25" stroke-width="1"/>
+  <text class="bad" x="0"   y="116">http://[::ffff:169.254.169.254]/</text>
+  <text class="m"   x="252" y="116">→</text>
+  <text class="m"   x="278" y="116">hostname</text>
+  <text class="bad" x="352" y="116">::ffff:a9fe:a9fe</text>
+  <text class="m"   x="484" y="116">→</text>
+  <text class="m"   x="510" y="116">decode, don't string-match</text>
+  <text class="m"   x="702" y="116">→</text>
+  <text class="ok"  x="728" y="116">refused</text>
+</svg>
