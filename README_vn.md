@@ -1,5 +1,7 @@
 # Nguyễn Thành Đạt
 
+[English](README.md) · **Tiếng Việt**
+
 Kỹ sư phần mềm tại Thanh Hóa, Việt Nam. Tôi làm việc với AI gateway và công cụ cho agent — tầng
 nằm giữa một coding agent và ba trăm nhà cung cấp mô hình, nơi một lỗi nhỏ về tính đúng đắn lập
 tức trở thành lỗi của mọi người dùng. Tôi đọc issue chưa ai nhận, tái hiện nó, rồi lần tới đúng
@@ -11,8 +13,6 @@ ba mươi ba PR nữa đang chờ review trên [9router](https://github.com/deco
 [ECC](https://github.com/affaan-m/ECC), [ComfyUI](https://github.com/Comfy-Org/ComfyUI),
 [OpenViking](https://github.com/volcengine/OpenViking) và [OpenClaw](https://github.com/openclaw/openclaw),
 và năm lỗ hổng đã báo cáo qua kênh security advisory riêng tư — tất cả đều đã được vá.
-
-[English](README.md) · **Tiếng Việt**
 
 ---
 
@@ -39,30 +39,6 @@ Mười hai PR cho thấy phạm vi công việc:
 | [#10858](https://github.com/diegosouzapw/OmniRoute/pull/10858) `fix(context)` | Tài liệu base64 bị đếm từng ký tự, nên một PDF 1 MB được ước lượng thành 350.022 token và request bị chặn trước khi kịp gửi đi. Đóng [#10840](https://github.com/diegosouzapw/OmniRoute/issues/10840). |
 | [#10853](https://github.com/diegosouzapw/OmniRoute/pull/10853) `fix(i18n)` | Tám ngôn ngữ hiển thị *trạng thái* "Disabled" thành danh từ chỉ người khuyết tật. Đóng [#10812](https://github.com/diegosouzapw/OmniRoute/issues/10812). |
 | [OpenViking #4228](https://github.com/volcengine/OpenViking/pull/4228) `fix(ov_dream)` | Một message trong session có nội dung là chuỗi thuần thay vì danh sách block thì không được chấp nhận. Đóng [#4221](https://github.com/volcengine/OpenViking/issues/4221). |
-
----
-
-## Đang chờ review
-
-Ba mươi ba PR đang mở: mười sáu trên [9router](https://github.com/decolua/9router), sáu trên
-[ECC](https://github.com/affaan-m/ECC), năm mỗi dự án ở [ComfyUI](https://github.com/Comfy-Org/ComfyUI)
-và [OpenViking](https://github.com/volcengine/OpenViking), một trên
-[OpenClaw](https://github.com/openclaw/openclaw). Ở OmniRoute và opencodex tôi không còn PR nào đang mở.
-[Danh sách đầy đủ](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests).
-
-| Pull request | Nội dung |
-| --- | --- |
-| [OpenClaw #127135](https://github.com/openclaw/openclaw/pull/127135) | Mọi request tới nhà cung cấp Alibaba Model Studio đều gửi hạn mức token đầu ra dưới tên `max_completion_tokens` — trường mà chính tài liệu tương thích OpenAI của hãng không hề liệt kê. Đóng [#127119](https://github.com/openclaw/openclaw/issues/127119). |
-| [9router #3522](https://github.com/decolua/9router/pull/3522) `fix(tunnel)` | Subdomain công khai mà tunnel được publish dưới đó lại rút ra từ một nguồn đoán được, nên địa chỉ vốn phải không đoán nổi thì lại đoán được. |
-| [9router #3517](https://github.com/decolua/9router/pull/3517) `fix(proxy)` | Một request tới loopback vẫn bị đẩy ra ngoài qua proxy outbound đã cấu hình, nên request gửi cho chính máy đó lại rời khỏi máy. Đóng [#3424](https://github.com/decolua/9router/issues/3424). |
-| [9router #3513](https://github.com/decolua/9router/pull/3513) `fix(usage)` | Một request streaming kết thúc trước lượt flush thì không bao giờ được ghi nhận, nên phần usage nó tiêu thụ không được tính. |
-| [ComfyUI #15841](https://github.com/Comfy-Org/ComfyUI/pull/15841) | Một danh sách YAML trong `extra_model_paths.yaml` làm sập bộ nạp thay vì được đọc như danh sách đường dẫn. |
-| [ComfyUI #15783](https://github.com/Comfy-Org/ComfyUI/pull/15783) | Một thư mục model có liên kết trỏ ngược về thư mục tổ tiên của nó khiến phép duyệt đi vào lại cùng một cây ở mọi tầng, nên một model bị liệt kê lặp đi lặp lại. Việc đi theo liên kết là cố ý; thứ thiếu là khả năng phát hiện vòng lặp. |
-| [OpenViking #4233](https://github.com/volcengine/OpenViking/pull/4233) | Lớp guard URI của memory plugin đọc *nội dung* file như thể đó là một đường dẫn. Đóng [#4188](https://github.com/volcengine/OpenViking/issues/4188). |
-| [OpenViking #4229](https://github.com/volcengine/OpenViking/pull/4229) | Một PID lock cũ vẫn được tin trên macOS mà không kiểm tra tiến trình đang giữ nó có đúng là tiến trình nó tự nhận hay không. Đóng [#4210](https://github.com/volcengine/OpenViking/issues/4210). |
-| [ECC #2858](https://github.com/affaan-m/ECC/pull/2858) | Lớp guard chặn commit bỏ qua hook biết mặt `-c core.hooksPath=`. Còn `git --config-env=core.hooksPath=VAR` là đúng chỉ thị đó nhưng đọc từ biến môi trường, và nó không có trong danh sách — nên hook không chạy và commit vẫn đi qua. Đã kiểm chứng trên git 2.51. |
-| [ECC #2846](https://github.com/affaan-m/ECC/pull/2846) | Lớp chặn dev-server xác định tên script từ văn bản thô thay vì từ token. |
-| [ECC #2837](https://github.com/affaan-m/ECC/pull/2837) | Lớp chặn `--no-verify` đem cờ ra so đúng với chuỗi đầy đủ đó. Git chấp nhận mọi tiền tố không nhập nhằng của một long option, nên `--no-ver` vẫn bỏ qua hook. |
 
 ---
 
@@ -130,6 +106,30 @@ hầu hết mọi người bỏ qua.
 
 Không advisory nào trong năm cái được công bố, nên chính đoạn code đã vá là dấu vết công khai
 duy nhất của chúng. Cứ grep repo theo các id trên.
+
+---
+
+## Đang chờ review
+
+Ba mươi ba PR đang mở: mười sáu trên [9router](https://github.com/decolua/9router), sáu trên
+[ECC](https://github.com/affaan-m/ECC), năm mỗi dự án ở [ComfyUI](https://github.com/Comfy-Org/ComfyUI)
+và [OpenViking](https://github.com/volcengine/OpenViking), một trên
+[OpenClaw](https://github.com/openclaw/openclaw). Ở OmniRoute và opencodex tôi không còn PR nào đang mở.
+[Danh sách đầy đủ](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests).
+
+| Pull request | Nội dung |
+| --- | --- |
+| [OpenClaw #127135](https://github.com/openclaw/openclaw/pull/127135) | Mọi request tới nhà cung cấp Alibaba Model Studio đều gửi hạn mức token đầu ra dưới tên `max_completion_tokens` — trường mà chính tài liệu tương thích OpenAI của hãng không hề liệt kê. Đóng [#127119](https://github.com/openclaw/openclaw/issues/127119). |
+| [9router #3522](https://github.com/decolua/9router/pull/3522) `fix(tunnel)` | Subdomain công khai mà tunnel được publish dưới đó lại rút ra từ một nguồn đoán được, nên địa chỉ vốn phải không đoán nổi thì lại đoán được. |
+| [9router #3517](https://github.com/decolua/9router/pull/3517) `fix(proxy)` | Một request tới loopback vẫn bị đẩy ra ngoài qua proxy outbound đã cấu hình, nên request gửi cho chính máy đó lại rời khỏi máy. Đóng [#3424](https://github.com/decolua/9router/issues/3424). |
+| [9router #3513](https://github.com/decolua/9router/pull/3513) `fix(usage)` | Một request streaming kết thúc trước lượt flush thì không bao giờ được ghi nhận, nên phần usage nó tiêu thụ không được tính. |
+| [ComfyUI #15841](https://github.com/Comfy-Org/ComfyUI/pull/15841) | Một danh sách YAML trong `extra_model_paths.yaml` làm sập bộ nạp thay vì được đọc như danh sách đường dẫn. |
+| [ComfyUI #15783](https://github.com/Comfy-Org/ComfyUI/pull/15783) | Một thư mục model có liên kết trỏ ngược về thư mục tổ tiên của nó khiến phép duyệt đi vào lại cùng một cây ở mọi tầng, nên một model bị liệt kê lặp đi lặp lại. Việc đi theo liên kết là cố ý; thứ thiếu là khả năng phát hiện vòng lặp. |
+| [OpenViking #4233](https://github.com/volcengine/OpenViking/pull/4233) | Lớp guard URI của memory plugin đọc *nội dung* file như thể đó là một đường dẫn. Đóng [#4188](https://github.com/volcengine/OpenViking/issues/4188). |
+| [OpenViking #4229](https://github.com/volcengine/OpenViking/pull/4229) | Một PID lock cũ vẫn được tin trên macOS mà không kiểm tra tiến trình đang giữ nó có đúng là tiến trình nó tự nhận hay không. Đóng [#4210](https://github.com/volcengine/OpenViking/issues/4210). |
+| [ECC #2858](https://github.com/affaan-m/ECC/pull/2858) | Lớp guard chặn commit bỏ qua hook biết mặt `-c core.hooksPath=`. Còn `git --config-env=core.hooksPath=VAR` là đúng chỉ thị đó nhưng đọc từ biến môi trường, và nó không có trong danh sách — nên hook không chạy và commit vẫn đi qua. Đã kiểm chứng trên git 2.51. |
+| [ECC #2846](https://github.com/affaan-m/ECC/pull/2846) | Lớp chặn dev-server xác định tên script từ văn bản thô thay vì từ token. |
+| [ECC #2837](https://github.com/affaan-m/ECC/pull/2837) | Lớp chặn `--no-verify` đem cờ ra so đúng với chuỗi đầy đủ đó. Git chấp nhận mọi tiền tố không nhập nhằng của một long option, nên `--no-ver` vẫn bỏ qua hook. |
 
 ---
 

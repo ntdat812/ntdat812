@@ -1,5 +1,7 @@
 # Nguyen Thanh Dat
 
+**English** · [Tiếng Việt](README_vn.md)
+
 Software engineer in Thanh Hoa, Vietnam. I work on AI gateways and agent tooling — the layer
 between a coding agent and three hundred model providers, where one correctness bug becomes
 every user's bug. I read the issue nobody has picked up, reproduce it, and follow it to the
@@ -12,8 +14,6 @@ thirty-three more in review across [9router](https://github.com/decolua/9router)
 [OpenViking](https://github.com/volcengine/OpenViking) and [OpenClaw](https://github.com/openclaw/openclaw),
 and five vulnerabilities reported through private security advisories, every one of which is now
 fixed.
-
-**English** · [Tiếng Việt](README_vn.md)
 
 ---
 
@@ -40,31 +40,6 @@ Twelve that show the range:
 | [#10858](https://github.com/diegosouzapw/OmniRoute/pull/10858) `fix(context)` | Base64 documents were measured character by character, so a 1 MB PDF estimated at 350,022 tokens and the request was rejected before it ever left. Closes [#10840](https://github.com/diegosouzapw/OmniRoute/issues/10840). |
 | [#10853](https://github.com/diegosouzapw/OmniRoute/pull/10853) `fix(i18n)` | Eight locales rendered the *status* "Disabled" as the noun for a person who has a disability. Closes [#10812](https://github.com/diegosouzapw/OmniRoute/issues/10812). |
 | [OpenViking #4228](https://github.com/volcengine/OpenViking/pull/4228) `fix(ov_dream)` | A session message whose content was a plain string rather than a block list was not accepted. Closes [#4221](https://github.com/volcengine/OpenViking/issues/4221). |
-
----
-
-## In review
-
-Thirty-three open: sixteen on [9router](https://github.com/decolua/9router), six on
-[ECC](https://github.com/affaan-m/ECC), five each on [ComfyUI](https://github.com/Comfy-Org/ComfyUI)
-and [OpenViking](https://github.com/volcengine/OpenViking), one on
-[OpenClaw](https://github.com/openclaw/openclaw). Nothing of mine is left open on OmniRoute or
-opencodex.
-[Full list](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests).
-
-| Pull request | What it fixes |
-| --- | --- |
-| [OpenClaw #127135](https://github.com/openclaw/openclaw/pull/127135) | Every request to an Alibaba Model Studio provider sent the output-token cap as `max_completion_tokens` — a field the vendor's own OpenAI-compatibility reference does not list. Closes [#127119](https://github.com/openclaw/openclaw/issues/127119). |
-| [9router #3522](https://github.com/decolua/9router/pull/3522) `fix(tunnel)` | The public subdomain a tunnel is published under was drawn from a predictable source, so the address meant to be unguessable could be guessed. |
-| [9router #3517](https://github.com/decolua/9router/pull/3517) `fix(proxy)` | A loopback request was sent out through the configured outbound proxy, so a request to the machine itself left the machine. Closes [#3424](https://github.com/decolua/9router/issues/3424). |
-| [9router #3513](https://github.com/decolua/9router/pull/3513) `fix(usage)` | A streaming request that ended before its flush was never recorded, so the usage it consumed went uncounted. |
-| [ComfyUI #15841](https://github.com/Comfy-Org/ComfyUI/pull/15841) | A YAML list in `extra_model_paths.yaml` crashed the loader instead of being read as a list of paths. |
-| [ComfyUI #15783](https://github.com/Comfy-Org/ComfyUI/pull/15783) | A model directory that links back to one of its own ancestors makes the walk re-enter the same tree at every level, so one model is listed over and over. Following links is deliberate; detecting the loop was missing. |
-| [OpenViking #4233](https://github.com/volcengine/OpenViking/pull/4233) | The memory plugin's URI guard read file *content* as if it were a path. Closes [#4188](https://github.com/volcengine/OpenViking/issues/4188). |
-| [OpenViking #4229](https://github.com/volcengine/OpenViking/pull/4229) | A stale PID lock was honoured on macOS without checking that the process holding it was the one it claimed to be. Closes [#4210](https://github.com/volcengine/OpenViking/issues/4210). |
-| [ECC #2858](https://github.com/affaan-m/ECC/pull/2858) | The guard that stops a commit from skipping its hooks knew `-c core.hooksPath=`. `git --config-env=core.hooksPath=VAR` is the same instruction read from the environment, and it was not on the list — so the hook did not run and the commit went through. Verified against git 2.51. |
-| [ECC #2846](https://github.com/affaan-m/ECC/pull/2846) | The dev-server block decided the script name from raw text rather than from tokens. |
-| [ECC #2837](https://github.com/affaan-m/ECC/pull/2837) | The guard blocking `--no-verify` compared the flag against that exact spelling. Git resolves any unambiguous prefix of a long option, so `--no-ver` skipped the hooks. |
 
 ---
 
@@ -132,6 +107,31 @@ accepted is not interesting work, and it is the step most people skip.
 
 None of the five was published as an advisory, so the patched code is the only public record of
 them. Grep the repository for the ids.
+
+---
+
+## In review
+
+Thirty-three open: sixteen on [9router](https://github.com/decolua/9router), six on
+[ECC](https://github.com/affaan-m/ECC), five each on [ComfyUI](https://github.com/Comfy-Org/ComfyUI)
+and [OpenViking](https://github.com/volcengine/OpenViking), one on
+[OpenClaw](https://github.com/openclaw/openclaw). Nothing of mine is left open on OmniRoute or
+opencodex.
+[Full list](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests).
+
+| Pull request | What it fixes |
+| --- | --- |
+| [OpenClaw #127135](https://github.com/openclaw/openclaw/pull/127135) | Every request to an Alibaba Model Studio provider sent the output-token cap as `max_completion_tokens` — a field the vendor's own OpenAI-compatibility reference does not list. Closes [#127119](https://github.com/openclaw/openclaw/issues/127119). |
+| [9router #3522](https://github.com/decolua/9router/pull/3522) `fix(tunnel)` | The public subdomain a tunnel is published under was drawn from a predictable source, so the address meant to be unguessable could be guessed. |
+| [9router #3517](https://github.com/decolua/9router/pull/3517) `fix(proxy)` | A loopback request was sent out through the configured outbound proxy, so a request to the machine itself left the machine. Closes [#3424](https://github.com/decolua/9router/issues/3424). |
+| [9router #3513](https://github.com/decolua/9router/pull/3513) `fix(usage)` | A streaming request that ended before its flush was never recorded, so the usage it consumed went uncounted. |
+| [ComfyUI #15841](https://github.com/Comfy-Org/ComfyUI/pull/15841) | A YAML list in `extra_model_paths.yaml` crashed the loader instead of being read as a list of paths. |
+| [ComfyUI #15783](https://github.com/Comfy-Org/ComfyUI/pull/15783) | A model directory that links back to one of its own ancestors makes the walk re-enter the same tree at every level, so one model is listed over and over. Following links is deliberate; detecting the loop was missing. |
+| [OpenViking #4233](https://github.com/volcengine/OpenViking/pull/4233) | The memory plugin's URI guard read file *content* as if it were a path. Closes [#4188](https://github.com/volcengine/OpenViking/issues/4188). |
+| [OpenViking #4229](https://github.com/volcengine/OpenViking/pull/4229) | A stale PID lock was honoured on macOS without checking that the process holding it was the one it claimed to be. Closes [#4210](https://github.com/volcengine/OpenViking/issues/4210). |
+| [ECC #2858](https://github.com/affaan-m/ECC/pull/2858) | The guard that stops a commit from skipping its hooks knew `-c core.hooksPath=`. `git --config-env=core.hooksPath=VAR` is the same instruction read from the environment, and it was not on the list — so the hook did not run and the commit went through. Verified against git 2.51. |
+| [ECC #2846](https://github.com/affaan-m/ECC/pull/2846) | The dev-server block decided the script name from raw text rather than from tokens. |
+| [ECC #2837](https://github.com/affaan-m/ECC/pull/2837) | The guard blocking `--no-verify` compared the flag against that exact spelling. Git resolves any unambiguous prefix of a long option, so `--no-ver` skipped the hooks. |
 
 ---
 
