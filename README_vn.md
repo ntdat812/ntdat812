@@ -4,7 +4,7 @@
 
 [![Merged](https://img.shields.io/badge/%C4%91%C3%A3_merge-22_pull_request-3fa34d?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests)
 [![Advisories](https://img.shields.io/badge/l%E1%BB%97_h%E1%BB%95ng-5_b%C3%A1o_c%C3%A1o,_5_%C4%91%C3%A3_v%C3%A1-c9583e?style=flat-square&labelColor=161b22)](#nghiên-cứu-bảo-mật)
-[![Open](https://img.shields.io/badge/ch%E1%BB%9D_review-33_pull_request-7d8590?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests)
+[![Open](https://img.shields.io/badge/ch%E1%BB%9D_review-38_pull_request-7d8590?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests)
 [![Projects](https://img.shields.io/badge/tr%C3%AAn-7_d%E1%BB%B1_%C3%A1n-7d8590?style=flat-square&labelColor=161b22)](#hồ-sơ-đóng-góp)
 
 [English](README.md) · **Tiếng Việt**
@@ -30,7 +30,7 @@ thứ gì trong repo của chính tôi. Mỗi con số đều dẫn tới danh s
 | [Pull request đã merge](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **22** | Đã vào nhánh mặc định của repo tôi không sở hữu |
 | [Đóng issue của người khác](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **11** | Trong 22 cái đó, số cái đóng một issue đã được mở |
 | [Lỗ hổng bảo mật](#nghiên-cứu-bảo-mật) | **5** | Báo cáo riêng tư; cả năm đều đã được vá |
-| [Pull request đang mở](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **33** | Đã mở, đang chờ review |
+| [Pull request đang mở](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **38** | Đã mở, đang chờ review |
 | Số repo | **7** | Repo của bên thứ ba tôi đã đóng góp |
 
 Tôi không có quyền push, merge hay admin trên bất kỳ dự án nào ở đây. Mọi thứ bên dưới đều do
@@ -110,6 +110,13 @@ một bộ phân loại lệnh phá hủy bị tiền tố `sudo` che mất
 thô ở chỗ đáng ra phải đọc token ([ECC #2846](https://github.com/affaan-m/ECC/pull/2846)). Bản vá
 lần nào cũng gói trong đúng một câu: phán quyết theo bản chất, không theo cách viết.
 
+Có một lần tôi gặp nó theo chiều ngược lại, và đó mới là bài học đáng giá hơn. Một khoá khử trùng
+lặp đem mốc mili-giây và các trường của bản ghi ra so, thế là hai request khác nhau thật sự lại so
+ra bằng nhau, và một cái bị vứt đi vì tưởng trùng
+([9router #3544](https://github.com/decolua/9router/pull/3544)). Vẫn đúng nhầm lẫn đó — lấy cách
+viết thay cho bản chất — nhưng lần này nó gộp hai thứ làm một, thay vì cho một thứ lọt qua. Chiều
+nào cũng vậy, câu hỏi phải đặt ra cho đoạn code vẫn là một.
+
 ---
 
 ## Nghiên cứu bảo mật
@@ -137,7 +144,7 @@ duy nhất của chúng. Cứ grep repo theo các id trên.
 
 ## Đang chờ review
 
-Ba mươi ba PR đang mở: mười sáu trên [9router](https://github.com/decolua/9router) (26.2k★), sáu
+Ba mươi tám PR đang mở: hai mươi mốt trên [9router](https://github.com/decolua/9router) (26.2k★), sáu
 trên [ECC](https://github.com/affaan-m/ECC) (243k★), năm mỗi dự án ở
 [ComfyUI](https://github.com/Comfy-Org/ComfyUI) (130k★) và
 [OpenViking](https://github.com/volcengine/OpenViking) (33.0k★), một trên
@@ -148,9 +155,10 @@ PR nào đang mở.
 | Pull request | Nội dung |
 | --- | --- |
 | [OpenClaw #127135](https://github.com/openclaw/openclaw/pull/127135) | Mọi request tới nhà cung cấp Alibaba Model Studio đều gửi hạn mức token đầu ra dưới tên `max_completion_tokens` — trường mà chính tài liệu tương thích OpenAI của hãng không hề liệt kê. Đóng [#127119](https://github.com/openclaw/openclaw/issues/127119). |
+| [9router #3538](https://github.com/decolua/9router/pull/3538) `fix(transport)` | Một model bị ghim sang định dạng khác thì phần thân request được dịch, nhưng đích đến thì không: 9router đóng gói một request Claude rồi gửi tới endpoint OpenAI của nhà cung cấp, kèm auth của endpoint đó. Upstream đọc phần nó hiểu và bỏ phần còn lại, nên nó chạy nửa vời. Đóng [#3418](https://github.com/decolua/9router/issues/3418) và [#3439](https://github.com/decolua/9router/issues/3439). |
+| [9router #3544](https://github.com/decolua/9router/pull/3544) `fix(usage)` | Truy vấn khử trùng lặp lấy mốc thời gian mili-giây cộng các trường của request làm khoá. Hai request khác nhau thật sự nhưng rơi cùng một mili-giây thì so ra bằng nhau, nên một cái bị vứt đi vì tưởng là trùng — 100 lượt ghi song song chỉ còn 2. Bộ test vẫn fail trên `master` và bị hiểu là đua transaction, trong khi driver chạy đồng bộ. |
 | [9router #3522](https://github.com/decolua/9router/pull/3522) `fix(tunnel)` | Subdomain công khai mà tunnel được publish dưới đó lại rút ra từ một nguồn đoán được, nên địa chỉ vốn phải không đoán nổi thì lại đoán được. |
 | [9router #3517](https://github.com/decolua/9router/pull/3517) `fix(proxy)` | Một request tới loopback vẫn bị đẩy ra ngoài qua proxy outbound đã cấu hình, nên request gửi cho chính máy đó lại rời khỏi máy. Đóng [#3424](https://github.com/decolua/9router/issues/3424). |
-| [9router #3513](https://github.com/decolua/9router/pull/3513) `fix(usage)` | Một request streaming kết thúc trước lượt flush thì không bao giờ được ghi nhận, nên phần usage nó tiêu thụ không được tính. |
 | [ComfyUI #15841](https://github.com/Comfy-Org/ComfyUI/pull/15841) | Một danh sách YAML trong `extra_model_paths.yaml` làm sập bộ nạp thay vì được đọc như danh sách đường dẫn. |
 | [ComfyUI #15783](https://github.com/Comfy-Org/ComfyUI/pull/15783) | Một thư mục model có liên kết trỏ ngược về thư mục tổ tiên của nó khiến phép duyệt đi vào lại cùng một cây ở mọi tầng, nên một model bị liệt kê lặp đi lặp lại. Việc đi theo liên kết là cố ý; thứ thiếu là khả năng phát hiện vòng lặp. |
 | [OpenViking #4233](https://github.com/volcengine/OpenViking/pull/4233) | Lớp guard URI của memory plugin đọc *nội dung* file như thể đó là một đường dẫn. Đóng [#4188](https://github.com/volcengine/OpenViking/issues/4188). |

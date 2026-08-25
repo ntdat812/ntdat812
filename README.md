@@ -4,7 +4,7 @@
 
 [![Merged](https://img.shields.io/badge/merged-22_pull_requests-3fa34d?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests)
 [![Advisories](https://img.shields.io/badge/advisories-5_reported,_5_fixed-c9583e?style=flat-square&labelColor=161b22)](#security-research)
-[![Open](https://img.shields.io/badge/in_review-33_pull_requests-7d8590?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests)
+[![Open](https://img.shields.io/badge/in_review-38_pull_requests-7d8590?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests)
 [![Projects](https://img.shields.io/badge/across-7_projects-7d8590?style=flat-square&labelColor=161b22)](#the-record)
 
 **English** · [Tiếng Việt](README_vn.md)
@@ -31,7 +31,7 @@ Nothing in my own repositories is counted. Every number here links to the list b
 | [Pull requests merged](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **22** | Landed in the default branch of a repo I don't own |
 | [Closing someone else's issue](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **11** | Of those 22, the ones that close a filed issue |
 | [Security advisories](#security-research) | **5** | Reported privately; all five now fixed |
-| [Pull requests open](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **33** | Opened, awaiting review |
+| [Pull requests open](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **38** | Opened, awaiting review |
 | Repositories | **7** | Third-party repos I've contributed to |
 
 I hold no push, merge or admin right on any of these projects. Everything below was reviewed and
@@ -112,6 +112,12 @@ a destructive-command classifier hidden by a `sudo` prefix
 text where it should read tokens ([ECC #2846](https://github.com/affaan-m/ECC/pull/2846)). The
 fix is the same sentence every time: decide on identity, not on spelling.
 
+Once I found it pointing the other way, which was the more useful lesson. A dedupe key compared a
+usage row's millisecond and its fields, and two genuinely different requests compared equal, so one
+was thrown away as a duplicate ([9router #3544](https://github.com/decolua/9router/pull/3544)). The
+same confusion — spelling stood in for identity — but it merged two things instead of letting one
+through. Whichever way it points, the question to ask the code is the same one.
+
 ---
 
 ## Security research
@@ -138,7 +144,7 @@ them. Grep the repository for the ids.
 
 ## In review
 
-Thirty-three open: sixteen on [9router](https://github.com/decolua/9router) (26.2k★), six on
+Thirty-eight open: twenty-one on [9router](https://github.com/decolua/9router) (26.2k★), six on
 [ECC](https://github.com/affaan-m/ECC) (243k★), five each on
 [ComfyUI](https://github.com/Comfy-Org/ComfyUI) (130k★) and
 [OpenViking](https://github.com/volcengine/OpenViking) (33.0k★), one on
@@ -149,9 +155,10 @@ OmniRoute or opencodex.
 | Pull request | What it fixes |
 | --- | --- |
 | [OpenClaw #127135](https://github.com/openclaw/openclaw/pull/127135) | Every request to an Alibaba Model Studio provider sent the output-token cap as `max_completion_tokens` — a field the vendor's own OpenAI-compatibility reference does not list. Closes [#127119](https://github.com/openclaw/openclaw/issues/127119). |
+| [9router #3538](https://github.com/decolua/9router/pull/3538) `fix(transport)` | A model pinned to a different wire format got its body translated but not its destination: 9router serialised a Claude request and posted it to the provider's OpenAI endpoint, with that endpoint's auth. Upstreams parse what they recognise and drop the rest, so it half-worked. Closes [#3418](https://github.com/decolua/9router/issues/3418) and [#3439](https://github.com/decolua/9router/issues/3439). |
+| [9router #3544](https://github.com/decolua/9router/pull/3544) `fix(usage)` | The dedupe query keyed a usage row on its millisecond timestamp plus the request's fields. Two genuine requests in the same millisecond compare equal, so one of them is discarded as a duplicate — 100 parallel writes recorded 2. The suite had been failing on `master`; it was read as a transaction race, and the driver is synchronous. |
 | [9router #3522](https://github.com/decolua/9router/pull/3522) `fix(tunnel)` | The public subdomain a tunnel is published under was drawn from a predictable source, so the address meant to be unguessable could be guessed. |
 | [9router #3517](https://github.com/decolua/9router/pull/3517) `fix(proxy)` | A loopback request was sent out through the configured outbound proxy, so a request to the machine itself left the machine. Closes [#3424](https://github.com/decolua/9router/issues/3424). |
-| [9router #3513](https://github.com/decolua/9router/pull/3513) `fix(usage)` | A streaming request that ended before its flush was never recorded, so the usage it consumed went uncounted. |
 | [ComfyUI #15841](https://github.com/Comfy-Org/ComfyUI/pull/15841) | A YAML list in `extra_model_paths.yaml` crashed the loader instead of being read as a list of paths. |
 | [ComfyUI #15783](https://github.com/Comfy-Org/ComfyUI/pull/15783) | A model directory that links back to one of its own ancestors makes the walk re-enter the same tree at every level, so one model is listed over and over. Following links is deliberate; detecting the loop was missing. |
 | [OpenViking #4233](https://github.com/volcengine/OpenViking/pull/4233) | The memory plugin's URI guard read file *content* as if it were a path. Closes [#4188](https://github.com/volcengine/OpenViking/issues/4188). |
