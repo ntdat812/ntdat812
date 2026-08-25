@@ -5,7 +5,7 @@
 [![Merged](https://img.shields.io/badge/merged-22_pull_requests-3fa34d?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests)
 [![Advisories](https://img.shields.io/badge/advisories-5_reported,_5_fixed-c9583e?style=flat-square&labelColor=161b22)](#security-research)
 [![Open](https://img.shields.io/badge/in_review-33_pull_requests-7d8590?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests)
-[![Role](https://img.shields.io/badge/role-contributor,_not_maintainer-7d8590?style=flat-square&labelColor=161b22)](#the-record)
+[![Projects](https://img.shields.io/badge/across-7_projects-7d8590?style=flat-square&labelColor=161b22)](#the-record)
 
 **English** · [Tiếng Việt](README_vn.md)
 
@@ -28,14 +28,14 @@ Nothing in my own repositories is counted. Every number here links to the list b
 
 | | Count | What it counts |
 | --- | ---: | --- |
-| [Pull requests merged](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **22** | Merged by maintainers of repos I don't own |
+| [Pull requests merged](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **22** | Landed in the default branch of a repo I don't own |
 | [Closing someone else's issue](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **11** | Of those 22, the ones that close a filed issue |
 | [Security advisories](#security-research) | **5** | Reported privately; all five now fixed |
-| [Pull requests open](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **33** | Awaiting maintainer review |
+| [Pull requests open](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **33** | Opened, awaiting review |
 | Repositories | **7** | Third-party repos I've contributed to |
 
-I am not a maintainer of any of these projects, and I don't claim to be. I hold no push, merge or
-admin right anywhere; everything below was reviewed and merged by someone who does.
+I hold no push, merge or admin right on any of these projects. Everything below was reviewed and
+merged by somebody who does.
 
 ---
 
@@ -116,13 +116,13 @@ fix is the same sentence every time: decide on identity, not on spelling.
 
 ## Security research
 
-Five vulnerabilities reported to the OmniRoute maintainers through private advisories, the
-disclosure route the project's `SECURITY.md` asks for. All five are fixed.
+Five vulnerabilities reported through OmniRoute's private security advisories, the disclosure
+route the project's `SECURITY.md` asks for. All five are fixed.
 
 Two by patches I sent: the cloud-metadata bypass described above, and the relay-path gap that
 [#10935](https://github.com/diegosouzapw/OmniRoute/pull/10935) closed in the Cloudflare worker.
 
-The maintainers fixed the other three themselves and named the advisory in the code that does
+The other three were fixed upstream, with the advisory named in the code that does
 it — `GHSA-mghq-58h3-qcqj` and `GHSA-v7g9-7f55-5g46` on the always-protected route list in
 `src/server/authz/routeGuard.ts`, `GHSA-wgwc-crjm-pmwv` on the loopback-only entry beside it.
 

@@ -5,7 +5,7 @@
 [![Merged](https://img.shields.io/badge/%C4%91%C3%A3_merge-22_pull_request-3fa34d?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests)
 [![Advisories](https://img.shields.io/badge/l%E1%BB%97_h%E1%BB%95ng-5_b%C3%A1o_c%C3%A1o,_5_%C4%91%C3%A3_v%C3%A1-c9583e?style=flat-square&labelColor=161b22)](#nghiên-cứu-bảo-mật)
 [![Open](https://img.shields.io/badge/ch%E1%BB%9D_review-33_pull_request-7d8590?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests)
-[![Role](https://img.shields.io/badge/vai_tr%C3%B2-contributor,_kh%C3%B4ng_ph%E1%BA%A3i_maintainer-7d8590?style=flat-square&labelColor=161b22)](#hồ-sơ-đóng-góp)
+[![Projects](https://img.shields.io/badge/tr%C3%AAn-7_d%E1%BB%B1_%C3%A1n-7d8590?style=flat-square&labelColor=161b22)](#hồ-sơ-đóng-góp)
 
 [English](README.md) · **Tiếng Việt**
 
@@ -27,14 +27,14 @@ thứ gì trong repo của chính tôi. Mỗi con số đều dẫn tới danh s
 
 | | Số lượng | Nó đếm cái gì |
 | --- | ---: | --- |
-| [Pull request đã merge](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **22** | Được maintainer của repo tôi không sở hữu merge |
+| [Pull request đã merge](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **22** | Đã vào nhánh mặc định của repo tôi không sở hữu |
 | [Đóng issue của người khác](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **11** | Trong 22 cái đó, số cái đóng một issue đã được mở |
 | [Lỗ hổng bảo mật](#nghiên-cứu-bảo-mật) | **5** | Báo cáo riêng tư; cả năm đều đã được vá |
-| [Pull request đang mở](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **33** | Đang chờ maintainer review |
+| [Pull request đang mở](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **33** | Đã mở, đang chờ review |
 | Số repo | **7** | Repo của bên thứ ba tôi đã đóng góp |
 
-Tôi không phải maintainer của bất kỳ dự án nào ở đây, và tôi không nhận mình là. Tôi không có
-quyền push, merge hay admin ở đâu cả; mọi thứ bên dưới đều do người có quyền đó review và merge.
+Tôi không có quyền push, merge hay admin trên bất kỳ dự án nào ở đây. Mọi thứ bên dưới đều do
+người có quyền đó review và merge.
 
 ---
 
@@ -114,14 +114,14 @@ lần nào cũng gói trong đúng một câu: phán quyết theo bản chất, 
 
 ## Nghiên cứu bảo mật
 
-Năm lỗ hổng đã báo cáo cho maintainer của OmniRoute qua kênh advisory riêng tư, đúng con đường
-công bố mà `SECURITY.md` của dự án yêu cầu. Cả năm đều đã được vá.
+Năm lỗ hổng đã báo cáo qua kênh security advisory riêng tư của OmniRoute, đúng con đường công bố
+mà `SECURITY.md` của dự án yêu cầu. Cả năm đều đã được vá.
 
 Hai cái do chính bản vá tôi gửi: lỗi vượt rào cloud-metadata mô tả ở trên, và lỗ hổng đường dẫn
 relay mà [#10935](https://github.com/diegosouzapw/OmniRoute/pull/10935) đã bịt trong worker
 Cloudflare.
 
-Ba cái còn lại do maintainer tự vá, và họ ghi thẳng id advisory vào đoạn code làm việc đó —
+Ba cái còn lại được vá ở phía dự án, và id advisory được ghi thẳng vào đoạn code làm việc đó —
 `GHSA-mghq-58h3-qcqj` cùng `GHSA-v7g9-7f55-5g46` trong danh sách route luôn được bảo vệ ở
 `src/server/authz/routeGuard.ts`, còn `GHSA-wgwc-crjm-pmwv` nằm ngay cạnh ở mục chỉ-loopback.
 
