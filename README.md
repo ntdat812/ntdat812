@@ -29,7 +29,7 @@ Nothing in my own repositories is counted. Every number here links to the list b
 | | Count | What it counts |
 | --- | ---: | --- |
 | [Pull requests merged](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **25** | Landed in the default branch of a repo I don't own |
-| [Closing someone else's issue](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **12** | Of those 25, the ones that close a filed issue |
+| [Closing someone else's issue](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **13** | Of those 25, the ones that close a filed issue |
 | [Security advisories](#security-research) | **8** | Reported privately; six fixed, two still in triage |
 | [Pull requests open](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **60** | Opened, awaiting review |
 | Repositories | **9** | Third-party repos I've contributed to |
@@ -42,7 +42,7 @@ merged by somebody who does.
 ## Merged
 
 **[diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)** — MIT AI gateway, one
-endpoint in front of 350 providers, 54.5k★. Twenty-one merged.
+endpoint in front of 350 providers, 55.9k★. Twenty-one merged.
 **[volcengine/OpenViking](https://github.com/volcengine/OpenViking)** — context database for
 agents, 33.3k★. Two merged.
 **[nicolargo/glances](https://github.com/nicolargo/glances)** — cross-platform system monitor,
@@ -50,7 +50,7 @@ agents, 33.3k★. Two merged.
 **[lidge-jun/opencodex](https://github.com/lidge-jun/opencodex)** — universal provider proxy,
 12.0k★. One merged.
 
-Twelve of the twenty-five close an issue somebody else filed.
+Thirteen of the twenty-five close an issue somebody else filed.
 [Full list](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests).
 Thirteen that show the range:
 
@@ -164,7 +164,7 @@ opencodex or OmniRoute: of the three still open there this morning, one merged a
 closed as duplicates of pull requests other people had filed a few hours earlier — same bug,
 same fix, and in both cases the diagnosis was confirmed correct before the close.
 
-That is a large number next to twenty-four merged, and the honest reading is that most of it is
+That is a large number next to twenty-five merged, and the honest reading is that most of it is
 waiting rather than working: these are queues I do not control, and several of these projects
 take weeks. What I can speak for is the state I leave them in. Checked on 26 August 2026, one
 pull request at a time with `gh pr view --json statusCheckRollup`, because the list form of that
