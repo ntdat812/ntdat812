@@ -2,7 +2,7 @@
 
 ![Nguyen Thanh Dat — AI gateways, agent tooling, security review](./assets/header.svg)
 
-[![Merged](https://img.shields.io/badge/merged-24_pull_requests-3fa34d?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests)
+[![Merged](https://img.shields.io/badge/merged-25_pull_requests-3fa34d?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests)
 [![Advisories](https://img.shields.io/badge/advisories-8_reported,_6_fixed-c9583e?style=flat-square&labelColor=161b22)](#security-research)
 [![Open](https://img.shields.io/badge/in_review-60_pull_requests-7d8590?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests)
 [![Projects](https://img.shields.io/badge/across-9_projects-7d8590?style=flat-square&labelColor=161b22)](#the-record)
@@ -28,8 +28,8 @@ Nothing in my own repositories is counted. Every number here links to the list b
 
 | | Count | What it counts |
 | --- | ---: | --- |
-| [Pull requests merged](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **24** | Landed in the default branch of a repo I don't own |
-| [Closing someone else's issue](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **12** | Of those 24, the ones that close a filed issue |
+| [Pull requests merged](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **25** | Landed in the default branch of a repo I don't own |
+| [Closing someone else's issue](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **12** | Of those 25, the ones that close a filed issue |
 | [Security advisories](#security-research) | **8** | Reported privately; six fixed, two still in triage |
 | [Pull requests open](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **60** | Opened, awaiting review |
 | Repositories | **9** | Third-party repos I've contributed to |
@@ -45,17 +45,20 @@ merged by somebody who does.
 endpoint in front of 350 providers, 54.5k★. Twenty-one merged.
 **[volcengine/OpenViking](https://github.com/volcengine/OpenViking)** — context database for
 agents, 33.3k★. Two merged.
+**[nicolargo/glances](https://github.com/nicolargo/glances)** — cross-platform system monitor,
+33.4k★. One merged.
 **[lidge-jun/opencodex](https://github.com/lidge-jun/opencodex)** — universal provider proxy,
 12.0k★. One merged.
 
-Twelve of the twenty-four close an issue somebody else filed.
+Twelve of the twenty-five close an issue somebody else filed.
 [Full list](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests).
-Twelve that show the range:
+Thirteen that show the range:
 
 | Pull request | What it fixes |
 | --- | --- |
 | [#10843](https://github.com/diegosouzapw/OmniRoute/pull/10843) `fix(security)` | An SSRF guard that matched cloud-metadata hosts by spelling instead of by address. Detailed below. |
 | [#11328](https://github.com/diegosouzapw/OmniRoute/pull/11328) `fix(security)` | The canonical denylist of headers never forwarded upstream was missing two of the RFC 7230 hop-by-hop names, so `proxy-authorization` and `proxy-authenticate` went to the provider. |
+| [glances #3692](https://github.com/nicolargo/glances/pull/3692) `fix(programs)` | Per-program I/O totals concatenated each process's counters instead of adding them, so a program's read and write figures came out as a list of its processes' numbers rather than their sum. |
 | [opencodex #2476](https://github.com/lidge-jun/opencodex/pull/2476) `fix(responses)` | A 24 MiB state file was re-serialised and atomically replaced every two seconds whether or not anything in it had changed — and nothing reads it until the next start. The snapshot is now compared before it is written, by length and digest rather than by keeping the payload, and the debounce scales with the size. |
 | [#11380](https://github.com/diegosouzapw/OmniRoute/pull/11380) `test(kimi)` | A nightly run reported one failure in 8,280 and it was being read as a Node 26 compatibility break. The test drew a random number and then asserted on the outcome. I fixed the test and said the issue should stay open, because a flaky test is not the thing it was filed about. |
 | [#11376](https://github.com/diegosouzapw/OmniRoute/pull/11376) `fix(auth)` | Every upstream failure that was not already a string collapsed to the literal `Provider error`, and that is the line an operator reads. A refused port, a DNS failure, a blocked proxy and a provider simply saying no were indistinguishable — the actionable part sits on `error.cause.code`, which nothing looked at. |

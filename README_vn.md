@@ -2,7 +2,7 @@
 
 ![Nguyễn Thành Đạt — AI gateway, công cụ cho agent, rà soát bảo mật](./assets/header.svg)
 
-[![Merged](https://img.shields.io/badge/%C4%91%C3%A3_merge-24_pull_request-3fa34d?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests)
+[![Merged](https://img.shields.io/badge/%C4%91%C3%A3_merge-25_pull_request-3fa34d?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests)
 [![Advisories](https://img.shields.io/badge/l%E1%BB%97_h%E1%BB%95ng-8_b%C3%A1o_c%C3%A1o,_6_%C4%91%C3%A3_v%C3%A1-c9583e?style=flat-square&labelColor=161b22)](#nghiên-cứu-bảo-mật)
 [![Open](https://img.shields.io/badge/ch%E1%BB%9D_review-60_pull_request-7d8590?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests)
 [![Projects](https://img.shields.io/badge/tr%C3%AAn-9_d%E1%BB%B1_%C3%A1n-7d8590?style=flat-square&labelColor=161b22)](#hồ-sơ-đóng-góp)
@@ -27,8 +27,8 @@ thứ gì trong repo của chính tôi. Mỗi con số đều dẫn tới danh s
 
 | | Số lượng | Nó đếm cái gì |
 | --- | ---: | --- |
-| [Pull request đã merge](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **24** | Đã vào nhánh mặc định của repo tôi không sở hữu |
-| [Đóng issue của người khác](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **12** | Trong 24 cái đó, số cái đóng một issue đã được mở |
+| [Pull request đã merge](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **25** | Đã vào nhánh mặc định của repo tôi không sở hữu |
+| [Đóng issue của người khác](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **12** | Trong 25 cái đó, số cái đóng một issue đã được mở |
 | [Lỗ hổng bảo mật](#nghiên-cứu-bảo-mật) | **8** | Báo cáo riêng tư; sáu cái đã vá, hai cái còn đang triage |
 | [Pull request đang mở](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **60** | Đã mở, đang chờ review |
 | Số repo | **9** | Repo của bên thứ ba tôi đã đóng góp |
@@ -44,17 +44,20 @@ người có quyền đó review và merge.
 MIT, một endpoint đứng trước 350 nhà cung cấp, 54.5k★. Hai mươi mốt PR đã merge.
 **[volcengine/OpenViking](https://github.com/volcengine/OpenViking)** — context database cho
 agent, 33.3k★. Hai PR.
+**[nicolargo/glances](https://github.com/nicolargo/glances)** — công cụ giám sát hệ thống đa nền,
+33.4k★. Một PR.
 **[lidge-jun/opencodex](https://github.com/lidge-jun/opencodex)** — proxy nhà cung cấp đa nền,
 12.0k★. Một PR.
 
-Mười hai trong hai mươi bốn PR đó đóng issue do người khác mở.
+Mười hai trong hai mươi lăm PR đó đóng issue do người khác mở.
 [Danh sách đầy đủ](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests).
-Mười hai PR cho thấy phạm vi công việc:
+Mười ba PR cho thấy phạm vi công việc:
 
 | Pull request | Nội dung |
 | --- | --- |
 | [#10843](https://github.com/diegosouzapw/OmniRoute/pull/10843) `fix(security)` | Lớp chặn SSRF nhận diện host cloud-metadata theo cách viết thay vì theo địa chỉ. Chi tiết bên dưới. |
 | [#11328](https://github.com/diegosouzapw/OmniRoute/pull/11328) `fix(security)` | Danh sách chuẩn các header không bao giờ được chuyển tiếp lên upstream thiếu hai tên hop-by-hop của RFC 7230, nên `proxy-authorization` và `proxy-authenticate` đi thẳng tới nhà cung cấp. |
+| [glances #3692](https://github.com/nicolargo/glances/pull/3692) `fix(programs)` | Chỉ số I/O gộp theo chương trình đem nối các bộ đếm của từng tiến trình lại thay vì cộng, nên con số đọc/ghi của một chương trình hiện ra thành một danh sách số của các tiến trình chứ không phải tổng của chúng. |
 | [opencodex #2476](https://github.com/lidge-jun/opencodex/pull/2476) `fix(responses)` | Một file trạng thái 24 MiB bị tuần tự hóa lại và thay thế nguyên tử mỗi hai giây, bất kể nội dung có đổi hay không — mà chẳng ai đọc nó cho tới lần khởi động sau. Giờ ảnh chụp được so sánh trước khi ghi, bằng độ dài và digest chứ không giữ lại payload, và nhịp debounce co giãn theo kích thước. |
 | [#11380](https://github.com/diegosouzapw/OmniRoute/pull/11380) `test(kimi)` | Một lượt chạy nightly báo đúng một lỗi trên 8.280 test, và nó đang bị hiểu thành lỗi tương thích Node 26. Thật ra bài test bốc một số ngẫu nhiên rồi khẳng định về kết quả đó. Tôi sửa bài test và nói rõ issue nên để mở, vì một test chập chờn không phải là thứ issue đó được mở ra để nói. |
 | [#11376](https://github.com/diegosouzapw/OmniRoute/pull/11376) `fix(auth)` | Mọi lỗi từ upstream không sẵn ở dạng chuỗi đều bị thu về đúng một chữ `Provider error` — và đó chính là dòng người vận hành đọc. Cổng bị từ chối, DNS hỏng, proxy bị chặn, hay nhà cung cấp đơn giản là nói không: bốn thứ đó không phân biệt được với nhau. Phần dùng được nằm ở `error.cause.code`, chỗ không ai đọc tới. |
