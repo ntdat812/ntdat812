@@ -2,9 +2,9 @@
 
 ![Nguyễn Thành Đạt — AI gateway, công cụ cho agent, rà soát bảo mật](./assets/header.svg)
 
-[![Merged](https://img.shields.io/badge/%C4%91%C3%A3_merge-23_pull_request-3fa34d?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests)
+[![Merged](https://img.shields.io/badge/%C4%91%C3%A3_merge-24_pull_request-3fa34d?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests)
 [![Advisories](https://img.shields.io/badge/l%E1%BB%97_h%E1%BB%95ng-8_b%C3%A1o_c%C3%A1o,_6_%C4%91%C3%A3_v%C3%A1-c9583e?style=flat-square&labelColor=161b22)](#nghiên-cứu-bảo-mật)
-[![Open](https://img.shields.io/badge/ch%E1%BB%9D_review-63_pull_request-7d8590?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests)
+[![Open](https://img.shields.io/badge/ch%E1%BB%9D_review-60_pull_request-7d8590?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests)
 [![Projects](https://img.shields.io/badge/tr%C3%AAn-9_d%E1%BB%B1_%C3%A1n-7d8590?style=flat-square&labelColor=161b22)](#hồ-sơ-đóng-góp)
 
 [English](README.md) · **Tiếng Việt**
@@ -27,10 +27,10 @@ thứ gì trong repo của chính tôi. Mỗi con số đều dẫn tới danh s
 
 | | Số lượng | Nó đếm cái gì |
 | --- | ---: | --- |
-| [Pull request đã merge](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **23** | Đã vào nhánh mặc định của repo tôi không sở hữu |
-| [Đóng issue của người khác](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **12** | Trong 23 cái đó, số cái đóng một issue đã được mở |
+| [Pull request đã merge](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **24** | Đã vào nhánh mặc định của repo tôi không sở hữu |
+| [Đóng issue của người khác](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **12** | Trong 24 cái đó, số cái đóng một issue đã được mở |
 | [Lỗ hổng bảo mật](#nghiên-cứu-bảo-mật) | **8** | Báo cáo riêng tư; sáu cái đã vá, hai cái còn đang triage |
-| [Pull request đang mở](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **63** | Đã mở, đang chờ review |
+| [Pull request đang mở](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **60** | Đã mở, đang chờ review |
 | Số repo | **9** | Repo của bên thứ ba tôi đã đóng góp |
 
 Tôi không có quyền push, merge hay admin trên bất kỳ dự án nào ở đây. Mọi thứ bên dưới đều do
@@ -41,13 +41,13 @@ người có quyền đó review và merge.
 ## Đã merge
 
 **[diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)** — AI gateway giấy phép
-MIT, một endpoint đứng trước 350 nhà cung cấp, 54.5k★. Hai mươi PR đã merge.
+MIT, một endpoint đứng trước 350 nhà cung cấp, 54.5k★. Hai mươi mốt PR đã merge.
 **[volcengine/OpenViking](https://github.com/volcengine/OpenViking)** — context database cho
 agent, 33.3k★. Hai PR.
 **[lidge-jun/opencodex](https://github.com/lidge-jun/opencodex)** — proxy nhà cung cấp đa nền,
 12.0k★. Một PR.
 
-Mười hai trong hai mươi ba PR đó đóng issue do người khác mở.
+Mười hai trong hai mươi bốn PR đó đóng issue do người khác mở.
 [Danh sách đầy đủ](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests).
 Mười hai PR cho thấy phạm vi công việc:
 
@@ -148,24 +148,29 @@ chính đoạn code đã vá là dấu vết công khai duy nhất. Cứ grep re
 
 ## Đang chờ review
 
-Sáu mươi ba PR đang mở: hai mươi tám trên [9router](https://github.com/decolua/9router)
+Sáu mươi PR đang mở: hai mươi tám trên [9router](https://github.com/decolua/9router)
 (26.3k★), mười trên [ECC](https://github.com/affaan-m/ECC) (243k★), tám trên
 [OpenViking](https://github.com/volcengine/OpenViking) (33.3k★), bảy trên
 [ComfyUI](https://github.com/Comfy-Org/ComfyUI) (130k★), năm trên
-[odysseus](https://github.com/odysseus-dev/odysseus) (86.2k★), ba trên
-[OmniRoute](https://github.com/diegosouzapw/OmniRoute) (55.2k★), một mỗi dự án ở
+[odysseus](https://github.com/odysseus-dev/odysseus) (86.2k★), và mỗi dự án một PR ở
 [OpenClaw](https://github.com/openclaw/openclaw) (388k★) và
-[Glances](https://github.com/nicolargo/glances) (33.4k★). Ở opencodex tôi không còn PR nào đang
-mở.
+[Glances](https://github.com/nicolargo/glances) (33.4k★). Ở opencodex và OmniRoute tôi không
+còn PR nào đang mở: trong ba cái còn mở ở OmniRoute sáng nay, một đã merge và hai bị đóng vì
+trùng với PR người khác mở trước đó vài tiếng — cùng một bug, cùng một cách sửa, và cả hai
+lần phần chẩn đoán đều được xác nhận là đúng trước khi đóng.
 
-Đó là một con số lớn đặt cạnh 23 cái đã merge, và cách đọc trung thực là phần lớn trong đó đang
+Đó là một con số lớn đặt cạnh 24 cái đã merge, và cách đọc trung thực là phần lớn trong đó đang
 chờ chứ không phải đang chạy: đây là những hàng đợi tôi không kiểm soát, và vài dự án trong số
-này mất hàng tuần. Thứ tôi nói được là trạng thái tôi để lại. Kiểm ngày 26/08/2026: sáu mươi
-trong sáu mươi ba PR xanh ở mọi check bắt buộc. Ba cái đỏ đều nằm ở OmniRoute, và chúng đỏ vì
-một lý do không thuộc về chúng — chính nhánh `release/v3.8.51` đang fail sáu gate, nên mọi PR
-mở vào nhánh đó đều thừa hưởng đúng sáu cái ấy, kể cả PR của người khác và kể cả một PR của tôi
-chỉ sửa một dòng assert trong test. Tôi để nguyên điều đó thay vì giấu đi: một check đỏ có giá
-trị với người đọc hơn là một lời khẳng định rằng mọi thứ đều xanh.
+này mất hàng tuần. Thứ tôi nói được là trạng thái tôi để lại. Kiểm ngày 26/08/2026, từng PR một
+bằng `gh pr view --json statusCheckRollup`, vì dạng list của câu truy vấn đó trả về rollup rỗng
+và đọc ra thành xanh: năm mươi chín trong sáu mươi PR xanh ở mọi check mà repo của nó chạy —
+kèm một lưu ý, hai mươi tám trong số đó, các PR ở 9router, không chạy CI nào cả, nên ở đó xanh
+chỉ có nghĩa là không có gì để fail. Cái đỏ duy nhất là
+[Glances #3689](https://github.com/nicolargo/glances/pull/3689), và job AppVeyor của nó đỏ trên
+mọi PR đang mở của repo đó, kể cả PR của dependabot: năm mươi hai lỗi Windows trong
+`test_xmlrpc.py`, `test_browser_restful.py` và `test_webui.py`, tất cả đều là spawn server và
+Selenium, không cái nào nằm ở file tôi sửa. Tôi để nguyên điều đó thay vì giấu đi: một check đỏ
+có giá trị với người đọc hơn là một lời khẳng định rằng mọi thứ đều xanh.
 [Danh sách đầy đủ](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests).
 
 | Pull request | Nội dung |
