@@ -2,7 +2,7 @@
 
 ![Nguyen Thanh Dat — AI gateways, agent tooling, security review](./assets/header.svg)
 
-[![Merged](https://img.shields.io/badge/merged-22_pull_requests-3fa34d?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests)
+[![Merged](https://img.shields.io/badge/merged-23_pull_requests-3fa34d?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests)
 [![Advisories](https://img.shields.io/badge/advisories-8_reported,_6_fixed-c9583e?style=flat-square&labelColor=161b22)](#security-research)
 [![Open](https://img.shields.io/badge/in_review-62_pull_requests-7d8590?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests)
 [![Projects](https://img.shields.io/badge/across-8_projects-7d8590?style=flat-square&labelColor=161b22)](#the-record)
@@ -28,8 +28,8 @@ Nothing in my own repositories is counted. Every number here links to the list b
 
 | | Count | What it counts |
 | --- | ---: | --- |
-| [Pull requests merged](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **22** | Landed in the default branch of a repo I don't own |
-| [Closing someone else's issue](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **11** | Of those 22, the ones that close a filed issue |
+| [Pull requests merged](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **23** | Landed in the default branch of a repo I don't own |
+| [Closing someone else's issue](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **12** | Of those 23, the ones that close a filed issue |
 | [Security advisories](#security-research) | **8** | Reported privately; six fixed, two still in triage |
 | [Pull requests open](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **62** | Opened, awaiting review |
 | Repositories | **8** | Third-party repos I've contributed to |
@@ -44,11 +44,11 @@ merged by somebody who does.
 **[diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)** — MIT AI gateway, one
 endpoint in front of 350 providers, 54.5k★. Twenty merged.
 **[volcengine/OpenViking](https://github.com/volcengine/OpenViking)** — context database for
-agents, 33.0k★. One merged.
+agents, 33.3k★. Two merged.
 **[lidge-jun/opencodex](https://github.com/lidge-jun/opencodex)** — universal provider proxy,
 12.0k★. One merged.
 
-Eleven of the twenty-two close an issue somebody else filed.
+Twelve of the twenty-three close an issue somebody else filed.
 [Full list](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests).
 Twelve that show the range:
 
@@ -150,16 +150,16 @@ fixed the patched code is the only public record. Grep the repository for the id
 
 ## In review
 
-Sixty-two open: twenty-eight on [9router](https://github.com/decolua/9router) (26.3k★), ten
-each on [OpenViking](https://github.com/volcengine/OpenViking) (33.3k★) and
-[ECC](https://github.com/affaan-m/ECC) (243k★), five each on
-[ComfyUI](https://github.com/Comfy-Org/ComfyUI) (130k★) and
+Sixty-two open: twenty-eight on [9router](https://github.com/decolua/9router) (26.3k★), ten on
+[ECC](https://github.com/affaan-m/ECC) (243k★), eight on
+[OpenViking](https://github.com/volcengine/OpenViking) (33.3k★), seven on
+[ComfyUI](https://github.com/Comfy-Org/ComfyUI) (130k★), five on
 [odysseus](https://github.com/odysseus-dev/odysseus) (86.2k★), three on
 [OmniRoute](https://github.com/diegosouzapw/OmniRoute) (55.2k★), one on
 [OpenClaw](https://github.com/openclaw/openclaw) (388k★). Nothing of mine is left open on
 opencodex.
 
-That is a large number next to twenty-two merged, and the honest reading is that most of it is
+That is a large number next to twenty-three merged, and the honest reading is that most of it is
 waiting rather than working: these are queues I do not control, and several of these projects
 take weeks. What I can speak for is the state I leave them in. Checked on 26 August 2026: fifty-nine
 of the sixty-two are green on every required check. The three red are all on OmniRoute, and

@@ -2,7 +2,7 @@
 
 ![Nguyễn Thành Đạt — AI gateway, công cụ cho agent, rà soát bảo mật](./assets/header.svg)
 
-[![Merged](https://img.shields.io/badge/%C4%91%C3%A3_merge-22_pull_request-3fa34d?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests)
+[![Merged](https://img.shields.io/badge/%C4%91%C3%A3_merge-23_pull_request-3fa34d?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests)
 [![Advisories](https://img.shields.io/badge/l%E1%BB%97_h%E1%BB%95ng-8_b%C3%A1o_c%C3%A1o,_6_%C4%91%C3%A3_v%C3%A1-c9583e?style=flat-square&labelColor=161b22)](#nghiên-cứu-bảo-mật)
 [![Open](https://img.shields.io/badge/ch%E1%BB%9D_review-62_pull_request-7d8590?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests)
 [![Projects](https://img.shields.io/badge/tr%C3%AAn-8_d%E1%BB%B1_%C3%A1n-7d8590?style=flat-square&labelColor=161b22)](#hồ-sơ-đóng-góp)
@@ -27,8 +27,8 @@ thứ gì trong repo của chính tôi. Mỗi con số đều dẫn tới danh s
 
 | | Số lượng | Nó đếm cái gì |
 | --- | ---: | --- |
-| [Pull request đã merge](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **22** | Đã vào nhánh mặc định của repo tôi không sở hữu |
-| [Đóng issue của người khác](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **11** | Trong 22 cái đó, số cái đóng một issue đã được mở |
+| [Pull request đã merge](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **23** | Đã vào nhánh mặc định của repo tôi không sở hữu |
+| [Đóng issue của người khác](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **12** | Trong 23 cái đó, số cái đóng một issue đã được mở |
 | [Lỗ hổng bảo mật](#nghiên-cứu-bảo-mật) | **8** | Báo cáo riêng tư; sáu cái đã vá, hai cái còn đang triage |
 | [Pull request đang mở](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **62** | Đã mở, đang chờ review |
 | Số repo | **8** | Repo của bên thứ ba tôi đã đóng góp |
@@ -43,11 +43,11 @@ người có quyền đó review và merge.
 **[diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)** — AI gateway giấy phép
 MIT, một endpoint đứng trước 350 nhà cung cấp, 54.5k★. Hai mươi PR đã merge.
 **[volcengine/OpenViking](https://github.com/volcengine/OpenViking)** — context database cho
-agent, 33.0k★. Một PR.
+agent, 33.3k★. Hai PR.
 **[lidge-jun/opencodex](https://github.com/lidge-jun/opencodex)** — proxy nhà cung cấp đa nền,
 12.0k★. Một PR.
 
-Mười một trong hai mươi hai PR đó đóng issue do người khác mở.
+Mười hai trong hai mươi ba PR đó đóng issue do người khác mở.
 [Danh sách đầy đủ](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests).
 Mười hai PR cho thấy phạm vi công việc:
 
@@ -149,15 +149,15 @@ chính đoạn code đã vá là dấu vết công khai duy nhất. Cứ grep re
 ## Đang chờ review
 
 Sáu mươi hai PR đang mở: hai mươi tám trên [9router](https://github.com/decolua/9router)
-(26.3k★), mười mỗi dự án ở [OpenViking](https://github.com/volcengine/OpenViking) (33.3k★) và
-[ECC](https://github.com/affaan-m/ECC) (243k★), năm mỗi dự án ở
-[ComfyUI](https://github.com/Comfy-Org/ComfyUI) (130k★) và
+(26.3k★), mười trên [ECC](https://github.com/affaan-m/ECC) (243k★), tám trên
+[OpenViking](https://github.com/volcengine/OpenViking) (33.3k★), bảy trên
+[ComfyUI](https://github.com/Comfy-Org/ComfyUI) (130k★), năm trên
 [odysseus](https://github.com/odysseus-dev/odysseus) (86.2k★), ba trên
 [OmniRoute](https://github.com/diegosouzapw/OmniRoute) (55.2k★), một trên
 [OpenClaw](https://github.com/openclaw/openclaw) (388k★). Ở opencodex tôi không còn PR nào đang
 mở.
 
-Đó là một con số lớn đặt cạnh 22 cái đã merge, và cách đọc trung thực là phần lớn trong đó đang
+Đó là một con số lớn đặt cạnh 23 cái đã merge, và cách đọc trung thực là phần lớn trong đó đang
 chờ chứ không phải đang chạy: đây là những hàng đợi tôi không kiểm soát, và vài dự án trong số
 này mất hàng tuần. Thứ tôi nói được là trạng thái tôi để lại. Kiểm ngày 26/08/2026: năm mươi chín
 trong sáu mươi hai PR xanh ở mọi check bắt buộc. Ba cái đỏ đều nằm ở OmniRoute, và chúng đỏ vì
