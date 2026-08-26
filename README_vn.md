@@ -28,7 +28,7 @@ thứ gì trong repo của chính tôi. Mỗi con số đều dẫn tới danh s
 | | Số lượng | Nó đếm cái gì |
 | --- | ---: | --- |
 | [Pull request đã merge](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **25** | Đã vào nhánh mặc định của repo tôi không sở hữu |
-| [Đóng issue của người khác](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **12** | Trong 25 cái đó, số cái đóng một issue đã được mở |
+| [Đóng issue của người khác](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **13** | Trong 25 cái đó, số cái đóng một issue đã được mở |
 | [Lỗ hổng bảo mật](#nghiên-cứu-bảo-mật) | **8** | Báo cáo riêng tư; sáu cái đã vá, hai cái còn đang triage |
 | [Pull request đang mở](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **60** | Đã mở, đang chờ review |
 | Số repo | **9** | Repo của bên thứ ba tôi đã đóng góp |
@@ -41,7 +41,7 @@ người có quyền đó review và merge.
 ## Đã merge
 
 **[diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)** — AI gateway giấy phép
-MIT, một endpoint đứng trước 350 nhà cung cấp, 54.5k★. Hai mươi mốt PR đã merge.
+MIT, một endpoint đứng trước 350 nhà cung cấp, 55.9k★. Hai mươi mốt PR đã merge.
 **[volcengine/OpenViking](https://github.com/volcengine/OpenViking)** — context database cho
 agent, 33.3k★. Hai PR.
 **[nicolargo/glances](https://github.com/nicolargo/glances)** — công cụ giám sát hệ thống đa nền,
@@ -49,7 +49,7 @@ agent, 33.3k★. Hai PR.
 **[lidge-jun/opencodex](https://github.com/lidge-jun/opencodex)** — proxy nhà cung cấp đa nền,
 12.0k★. Một PR.
 
-Mười hai trong hai mươi lăm PR đó đóng issue do người khác mở.
+Mười ba trong hai mươi lăm PR đó đóng issue do người khác mở.
 [Danh sách đầy đủ](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests).
 Mười ba PR cho thấy phạm vi công việc:
 
@@ -162,7 +162,7 @@ còn PR nào đang mở: trong ba cái còn mở ở OmniRoute sáng nay, một 
 trùng với PR người khác mở trước đó vài tiếng — cùng một bug, cùng một cách sửa, và cả hai
 lần phần chẩn đoán đều được xác nhận là đúng trước khi đóng.
 
-Đó là một con số lớn đặt cạnh 24 cái đã merge, và cách đọc trung thực là phần lớn trong đó đang
+Đó là một con số lớn đặt cạnh 25 cái đã merge, và cách đọc trung thực là phần lớn trong đó đang
 chờ chứ không phải đang chạy: đây là những hàng đợi tôi không kiểm soát, và vài dự án trong số
 này mất hàng tuần. Thứ tôi nói được là trạng thái tôi để lại. Kiểm ngày 26/08/2026, từng PR một
 bằng `gh pr view --json statusCheckRollup`, vì dạng list của câu truy vấn đó trả về rollup rỗng
