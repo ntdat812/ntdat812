@@ -4,7 +4,7 @@
 
 [![Merged](https://img.shields.io/badge/%C4%91%C3%A3_merge-22_pull_request-3fa34d?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests)
 [![Advisories](https://img.shields.io/badge/l%E1%BB%97_h%E1%BB%95ng-8_b%C3%A1o_c%C3%A1o,_6_%C4%91%C3%A3_v%C3%A1-c9583e?style=flat-square&labelColor=161b22)](#nghiên-cứu-bảo-mật)
-[![Open](https://img.shields.io/badge/ch%E1%BB%9D_review-62_pull_request-7d8590?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests)
+[![Open](https://img.shields.io/badge/ch%E1%BB%9D_review-63_pull_request-7d8590?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests)
 [![Projects](https://img.shields.io/badge/tr%C3%AAn-8_d%E1%BB%B1_%C3%A1n-7d8590?style=flat-square&labelColor=161b22)](#hồ-sơ-đóng-góp)
 
 [English](README.md) · **Tiếng Việt**
@@ -30,7 +30,7 @@ thứ gì trong repo của chính tôi. Mỗi con số đều dẫn tới danh s
 | [Pull request đã merge](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **22** | Đã vào nhánh mặc định của repo tôi không sở hữu |
 | [Đóng issue của người khác](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **11** | Trong 22 cái đó, số cái đóng một issue đã được mở |
 | [Lỗ hổng bảo mật](#nghiên-cứu-bảo-mật) | **8** | Báo cáo riêng tư; sáu cái đã vá, hai cái còn đang triage |
-| [Pull request đang mở](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **62** | Đã mở, đang chờ review |
+| [Pull request đang mở](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **63** | Đã mở, đang chờ review |
 | Số repo | **8** | Repo của bên thứ ba tôi đã đóng góp |
 
 Tôi không có quyền push, merge hay admin trên bất kỳ dự án nào ở đây. Mọi thứ bên dưới đều do
@@ -148,20 +148,23 @@ chính đoạn code đã vá là dấu vết công khai duy nhất. Cứ grep re
 
 ## Đang chờ review
 
-Sáu mươi hai PR đang mở: hai mươi tám trên [9router](https://github.com/decolua/9router)
+Sáu mươi ba PR đang mở: hai mươi tám trên [9router](https://github.com/decolua/9router)
 (26.3k★), mười một trên [OpenViking](https://github.com/volcengine/OpenViking) (33.3k★), mười
 trên [ECC](https://github.com/affaan-m/ECC) (243k★), năm mỗi dự án ở
 [ComfyUI](https://github.com/Comfy-Org/ComfyUI) (130k★) và
-[odysseus](https://github.com/odysseus-dev/odysseus) (86.2k★), hai trên
+[odysseus](https://github.com/odysseus-dev/odysseus) (86.2k★), ba trên
 [OmniRoute](https://github.com/diegosouzapw/OmniRoute) (55.2k★), một trên
 [OpenClaw](https://github.com/openclaw/openclaw) (388k★). Ở opencodex tôi không còn PR nào đang
 mở.
 
 Đó là một con số lớn đặt cạnh 22 cái đã merge, và cách đọc trung thực là phần lớn trong đó đang
 chờ chứ không phải đang chạy: đây là những hàng đợi tôi không kiểm soát, và vài dự án trong số
-này mất hàng tuần. Thứ tôi nói được là trạng thái tôi để lại — kiểm ngày 26/08/2026, lần chạy
-mới nhất của mọi check bắt buộc trên cả sáu mươi hai PR đều xanh, không cái nào đỏ và không cái
-nào cũ.
+này mất hàng tuần. Thứ tôi nói được là trạng thái tôi để lại. Kiểm ngày 26/08/2026: sáu mươi
+trong sáu mươi ba PR xanh ở mọi check bắt buộc. Ba cái đỏ đều nằm ở OmniRoute, và chúng đỏ vì
+một lý do không thuộc về chúng — chính nhánh `release/v3.8.51` đang fail sáu gate, nên mọi PR
+mở vào nhánh đó đều thừa hưởng đúng sáu cái ấy, kể cả PR của người khác và kể cả một PR của tôi
+chỉ sửa một dòng assert trong test. Tôi để nguyên điều đó thay vì giấu đi: một check đỏ có giá
+trị với người đọc hơn là một lời khẳng định rằng mọi thứ đều xanh.
 [Danh sách đầy đủ](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests).
 
 | Pull request | Nội dung |

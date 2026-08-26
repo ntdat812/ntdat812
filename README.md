@@ -4,7 +4,7 @@
 
 [![Merged](https://img.shields.io/badge/merged-22_pull_requests-3fa34d?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests)
 [![Advisories](https://img.shields.io/badge/advisories-8_reported,_6_fixed-c9583e?style=flat-square&labelColor=161b22)](#security-research)
-[![Open](https://img.shields.io/badge/in_review-62_pull_requests-7d8590?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests)
+[![Open](https://img.shields.io/badge/in_review-63_pull_requests-7d8590?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests)
 [![Projects](https://img.shields.io/badge/across-8_projects-7d8590?style=flat-square&labelColor=161b22)](#the-record)
 
 **English** · [Tiếng Việt](README_vn.md)
@@ -31,7 +31,7 @@ Nothing in my own repositories is counted. Every number here links to the list b
 | [Pull requests merged](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **22** | Landed in the default branch of a repo I don't own |
 | [Closing someone else's issue](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **11** | Of those 22, the ones that close a filed issue |
 | [Security advisories](#security-research) | **8** | Reported privately; six fixed, two still in triage |
-| [Pull requests open](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **62** | Opened, awaiting review |
+| [Pull requests open](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **63** | Opened, awaiting review |
 | Repositories | **8** | Third-party repos I've contributed to |
 
 I hold no push, merge or admin right on any of these projects. Everything below was reviewed and
@@ -150,19 +150,24 @@ fixed the patched code is the only public record. Grep the repository for the id
 
 ## In review
 
-Sixty-two open: twenty-eight on [9router](https://github.com/decolua/9router) (26.3k★), eleven
-on [OpenViking](https://github.com/volcengine/OpenViking) (33.3k★), ten on
+Sixty-three open: twenty-eight on [9router](https://github.com/decolua/9router) (26.3k★),
+eleven on [OpenViking](https://github.com/volcengine/OpenViking) (33.3k★), ten on
 [ECC](https://github.com/affaan-m/ECC) (243k★), five each on
 [ComfyUI](https://github.com/Comfy-Org/ComfyUI) (130k★) and
-[odysseus](https://github.com/odysseus-dev/odysseus) (86.2k★), two on
+[odysseus](https://github.com/odysseus-dev/odysseus) (86.2k★), three on
 [OmniRoute](https://github.com/diegosouzapw/OmniRoute) (55.2k★), one on
 [OpenClaw](https://github.com/openclaw/openclaw) (388k★). Nothing of mine is left open on
 opencodex.
 
 That is a large number next to twenty-two merged, and the honest reading is that most of it is
 waiting rather than working: these are queues I do not control, and several of these projects
-take weeks. What I can speak for is the state I leave them in — checked on 26 August 2026, the
-latest run of every required check on all sixty-two is green, none red and none stale.
+take weeks. What I can speak for is the state I leave them in. Checked on 26 August 2026: sixty
+of the sixty-three are green on every required check. The three red are all on OmniRoute, and
+they are red for a reason that is not theirs — `release/v3.8.51` is itself failing six gates, so
+every open pull request against it inherits the same six, including pull requests by other
+people and including one of mine that changes nothing but a test assertion. I am leaving that
+stated rather than tidied away: a red check is worth more to a reader than a claim that
+everything is green.
 [Full list](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests).
 
 | Pull request | What it fixes |
