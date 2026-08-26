@@ -3,9 +3,9 @@
 ![Nguyen Thanh Dat — AI gateways, agent tooling, security review](./assets/header.svg)
 
 [![Merged](https://img.shields.io/badge/merged-22_pull_requests-3fa34d?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests)
-[![Advisories](https://img.shields.io/badge/advisories-5_reported,_5_fixed-c9583e?style=flat-square&labelColor=161b22)](#security-research)
-[![Open](https://img.shields.io/badge/in_review-38_pull_requests-7d8590?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests)
-[![Projects](https://img.shields.io/badge/across-7_projects-7d8590?style=flat-square&labelColor=161b22)](#the-record)
+[![Advisories](https://img.shields.io/badge/advisories-8_reported,_6_fixed-c9583e?style=flat-square&labelColor=161b22)](#security-research)
+[![Open](https://img.shields.io/badge/in_review-62_pull_requests-7d8590?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests)
+[![Projects](https://img.shields.io/badge/across-8_projects-7d8590?style=flat-square&labelColor=161b22)](#the-record)
 
 **English** · [Tiếng Việt](README_vn.md)
 
@@ -22,7 +22,7 @@ instead.
 
 ## The record
 
-Counted **25 August 2026**, from `gh pr list -R <repo> --author ntdat812`, one repository at a
+Counted **26 August 2026**, from `gh pr list -R <repo> --author ntdat812`, one repository at a
 time. "Merged" means the change is in the upstream default branch of a repository I do not own.
 Nothing in my own repositories is counted. Every number here links to the list behind it.
 
@@ -30,9 +30,9 @@ Nothing in my own repositories is counted. Every number here links to the list b
 | --- | ---: | --- |
 | [Pull requests merged](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **22** | Landed in the default branch of a repo I don't own |
 | [Closing someone else's issue](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **11** | Of those 22, the ones that close a filed issue |
-| [Security advisories](#security-research) | **5** | Reported privately; all five now fixed |
-| [Pull requests open](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **38** | Opened, awaiting review |
-| Repositories | **7** | Third-party repos I've contributed to |
+| [Security advisories](#security-research) | **8** | Reported privately; six fixed, two still in triage |
+| [Pull requests open](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **62** | Opened, awaiting review |
+| Repositories | **8** | Third-party repos I've contributed to |
 
 I hold no push, merge or admin right on any of these projects. Everything below was reviewed and
 merged by somebody who does.
@@ -122,34 +122,47 @@ through. Whichever way it points, the question to ask the code is the same one.
 
 ## Security research
 
-Five vulnerabilities reported through OmniRoute's private security advisories, the disclosure
-route the project's `SECURITY.md` asks for. All five are fixed.
+Eight vulnerabilities reported privately, each through the channel the project's `SECURITY.md`
+asks for. **Six are fixed. Two are still in triage**, and I say nothing about those beyond the
+count — they are unpatched, and describing them here would be the disclosure the process exists
+to avoid.
 
-Two by patches I sent: the cloud-metadata bypass described above, and the relay-path gap that
+Six of the eight went to OmniRoute, and all six are fixed. Two by patches I sent: the
+cloud-metadata bypass described above, and the relay-path gap that
 [#10935](https://github.com/diegosouzapw/OmniRoute/pull/10935) closed in the Cloudflare worker.
 
-The other three were fixed upstream, with the advisory named in the code that does
+The other four were fixed upstream, with the advisory id named in the code that does
 it — `GHSA-mghq-58h3-qcqj` and `GHSA-v7g9-7f55-5g46` on the always-protected route list in
-`src/server/authz/routeGuard.ts`, `GHSA-wgwc-crjm-pmwv` on the loopback-only entry beside it.
+`src/server/authz/routeGuard.ts`, `GHSA-wgwc-crjm-pmwv` on the loopback-only entry beside it,
+and `GHSA-74g9-q8f6-793h` in
+[#11417](https://github.com/diegosouzapw/OmniRoute/pull/11417), which carries the id in its
+title and lands a regression test named after it.
 
-That first pair is the one I would point at. `GHSA-mghq` was the report. `GHSA-v7g9` is what
-came out of going back and reading the fix instead of trusting it — two sibling routes had been
-left behind, still reachable the same way as before. Re-reading a patch that has already been
-accepted is not interesting work, and it is the step most people skip.
+The `mghq` / `v7g9` pair is the one I would point at. `GHSA-mghq` was the report. `GHSA-v7g9` is
+what came out of going back and reading the fix instead of trusting it — two sibling routes had
+been left behind, still reachable the same way as before. Re-reading a patch that has already
+been accepted is not interesting work, and it is the step most people skip.
 
-None of the five was published as an advisory, so the patched code is the only public record of
-them. Grep the repository for the ids.
+None of the eight was published as an advisory and none carries a CVE, so for the six that are
+fixed the patched code is the only public record. Grep the repository for the ids.
 
 ---
 
 ## In review
 
-Thirty-eight open: twenty-one on [9router](https://github.com/decolua/9router) (26.2k★), six on
+Sixty-two open: twenty-eight on [9router](https://github.com/decolua/9router) (26.3k★), eleven
+on [OpenViking](https://github.com/volcengine/OpenViking) (33.3k★), ten on
 [ECC](https://github.com/affaan-m/ECC) (243k★), five each on
 [ComfyUI](https://github.com/Comfy-Org/ComfyUI) (130k★) and
-[OpenViking](https://github.com/volcengine/OpenViking) (33.0k★), one on
-[OpenClaw](https://github.com/openclaw/openclaw) (387k★). Nothing of mine is left open on
-OmniRoute or opencodex.
+[odysseus](https://github.com/odysseus-dev/odysseus) (86.2k★), two on
+[OmniRoute](https://github.com/diegosouzapw/OmniRoute) (55.2k★), one on
+[OpenClaw](https://github.com/openclaw/openclaw) (388k★). Nothing of mine is left open on
+opencodex.
+
+That is a large number next to twenty-two merged, and the honest reading is that most of it is
+waiting rather than working: these are queues I do not control, and several of these projects
+take weeks. What I can speak for is the state I leave them in — checked on 26 August 2026, the
+latest run of every required check on all sixty-two is green, none red and none stale.
 [Full list](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests).
 
 | Pull request | What it fixes |

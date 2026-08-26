@@ -3,9 +3,9 @@
 ![Nguyễn Thành Đạt — AI gateway, công cụ cho agent, rà soát bảo mật](./assets/header.svg)
 
 [![Merged](https://img.shields.io/badge/%C4%91%C3%A3_merge-22_pull_request-3fa34d?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests)
-[![Advisories](https://img.shields.io/badge/l%E1%BB%97_h%E1%BB%95ng-5_b%C3%A1o_c%C3%A1o,_5_%C4%91%C3%A3_v%C3%A1-c9583e?style=flat-square&labelColor=161b22)](#nghiên-cứu-bảo-mật)
-[![Open](https://img.shields.io/badge/ch%E1%BB%9D_review-38_pull_request-7d8590?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests)
-[![Projects](https://img.shields.io/badge/tr%C3%AAn-7_d%E1%BB%B1_%C3%A1n-7d8590?style=flat-square&labelColor=161b22)](#hồ-sơ-đóng-góp)
+[![Advisories](https://img.shields.io/badge/l%E1%BB%97_h%E1%BB%95ng-8_b%C3%A1o_c%C3%A1o,_6_%C4%91%C3%A3_v%C3%A1-c9583e?style=flat-square&labelColor=161b22)](#nghiên-cứu-bảo-mật)
+[![Open](https://img.shields.io/badge/ch%E1%BB%9D_review-62_pull_request-7d8590?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests)
+[![Projects](https://img.shields.io/badge/tr%C3%AAn-8_d%E1%BB%B1_%C3%A1n-7d8590?style=flat-square&labelColor=161b22)](#hồ-sơ-đóng-góp)
 
 [English](README.md) · **Tiếng Việt**
 
@@ -21,7 +21,7 @@ khi mở pull request. Repo nào không có bộ chạy test thì kèm mô tả 
 
 ## Hồ sơ đóng góp
 
-Đếm ngày **25/08/2026**, bằng `gh pr list -R <repo> --author ntdat812`, từng repo một. "Đã merge"
+Đếm ngày **26/08/2026**, bằng `gh pr list -R <repo> --author ntdat812`, từng repo một. "Đã merge"
 nghĩa là thay đổi đã nằm trên nhánh mặc định của một repo **tôi không sở hữu**. Không tính bất cứ
 thứ gì trong repo của chính tôi. Mỗi con số đều dẫn tới danh sách đứng sau nó.
 
@@ -29,9 +29,9 @@ thứ gì trong repo của chính tôi. Mỗi con số đều dẫn tới danh s
 | --- | ---: | --- |
 | [Pull request đã merge](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **22** | Đã vào nhánh mặc định của repo tôi không sở hữu |
 | [Đóng issue của người khác](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **11** | Trong 22 cái đó, số cái đóng một issue đã được mở |
-| [Lỗ hổng bảo mật](#nghiên-cứu-bảo-mật) | **5** | Báo cáo riêng tư; cả năm đều đã được vá |
-| [Pull request đang mở](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **38** | Đã mở, đang chờ review |
-| Số repo | **7** | Repo của bên thứ ba tôi đã đóng góp |
+| [Lỗ hổng bảo mật](#nghiên-cứu-bảo-mật) | **8** | Báo cáo riêng tư; sáu cái đã vá, hai cái còn đang triage |
+| [Pull request đang mở](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **62** | Đã mở, đang chờ review |
+| Số repo | **8** | Repo của bên thứ ba tôi đã đóng góp |
 
 Tôi không có quyền push, merge hay admin trên bất kỳ dự án nào ở đây. Mọi thứ bên dưới đều do
 người có quyền đó review và merge.
@@ -121,35 +121,47 @@ nào cũng vậy, câu hỏi phải đặt ra cho đoạn code vẫn là một.
 
 ## Nghiên cứu bảo mật
 
-Năm lỗ hổng đã báo cáo qua kênh security advisory riêng tư của OmniRoute, đúng con đường công bố
-mà `SECURITY.md` của dự án yêu cầu. Cả năm đều đã được vá.
+Tám lỗ hổng đã báo cáo riêng tư, mỗi cái qua đúng kênh mà `SECURITY.md` của dự án yêu cầu.
+**Sáu cái đã được vá. Hai cái vẫn đang triage** — và về hai cái đó tôi không nói gì ngoài con số:
+chúng chưa được vá, mô tả ở đây chính là việc công bố mà quy trình sinh ra để tránh.
 
-Hai cái do chính bản vá tôi gửi: lỗi vượt rào cloud-metadata mô tả ở trên, và lỗ hổng đường dẫn
-relay mà [#10935](https://github.com/diegosouzapw/OmniRoute/pull/10935) đã bịt trong worker
-Cloudflare.
+Sáu trong tám cái là ở OmniRoute, và cả sáu đều đã được vá. Hai cái do chính bản vá tôi gửi: lỗi
+vượt rào cloud-metadata mô tả ở trên, và lỗ hổng đường dẫn relay mà
+[#10935](https://github.com/diegosouzapw/OmniRoute/pull/10935) đã bịt trong worker Cloudflare.
 
-Ba cái còn lại được vá ở phía dự án, và id advisory được ghi thẳng vào đoạn code làm việc đó —
+Bốn cái còn lại được vá ở phía dự án, và id advisory được ghi thẳng vào đoạn code làm việc đó —
 `GHSA-mghq-58h3-qcqj` cùng `GHSA-v7g9-7f55-5g46` trong danh sách route luôn được bảo vệ ở
-`src/server/authz/routeGuard.ts`, còn `GHSA-wgwc-crjm-pmwv` nằm ngay cạnh ở mục chỉ-loopback.
+`src/server/authz/routeGuard.ts`, `GHSA-wgwc-crjm-pmwv` nằm ngay cạnh ở mục chỉ-loopback, và
+`GHSA-74g9-q8f6-793h` trong
+[#11417](https://github.com/diegosouzapw/OmniRoute/pull/11417) — PR này mang chính id đó trên
+tiêu đề và kèm một bài test hồi quy đặt tên theo nó.
 
 Cặp đầu tiên mới là thứ tôi muốn chỉ vào. `GHSA-mghq` là báo cáo. `GHSA-v7g9` là thứ rơi ra khi
 tôi quay lại đọc chính bản vá đó thay vì tin nó — hai route anh em đã bị bỏ sót, vẫn chạm tới
 được y như cũ. Đọc lại một bản vá đã được chấp nhận là việc chẳng có gì thú vị, và đó là bước
 hầu hết mọi người bỏ qua.
 
-Không advisory nào trong năm cái được công bố, nên chính đoạn code đã vá là dấu vết công khai
-duy nhất của chúng. Cứ grep repo theo các id trên.
+Không advisory nào trong tám cái được công bố và không cái nào có CVE, nên với sáu cái đã vá thì
+chính đoạn code đã vá là dấu vết công khai duy nhất. Cứ grep repo theo các id trên.
 
 ---
 
 ## Đang chờ review
 
-Ba mươi tám PR đang mở: hai mươi mốt trên [9router](https://github.com/decolua/9router) (26.2k★), sáu
+Sáu mươi hai PR đang mở: hai mươi tám trên [9router](https://github.com/decolua/9router)
+(26.3k★), mười một trên [OpenViking](https://github.com/volcengine/OpenViking) (33.3k★), mười
 trên [ECC](https://github.com/affaan-m/ECC) (243k★), năm mỗi dự án ở
 [ComfyUI](https://github.com/Comfy-Org/ComfyUI) (130k★) và
-[OpenViking](https://github.com/volcengine/OpenViking) (33.0k★), một trên
-[OpenClaw](https://github.com/openclaw/openclaw) (387k★). Ở OmniRoute và opencodex tôi không còn
-PR nào đang mở.
+[odysseus](https://github.com/odysseus-dev/odysseus) (86.2k★), hai trên
+[OmniRoute](https://github.com/diegosouzapw/OmniRoute) (55.2k★), một trên
+[OpenClaw](https://github.com/openclaw/openclaw) (388k★). Ở opencodex tôi không còn PR nào đang
+mở.
+
+Đó là một con số lớn đặt cạnh 22 cái đã merge, và cách đọc trung thực là phần lớn trong đó đang
+chờ chứ không phải đang chạy: đây là những hàng đợi tôi không kiểm soát, và vài dự án trong số
+này mất hàng tuần. Thứ tôi nói được là trạng thái tôi để lại — kiểm ngày 26/08/2026, lần chạy
+mới nhất của mọi check bắt buộc trên cả sáu mươi hai PR đều xanh, không cái nào đỏ và không cái
+nào cũ.
 [Danh sách đầy đủ](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests).
 
 | Pull request | Nội dung |
