@@ -2,10 +2,10 @@
 
 ![Nguyen Thanh Dat — AI gateways, agent tooling, security review](./assets/header.svg)
 
-[![Merged](https://img.shields.io/badge/merged-25_pull_requests-3fa34d?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests)
+[![Merged](https://img.shields.io/badge/merged-27_pull_requests-3fa34d?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests)
 [![Advisories](https://img.shields.io/badge/advisories-8_reported,_6_fixed-c9583e?style=flat-square&labelColor=161b22)](#security-research)
-[![Open](https://img.shields.io/badge/in_review-60_pull_requests-7d8590?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests)
-[![Projects](https://img.shields.io/badge/across-9_projects-7d8590?style=flat-square&labelColor=161b22)](#the-record)
+[![Open](https://img.shields.io/badge/in_review-63_pull_requests-7d8590?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests)
+[![Projects](https://img.shields.io/badge/across-10_projects-7d8590?style=flat-square&labelColor=161b22)](#the-record)
 
 **English** · [Tiếng Việt](README_vn.md)
 
@@ -22,17 +22,17 @@ instead.
 
 ## The record
 
-Counted **26 August 2026**, from `gh pr list -R <repo> --author ntdat812`, one repository at a
+Counted **31 August 2026**, from `gh pr list -R <repo> --author ntdat812`, one repository at a
 time. "Merged" means the change is in the upstream default branch of a repository I do not own.
 Nothing in my own repositories is counted. Every number here links to the list behind it.
 
 | | Count | What it counts |
 | --- | ---: | --- |
-| [Pull requests merged](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **25** | Landed in the default branch of a repo I don't own |
-| [Closing someone else's issue](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **13** | Of those 25, the ones that close a filed issue |
+| [Pull requests merged](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **27** | Landed in the default branch of a repo I don't own |
+| [Closing someone else's issue](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **14** | Of those 27, the ones that close a filed issue |
 | [Security advisories](#security-research) | **8** | Reported privately; six fixed, two still in triage |
-| [Pull requests open](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **60** | Opened, awaiting review |
-| Repositories | **9** | Third-party repos I've contributed to |
+| [Pull requests open](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **63** | Opened, awaiting review |
+| Repositories | **10** | Third-party repos I've contributed to |
 
 I hold no push, merge or admin right on any of these projects. Everything below was reviewed and
 merged by somebody who does.
@@ -42,17 +42,17 @@ merged by somebody who does.
 ## Merged
 
 **[diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)** — MIT AI gateway, one
-endpoint in front of 350 providers, 55.9k★. Twenty-one merged.
+endpoint in front of 350 providers, 58.9k★. Twenty-two merged.
 **[volcengine/OpenViking](https://github.com/volcengine/OpenViking)** — context database for
-agents, 33.3k★. Two merged.
+agents, 34.5k★. Two merged.
 **[nicolargo/glances](https://github.com/nicolargo/glances)** — cross-platform system monitor,
-33.4k★. One merged.
+33.4k★. Two merged.
 **[lidge-jun/opencodex](https://github.com/lidge-jun/opencodex)** — universal provider proxy,
-12.0k★. One merged.
+12.6k★. One merged.
 
-Thirteen of the twenty-five close an issue somebody else filed.
+Fourteen of the twenty-seven close an issue somebody else filed.
 [Full list](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests).
-Thirteen that show the range:
+Fourteen that show the range:
 
 | Pull request | What it fixes |
 | --- | --- |
@@ -69,6 +69,7 @@ Thirteen that show the range:
 | [#10858](https://github.com/diegosouzapw/OmniRoute/pull/10858) `fix(context)` | Base64 documents were measured character by character, so a 1 MB PDF estimated at 350,022 tokens and the request was rejected before it ever left. Closes [#10840](https://github.com/diegosouzapw/OmniRoute/issues/10840). |
 | [#10853](https://github.com/diegosouzapw/OmniRoute/pull/10853) `fix(i18n)` | Eight locales rendered the *status* "Disabled" as the noun for a person who has a disability. Closes [#10812](https://github.com/diegosouzapw/OmniRoute/issues/10812). |
 | [OpenViking #4228](https://github.com/volcengine/OpenViking/pull/4228) `fix(ov_dream)` | A session message whose content was a plain string rather than a block list was not accepted. Closes [#4221](https://github.com/volcengine/OpenViking/issues/4221). |
+| [OpenViking #4233](https://github.com/volcengine/OpenViking/pull/4233) `fix(memory-plugin)` | The URI guard meant to keep the memory plugin inside its own directory read a file's *content* as if it were the path, so what a document said decided where the plugin was allowed to read. Closes [#4188](https://github.com/volcengine/OpenViking/issues/4188). |
 
 ---
 
@@ -153,33 +154,46 @@ fixed the patched code is the only public record. Grep the repository for the id
 
 ## In review
 
-Sixty open: twenty-eight on [9router](https://github.com/decolua/9router) (26.3k★), ten on
-[ECC](https://github.com/affaan-m/ECC) (243k★), eight on
-[OpenViking](https://github.com/volcengine/OpenViking) (33.3k★), seven on
+Sixty-three open: twenty-seven on [9router](https://github.com/decolua/9router) (26.7k★), twelve
+on [OpenViking](https://github.com/volcengine/OpenViking) (34.5k★), ten on
+[ECC](https://github.com/affaan-m/ECC) (244k★), seven on
 [ComfyUI](https://github.com/Comfy-Org/ComfyUI) (130k★), five on
-[odysseus](https://github.com/odysseus-dev/odysseus) (86.2k★), and one each on
+[odysseus](https://github.com/odysseus-dev/odysseus) (86.6k★), and one each on
 [OpenClaw](https://github.com/openclaw/openclaw) (388k★) and
-[Glances](https://github.com/nicolargo/glances) (33.4k★). Nothing of mine is left open on
-opencodex or OmniRoute: of the three still open there this morning, one merged and two were
-closed as duplicates of pull requests other people had filed a few hours earlier — same bug,
-same fix, and in both cases the diagnosis was confirmed correct before the close.
+[SurfSense](https://github.com/MODSetter/SurfSense) (16.0k★). Nothing of mine is left open on
+OmniRoute, opencodex or Glances. Two of the OmniRoute ones closed as duplicates of pull requests
+other people had filed a few hours earlier — same bug, same fix, and in both cases the diagnosis
+was confirmed correct before the close.
 
-That is a large number next to twenty-five merged, and the honest reading is that most of it is
+That is a large number next to twenty-seven merged, and the honest reading is that most of it is
 waiting rather than working: these are queues I do not control, and several of these projects
-take weeks. What I can speak for is the state I leave them in. Checked on 26 August 2026, one
+take weeks. What I can speak for is the state I leave them in. Checked on 31 August 2026, one
 pull request at a time with `gh pr view --json statusCheckRollup`, because the list form of that
-query returns an empty rollup and reads as green: fifty-nine of the sixty pass every check their
-repository runs — with the caveat that twenty-eight of those, the 9router ones, run no CI at
-all, so there was nothing there to fail. The one red is
-[Glances #3689](https://github.com/nicolargo/glances/pull/3689), and its AppVeyor job is red on
-every open pull request in that repository, dependabot's included: fifty-two Windows failures in
-`test_xmlrpc.py`, `test_browser_restful.py` and `test_webui.py`, all of them server-spawn and
-Selenium, none of them in the file I changed. I am leaving that stated rather than tidied away: a
-red check is worth more to a reader than a claim that everything is green.
+query returns an empty rollup and reads as green: fifty-nine of the sixty-three pass every check
+their repository runs — with the caveat that thirty-one of those run no CI at all, so there was
+nothing there to fail (twenty-seven on 9router, four older ones on OpenViking).
+
+Four are red, and I would rather name them than round them off:
+
+- [odysseus #6169](https://github.com/odysseus-dev/odysseus/pull/6169) and
+  [#6166](https://github.com/odysseus-dev/odysseus/pull/6166) fail `Check PR description`, a
+  repository gate that reports five faults in the description and points at a bot comment for the
+  list. That comment was never posted — the same job logs two 404s deleting labels — so I have the
+  count without the detail.
+- [OpenClaw #127135](https://github.com/openclaw/openclaw/pull/127135) fails `check-lint` with
+  exit 143: the runner took a shutdown signal 103 seconds into oxlint and the job was cancelled.
+  That is infrastructure rather than lint, and re-running it needs write access I do not have.
+- [SurfSense #1728](https://github.com/MODSetter/SurfSense/pull/1728) fails `Vercel`, which no
+  fork pull request can pass — it needs a team member to authorise the deploy — and
+  `recurseml/analysis`, which errored instead of reporting a finding.
+
+I am leaving those stated rather than tidied away: a red check is worth more to a reader than a
+claim that everything is green.
 [Full list](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests).
 
 | Pull request | What it fixes |
 | --- | --- |
+| [SurfSense #1728](https://github.com/MODSetter/SurfSense/pull/1728) `fix(crawler)` | The crawler validated a target with `validators.url` alone, which judges spelling and not destination, so the cloud metadata endpoint and any loopback or private address were fetched from inside the backend's network. The guard resolves the host first and refuses unless every answer is publicly routable — including `::ffff:127.0.0.1`, whose `is_loopback` reads false until the mapping is unwrapped, and carrier-grade NAT, which the obvious five-flag check lets through. Closes [#1709](https://github.com/MODSetter/SurfSense/issues/1709). |
 | [OpenClaw #127135](https://github.com/openclaw/openclaw/pull/127135) | Every request to an Alibaba Model Studio provider sent the output-token cap as `max_completion_tokens` — a field the vendor's own OpenAI-compatibility reference does not list. Closes [#127119](https://github.com/openclaw/openclaw/issues/127119). |
 | [9router #3538](https://github.com/decolua/9router/pull/3538) `fix(transport)` | A model pinned to a different wire format got its body translated but not its destination: 9router serialised a Claude request and posted it to the provider's OpenAI endpoint, with that endpoint's auth. Upstreams parse what they recognise and drop the rest, so it half-worked. Closes [#3418](https://github.com/decolua/9router/issues/3418) and [#3439](https://github.com/decolua/9router/issues/3439). |
 | [9router #3544](https://github.com/decolua/9router/pull/3544) `fix(usage)` | The dedupe query keyed a usage row on its millisecond timestamp plus the request's fields. Two genuine requests in the same millisecond compare equal, so one of them is discarded as a duplicate — 100 parallel writes recorded 2. The suite had been failing on `master`; it was read as a transaction race, and the driver is synchronous. |
@@ -187,7 +201,6 @@ red check is worth more to a reader than a claim that everything is green.
 | [9router #3517](https://github.com/decolua/9router/pull/3517) `fix(proxy)` | A loopback request was sent out through the configured outbound proxy, so a request to the machine itself left the machine. Closes [#3424](https://github.com/decolua/9router/issues/3424). |
 | [ComfyUI #15841](https://github.com/Comfy-Org/ComfyUI/pull/15841) | A YAML list in `extra_model_paths.yaml` crashed the loader instead of being read as a list of paths. |
 | [ComfyUI #15783](https://github.com/Comfy-Org/ComfyUI/pull/15783) | A model directory that links back to one of its own ancestors makes the walk re-enter the same tree at every level, so one model is listed over and over. Following links is deliberate; detecting the loop was missing. |
-| [OpenViking #4233](https://github.com/volcengine/OpenViking/pull/4233) | The memory plugin's URI guard read file *content* as if it were a path. Closes [#4188](https://github.com/volcengine/OpenViking/issues/4188). |
 | [OpenViking #4229](https://github.com/volcengine/OpenViking/pull/4229) | A stale PID lock was honoured on macOS without checking that the process holding it was the one it claimed to be. Closes [#4210](https://github.com/volcengine/OpenViking/issues/4210). |
 | [ECC #2858](https://github.com/affaan-m/ECC/pull/2858) | The guard that stops a commit from skipping its hooks knew `-c core.hooksPath=`. `git --config-env=core.hooksPath=VAR` is the same instruction read from the environment, and it was not on the list — so the hook did not run and the commit went through. Verified against git 2.51. |
 | [ECC #2846](https://github.com/affaan-m/ECC/pull/2846) | The dev-server block decided the script name from raw text rather than from tokens. |
