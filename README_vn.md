@@ -41,9 +41,9 @@ người có quyền đó review và merge.
 ## Đã merge
 
 **[diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)** — AI gateway giấy phép
-MIT, một endpoint đứng trước 350 nhà cung cấp, 58.9k★. Hai mươi hai PR đã merge.
+MIT, một endpoint đứng trước 350 nhà cung cấp, 59.0k★. Hai mươi hai PR đã merge.
 **[volcengine/OpenViking](https://github.com/volcengine/OpenViking)** — context database cho
-agent, 34.5k★. Hai PR.
+agent, 34.6k★. Hai PR.
 **[nicolargo/glances](https://github.com/nicolargo/glances)** — công cụ giám sát hệ thống đa nền,
 33.4k★. Hai PR.
 **[lidge-jun/opencodex](https://github.com/lidge-jun/opencodex)** — proxy nhà cung cấp đa nền,
@@ -153,7 +153,7 @@ chính đoạn code đã vá là dấu vết công khai duy nhất. Cứ grep re
 ## Đang chờ review
 
 Sáu mươi ba PR đang mở: hai mươi bảy trên [9router](https://github.com/decolua/9router)
-(26.7k★), mười hai trên [OpenViking](https://github.com/volcengine/OpenViking) (34.5k★), mười
+(26.7k★), mười hai trên [OpenViking](https://github.com/volcengine/OpenViking) (34.6k★), mười
 trên [ECC](https://github.com/affaan-m/ECC) (244k★), bảy trên
 [ComfyUI](https://github.com/Comfy-Org/ComfyUI) (130k★), năm trên
 [odysseus](https://github.com/odysseus-dev/odysseus) (86.6k★), và mỗi dự án một PR ở

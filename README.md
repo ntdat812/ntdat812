@@ -42,9 +42,9 @@ merged by somebody who does.
 ## Merged
 
 **[diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)** — MIT AI gateway, one
-endpoint in front of 350 providers, 58.9k★. Twenty-two merged.
+endpoint in front of 350 providers, 59.0k★. Twenty-two merged.
 **[volcengine/OpenViking](https://github.com/volcengine/OpenViking)** — context database for
-agents, 34.5k★. Two merged.
+agents, 34.6k★. Two merged.
 **[nicolargo/glances](https://github.com/nicolargo/glances)** — cross-platform system monitor,
 33.4k★. Two merged.
 **[lidge-jun/opencodex](https://github.com/lidge-jun/opencodex)** — universal provider proxy,
@@ -155,7 +155,7 @@ fixed the patched code is the only public record. Grep the repository for the id
 ## In review
 
 Sixty-three open: twenty-seven on [9router](https://github.com/decolua/9router) (26.7k★), twelve
-on [OpenViking](https://github.com/volcengine/OpenViking) (34.5k★), ten on
+on [OpenViking](https://github.com/volcengine/OpenViking) (34.6k★), ten on
 [ECC](https://github.com/affaan-m/ECC) (244k★), seven on
 [ComfyUI](https://github.com/Comfy-Org/ComfyUI) (130k★), five on
 [odysseus](https://github.com/odysseus-dev/odysseus) (86.6k★), and one each on
