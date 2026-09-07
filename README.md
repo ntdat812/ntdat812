@@ -2,9 +2,9 @@
 
 ![Nguyen Thanh Dat — AI gateways, agent tooling, security review](./assets/header.svg)
 
-[![Merged](https://img.shields.io/badge/merged-27_pull_requests-3fa34d?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests)
+[![Merged](https://img.shields.io/badge/merged-28_pull_requests-3fa34d?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests)
 [![Advisories](https://img.shields.io/badge/advisories-8_reported,_6_fixed-c9583e?style=flat-square&labelColor=161b22)](#security-research)
-[![Open](https://img.shields.io/badge/in_review-63_pull_requests-7d8590?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests)
+[![Open](https://img.shields.io/badge/in_review-61_pull_requests-7d8590?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests)
 [![Projects](https://img.shields.io/badge/across-10_projects-7d8590?style=flat-square&labelColor=161b22)](#the-record)
 
 **English** · [Tiếng Việt](README_vn.md)
@@ -22,16 +22,18 @@ instead.
 
 ## The record
 
-Counted **31 August 2026**, from `gh pr list -R <repo> --author ntdat812`, one repository at a
-time. "Merged" means the change is in the upstream default branch of a repository I do not own.
-Nothing in my own repositories is counted. Every number here links to the list behind it.
+Counted **7 September 2026**, from `gh pr list -R <repo> --author ntdat812`, one repository at a
+time. "Merged" means the pull request is merged in a repository I do not own — twenty-seven of the
+twenty-eight are in that repository's default branch, and the twenty-eighth, SurfSense #1728, is
+merged into `dev`, the branch that project takes contributions on, which has not yet reached
+`main`. Nothing in my own repositories is counted. Every number here links to the list behind it.
 
 | | Count | What it counts |
 | --- | ---: | --- |
-| [Pull requests merged](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **27** | Landed in the default branch of a repo I don't own |
-| [Closing someone else's issue](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **14** | Of those 27, the ones that close a filed issue |
+| [Pull requests merged](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **28** | Merged in a repo I don't own; 27 of them in its default branch |
+| [Closing someone else's issue](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **14** | Of those 28, the ones that close a filed issue |
 | [Security advisories](#security-research) | **8** | Reported privately; six fixed, two still in triage |
-| [Pull requests open](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **63** | Opened, awaiting review |
+| [Pull requests open](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **61** | Opened, awaiting review |
 | Repositories | **10** | Third-party repos I've contributed to |
 
 I hold no push, merge or admin right on any of these projects. Everything below was reviewed and
@@ -42,20 +44,23 @@ merged by somebody who does.
 ## Merged
 
 **[diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)** — MIT AI gateway, one
-endpoint in front of 350 providers, 59.0k★. Twenty-two merged.
+endpoint in front of 350 providers, 62.1k★. Twenty-two merged.
 **[volcengine/OpenViking](https://github.com/volcengine/OpenViking)** — context database for
-agents, 34.6k★. Two merged.
+agents, 35.8k★. Two merged.
 **[nicolargo/glances](https://github.com/nicolargo/glances)** — cross-platform system monitor,
-33.4k★. Two merged.
+33.5k★. Two merged.
 **[lidge-jun/opencodex](https://github.com/lidge-jun/opencodex)** — universal provider proxy,
-12.6k★. One merged.
+13.7k★. One merged.
+**[MODSetter/SurfSense](https://github.com/MODSetter/SurfSense)** — open-source research agent,
+16.1k★. One merged, into `dev`.
 
-Fourteen of the twenty-seven close an issue somebody else filed.
+Fourteen of the twenty-eight close an issue somebody else filed.
 [Full list](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests).
-Fourteen that show the range:
+Fifteen that show the range:
 
 | Pull request | What it fixes |
 | --- | --- |
+| [SurfSense #1728](https://github.com/MODSetter/SurfSense/pull/1728) `fix(crawler)` | The crawler validated a target with `validators.url` alone, which judges spelling and not destination, so the cloud metadata endpoint and any loopback or private address were fetched from inside the backend's network. The guard resolves the host first and refuses unless every answer is publicly routable — including `::ffff:127.0.0.1`, whose `is_loopback` reads false until the mapping is unwrapped, and carrier-grade NAT, which the obvious five-flag check lets through. Addresses [#1709](https://github.com/MODSetter/SurfSense/issues/1709), which stays open: the merge landed on `dev`, so GitHub never closed it. |
 | [#10843](https://github.com/diegosouzapw/OmniRoute/pull/10843) `fix(security)` | An SSRF guard that matched cloud-metadata hosts by spelling instead of by address. Detailed below. |
 | [#11328](https://github.com/diegosouzapw/OmniRoute/pull/11328) `fix(security)` | The canonical denylist of headers never forwarded upstream was missing two of the RFC 7230 hop-by-hop names, so `proxy-authorization` and `proxy-authenticate` went to the provider. |
 | [glances #3692](https://github.com/nicolargo/glances/pull/3692) `fix(programs)` | Per-program I/O totals concatenated each process's counters instead of adding them, so a program's read and write figures came out as a list of its processes' numbers rather than their sum. |
@@ -154,26 +159,25 @@ fixed the patched code is the only public record. Grep the repository for the id
 
 ## In review
 
-Sixty-three open: twenty-seven on [9router](https://github.com/decolua/9router) (26.7k★), twelve
-on [OpenViking](https://github.com/volcengine/OpenViking) (34.6k★), ten on
-[ECC](https://github.com/affaan-m/ECC) (244k★), seven on
-[ComfyUI](https://github.com/Comfy-Org/ComfyUI) (130k★), five on
-[odysseus](https://github.com/odysseus-dev/odysseus) (86.6k★), and one each on
-[OpenClaw](https://github.com/openclaw/openclaw) (388k★) and
-[SurfSense](https://github.com/MODSetter/SurfSense) (16.0k★). Nothing of mine is left open on
-OmniRoute, opencodex or Glances. Two of the OmniRoute ones closed as duplicates of pull requests
+Sixty-one open: twenty-seven on [9router](https://github.com/decolua/9router) (27.3k★), twelve
+on [OpenViking](https://github.com/volcengine/OpenViking) (35.8k★), nine on
+[ECC](https://github.com/affaan-m/ECC) (251k★), seven on
+[ComfyUI](https://github.com/Comfy-Org/ComfyUI) (132k★), five on
+[odysseus](https://github.com/odysseus-dev/odysseus) (86.9k★), and one on
+[OpenClaw](https://github.com/openclaw/openclaw) (389k★). Nothing of mine is left open on
+OmniRoute, opencodex, Glances or SurfSense. Two of the OmniRoute ones closed as duplicates of pull requests
 other people had filed a few hours earlier — same bug, same fix, and in both cases the diagnosis
 was confirmed correct before the close.
 
-That is a large number next to twenty-seven merged, and the honest reading is that most of it is
+That is a large number next to twenty-eight merged, and the honest reading is that most of it is
 waiting rather than working: these are queues I do not control, and several of these projects
-take weeks. What I can speak for is the state I leave them in. Checked on 31 August 2026, one
+take weeks. What I can speak for is the state I leave them in. Checked on 7 September 2026, one
 pull request at a time with `gh pr view --json statusCheckRollup`, because the list form of that
-query returns an empty rollup and reads as green: fifty-nine of the sixty-three pass every check
+query returns an empty rollup and reads as green: fifty-eight of the sixty-one pass every check
 their repository runs — with the caveat that thirty-one of those run no CI at all, so there was
 nothing there to fail (twenty-seven on 9router, four older ones on OpenViking).
 
-Four are red, and I would rather name them than round them off:
+Three are red, and I would rather name them than round them off:
 
 - [odysseus #6169](https://github.com/odysseus-dev/odysseus/pull/6169) and
   [#6166](https://github.com/odysseus-dev/odysseus/pull/6166) fail `Check PR description`, a
@@ -183,17 +187,12 @@ Four are red, and I would rather name them than round them off:
 - [OpenClaw #127135](https://github.com/openclaw/openclaw/pull/127135) fails `check-lint` with
   exit 143: the runner took a shutdown signal 103 seconds into oxlint and the job was cancelled.
   That is infrastructure rather than lint, and re-running it needs write access I do not have.
-- [SurfSense #1728](https://github.com/MODSetter/SurfSense/pull/1728) fails `Vercel`, which no
-  fork pull request can pass — it needs a team member to authorise the deploy — and
-  `recurseml/analysis`, which errored instead of reporting a finding.
-
 I am leaving those stated rather than tidied away: a red check is worth more to a reader than a
 claim that everything is green.
 [Full list](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests).
 
 | Pull request | What it fixes |
 | --- | --- |
-| [SurfSense #1728](https://github.com/MODSetter/SurfSense/pull/1728) `fix(crawler)` | The crawler validated a target with `validators.url` alone, which judges spelling and not destination, so the cloud metadata endpoint and any loopback or private address were fetched from inside the backend's network. The guard resolves the host first and refuses unless every answer is publicly routable — including `::ffff:127.0.0.1`, whose `is_loopback` reads false until the mapping is unwrapped, and carrier-grade NAT, which the obvious five-flag check lets through. Closes [#1709](https://github.com/MODSetter/SurfSense/issues/1709). |
 | [OpenClaw #127135](https://github.com/openclaw/openclaw/pull/127135) | Every request to an Alibaba Model Studio provider sent the output-token cap as `max_completion_tokens` — a field the vendor's own OpenAI-compatibility reference does not list. Closes [#127119](https://github.com/openclaw/openclaw/issues/127119). |
 | [9router #3538](https://github.com/decolua/9router/pull/3538) `fix(transport)` | A model pinned to a different wire format got its body translated but not its destination: 9router serialised a Claude request and posted it to the provider's OpenAI endpoint, with that endpoint's auth. Upstreams parse what they recognise and drop the rest, so it half-worked. Closes [#3418](https://github.com/decolua/9router/issues/3418) and [#3439](https://github.com/decolua/9router/issues/3439). |
 | [9router #3544](https://github.com/decolua/9router/pull/3544) `fix(usage)` | The dedupe query keyed a usage row on its millisecond timestamp plus the request's fields. Two genuine requests in the same millisecond compare equal, so one of them is discarded as a duplicate — 100 parallel writes recorded 2. The suite had been failing on `master`; it was read as a transaction race, and the driver is synchronous. |
