@@ -4,7 +4,7 @@
 
 [![Merged](https://img.shields.io/badge/%C4%91%C3%A3_merge-28_pull_request-3fa34d?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests)
 [![Advisories](https://img.shields.io/badge/l%E1%BB%97_h%E1%BB%95ng-8_b%C3%A1o_c%C3%A1o,_6_%C4%91%C3%A3_v%C3%A1-c9583e?style=flat-square&labelColor=161b22)](#nghiên-cứu-bảo-mật)
-[![Open](https://img.shields.io/badge/ch%E1%BB%9D_review-66_pull_request-7d8590?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests)
+[![Open](https://img.shields.io/badge/ch%E1%BB%9D_review-65_pull_request-7d8590?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests)
 [![Projects](https://img.shields.io/badge/tr%C3%AAn-10_d%E1%BB%B1_%C3%A1n-7d8590?style=flat-square&labelColor=161b22)](#hồ-sơ-đóng-góp)
 
 [English](README.md) · **Tiếng Việt**
@@ -32,7 +32,7 @@ thứ gì trong repo của chính tôi. Mỗi con số đều dẫn tới danh s
 | [Pull request đã merge](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **28** | Đã merge vào repo tôi không sở hữu; 27 cái nằm trên nhánh mặc định |
 | [Đóng issue của người khác](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **14** | Trong 28 cái đó, số cái đóng một issue đã được mở |
 | [Lỗ hổng bảo mật](#nghiên-cứu-bảo-mật) | **8** | Báo cáo riêng tư; sáu cái đã vá, hai cái còn đang triage |
-| [Pull request đang mở](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **66** | Đã mở, đang chờ review |
+| [Pull request đang mở](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **65** | Đã mở, đang chờ review |
 | Số repo | **10** | Repo của bên thứ ba tôi đã đóng góp |
 
 Tôi không có quyền push, merge hay admin trên bất kỳ dự án nào ở đây. Mọi thứ bên dưới đều do
@@ -157,7 +157,7 @@ chính đoạn code đã vá là dấu vết công khai duy nhất. Cứ grep re
 
 ## Đang chờ review
 
-Sáu mươi sáu PR đang mở: hai mươi bảy trên [9router](https://github.com/decolua/9router)
+Sáu mươi lăm PR đang mở: hai mươi sáu trên [9router](https://github.com/decolua/9router)
 (27.3k★), mười hai trên [OpenViking](https://github.com/volcengine/OpenViking) (35.8k★), chín
 trên [ECC](https://github.com/affaan-m/ECC) (251k★), bảy trên
 [ComfyUI](https://github.com/Comfy-Org/ComfyUI) (132k★), năm trên
@@ -172,25 +172,20 @@ và cả hai lần phần chẩn đoán đều được xác nhận là đúng t
 chờ chứ không phải đang chạy: đây là những hàng đợi tôi không kiểm soát, và vài dự án trong số
 này mất hàng tuần. Thứ tôi nói được là trạng thái tôi để lại. Kiểm ngày 07/09/2026, từng PR một
 bằng `gh pr view --json statusCheckRollup`, vì dạng list của câu truy vấn đó trả về rollup rỗng
-và đọc ra thành xanh: năm mươi tám trong sáu mươi sáu PR xanh ở mọi check mà repo của nó chạy —
-kèm một lưu ý, ba mươi mốt trong số đó không chạy CI nào cả, nên ở đó xanh chỉ có nghĩa là không
-có gì để fail (hai mươi bảy ở 9router, bốn cái cũ ở OpenViking). Một PR nữa lúc tôi kiểm còn
-đang chạy.
+và đọc ra thành xanh: năm mươi chín trong sáu mươi lăm PR xanh ở mọi check mà repo của nó chạy —
+kèm một lưu ý, ba mươi trong số đó không chạy CI nào cả, nên ở đó xanh chỉ có nghĩa là không
+có gì để fail (hai mươi sáu ở 9router, bốn cái cũ ở OpenViking).
 
-Bảy cái đỏ, và tôi muốn gọi tên chúng ra hơn là làm tròn đi:
+Sáu cái đỏ, và tôi muốn gọi tên chúng ra hơn là làm tròn đi:
 
-- [odysseus #6169](https://github.com/odysseus-dev/odysseus/pull/6169) và
-  [#6166](https://github.com/odysseus-dev/odysseus/pull/6166) fail ở `Check PR description`, một
-  cổng kiểm của repo báo có năm lỗi trong phần mô tả rồi trỏ sang một comment của bot để xem chi
-  tiết. Comment đó chưa từng được đăng — chính job ấy ghi hai lỗi 404 khi xoá label — nên tôi có
-  con số mà không có danh sách.
-- Bốn PR ở OmniRoute cùng fail đúng tám check như nhau — gồm `Merge integrity` và cả bốn shard
-  `Unit Tests fast-path`. Tập fail đó trùng khít, từng check một, với tập fail trên PR của một
-  tác giả khác mở cùng ngày, nên đó là nhánh base chứ không phải diff của tôi. Một nguyên nhân
-  tôi truy được và sửa: `changelog.d/fixes/reset-aware-model-family.md` trên `release/v3.8.51`
-  là một câu trần không có dấu đầu dòng `- `, làm chính gate `check:changelog-integrity` của
-  repo đỏ trên mọi PR đang mở — [#12923](https://github.com/diegosouzapw/OmniRoute/pull/12923)
-  khôi phục lại nó.
+- Năm PR ở OmniRoute đỏ vì nhánh base, không phải vì diff của chúng. Bốn cái chạy đủ đều fail
+  đúng tám check như nhau — `Merge integrity`, `API Route Typecheck`, `Docs Gates`,
+  `Fast Quality Gates` và cả bốn shard `Unit Tests fast-path` — và tập đó trùng khít, từng check
+  một, với tập fail trên PR của một tác giả khác mở cùng ngày. Hai nguyên nhân tôi truy được và
+  sửa, cả hai nằm ngay trên `release/v3.8.51`: một changelog fragment thiếu dấu `- ` làm fail
+  `check:changelog-integrity`, và `skills/cli-tunnel/SKILL.md` ghi một tham số CLI không còn nhận
+  nữa nên `check:agent-skills-sync` đòi sinh lại. Sửa một cái thôi thì `Merge integrity` vẫn đỏ,
+  nên [#12923](https://github.com/diegosouzapw/OmniRoute/pull/12923) sửa cả hai.
 - [OpenClaw #127135](https://github.com/openclaw/openclaw/pull/127135) fail ở `check-lint` với
   exit 143: runner nhận tín hiệu shutdown ở giây thứ 103 của oxlint và job bị huỷ. Đó là hạ tầng
   chứ không phải lint, và muốn chạy lại thì cần quyền ghi mà tôi không có.
