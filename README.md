@@ -4,7 +4,7 @@
 
 [![Merged](https://img.shields.io/badge/merged-28_pull_requests-3fa34d?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests)
 [![Advisories](https://img.shields.io/badge/advisories-8_reported,_6_fixed-c9583e?style=flat-square&labelColor=161b22)](#security-research)
-[![Open](https://img.shields.io/badge/in_review-61_pull_requests-7d8590?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests)
+[![Open](https://img.shields.io/badge/in_review-66_pull_requests-7d8590?style=flat-square&labelColor=161b22)](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests)
 [![Projects](https://img.shields.io/badge/across-10_projects-7d8590?style=flat-square&labelColor=161b22)](#the-record)
 
 **English** · [Tiếng Việt](README_vn.md)
@@ -33,7 +33,7 @@ merged into `dev`, the branch that project takes contributions on, which has not
 | [Pull requests merged](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **28** | Merged in a repo I don't own; 27 of them in its default branch |
 | [Closing someone else's issue](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Amerged&type=pullrequests) | **14** | Of those 28, the ones that close a filed issue |
 | [Security advisories](#security-research) | **8** | Reported privately; six fixed, two still in triage |
-| [Pull requests open](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **61** | Opened, awaiting review |
+| [Pull requests open](https://github.com/search?q=author%3Antdat812+is%3Apr+is%3Aopen&type=pullrequests) | **66** | Opened, awaiting review |
 | Repositories | **10** | Third-party repos I've contributed to |
 
 I hold no push, merge or admin right on any of these projects. Everything below was reviewed and
@@ -159,31 +159,41 @@ fixed the patched code is the only public record. Grep the repository for the id
 
 ## In review
 
-Sixty-one open: twenty-seven on [9router](https://github.com/decolua/9router) (27.3k★), twelve
+Sixty-six open: twenty-seven on [9router](https://github.com/decolua/9router) (27.3k★), twelve
 on [OpenViking](https://github.com/volcengine/OpenViking) (35.8k★), nine on
 [ECC](https://github.com/affaan-m/ECC) (251k★), seven on
-[ComfyUI](https://github.com/Comfy-Org/ComfyUI) (132k★), five on
-[odysseus](https://github.com/odysseus-dev/odysseus) (86.9k★), and one on
+[ComfyUI](https://github.com/Comfy-Org/ComfyUI) (132k★), five each on
+[odysseus](https://github.com/odysseus-dev/odysseus) (86.9k★) and
+[OmniRoute](https://github.com/diegosouzapw/OmniRoute) (62.1k★), and one on
 [OpenClaw](https://github.com/openclaw/openclaw) (389k★). Nothing of mine is left open on
-OmniRoute, opencodex, Glances or SurfSense. Two of the OmniRoute ones closed as duplicates of pull requests
-other people had filed a few hours earlier — same bug, same fix, and in both cases the diagnosis
-was confirmed correct before the close.
+opencodex, Glances or SurfSense. The five on OmniRoute were all opened on 7 September; two
+earlier ones there closed as duplicates of pull requests other people had filed a few hours
+earlier — same bug, same fix, and in both cases the diagnosis was confirmed correct before the
+close.
 
 That is a large number next to twenty-eight merged, and the honest reading is that most of it is
 waiting rather than working: these are queues I do not control, and several of these projects
 take weeks. What I can speak for is the state I leave them in. Checked on 7 September 2026, one
 pull request at a time with `gh pr view --json statusCheckRollup`, because the list form of that
-query returns an empty rollup and reads as green: fifty-eight of the sixty-one pass every check
+query returns an empty rollup and reads as green: fifty-eight of the sixty-six pass every check
 their repository runs — with the caveat that thirty-one of those run no CI at all, so there was
-nothing there to fail (twenty-seven on 9router, four older ones on OpenViking).
+nothing there to fail (twenty-seven on 9router, four older ones on OpenViking). One more was
+still running when I looked.
 
-Three are red, and I would rather name them than round them off:
+Seven are red, and I would rather name them than round them off:
 
 - [odysseus #6169](https://github.com/odysseus-dev/odysseus/pull/6169) and
   [#6166](https://github.com/odysseus-dev/odysseus/pull/6166) fail `Check PR description`, a
   repository gate that reports five faults in the description and points at a bot comment for the
   list. That comment was never posted — the same job logs two 404s deleting labels — so I have the
   count without the detail.
+- The four OmniRoute ones fail the same eight checks — including `Merge integrity` and all four
+  `Unit Tests fast-path` shards. That set is identical, check for check, to the set failing on an
+  unrelated author's pull request opened the same day, so it is the base branch rather than any of
+  these diffs. One cause I could pin down and fix:
+  `changelog.d/fixes/reset-aware-model-family.md` on `release/v3.8.51` is a bare sentence with no
+  `- ` bullet, which fails the repository's own `check:changelog-integrity` for every open pull
+  request — [#12923](https://github.com/diegosouzapw/OmniRoute/pull/12923) restores it.
 - [OpenClaw #127135](https://github.com/openclaw/openclaw/pull/127135) fails `check-lint` with
   exit 143: the runner took a shutdown signal 103 seconds into oxlint and the job was cancelled.
   That is infrastructure rather than lint, and re-running it needs write access I do not have.
